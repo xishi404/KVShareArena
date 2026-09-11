@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+runs/
+.kva_submit/
+.env
+.env.*
+*.pem
+*.key
+node_modules/
+_site/
+test-artifacts/

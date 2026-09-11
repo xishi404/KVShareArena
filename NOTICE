@@ -1,0 +1,10 @@
+KVShareArena
+Copyright 2026 KVShareArena contributors.
+
+Original code is licensed under Apache License 2.0 (see LICENSE).
+LongBench-derived evaluation routines and configuration retain the upstream MIT
+notice in licenses/LongBench-MIT.txt. Source: https://github.com/THUDM/LongBench
+
+Third-party datasets, model outputs derived from them, and model weights are not
+relicensed by the code license. See data/queryset/README.md for attribution and terms.
+No model weights or third-party serving frameworks are bundled in this release.

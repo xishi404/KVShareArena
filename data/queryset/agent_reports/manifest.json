@@ -1,0 +1,70 @@
+{
+  "task": "K73 multi-source notes (frozen v2, concat-column MAS row)",
+  "producer_model": "Qwen/Qwen3-8B",
+  "n": 100,
+  "subsets": [
+    "hotpotqa"
+  ],
+  "date": "2026-07-16 21:09:43",
+  "git_rev": "9da4265f63be6addd5461e8767a488ffbcebe39e",
+  "gen_params": {
+    "greedy": true,
+    "do_sample": false,
+    "max_new_tokens": 256,
+    "enable_thinking": false,
+    "dtype": "bfloat16"
+  },
+  "seed_note": "greedy decode(do_sample=False):无采样 → seed 无关;给定权重+bf16 kernel 确定性。",
+  "passage_boundary": "queryset chunks[i](天然 passage 边界,verbatim;context==join(chunks))",
+  "prompt_construction": {
+    "layout": "apply_chat_template([system=P_p, user=NOTE_PROMPT_MULTI_QBLIND.format(context=passage_i[, input=Q])], add_generation_prompt=True, enable_thinking=False)  # handoff_common.producer_prompt_ids(QBLIND 变体无{input},str.format 忽略多余 kwarg=question-blind)",
+    "prompt_key": "NOTE_PROMPT_MULTI_QBLIND",
+    "P_p": "You are DocAnalyst, the document analysis agent in a multi-agent pipeline. Your team receives incoming reference materials and prepares them for downstream agents. Read the following materials carefully and internalize their content: track the entities that appear, the relations between them, dates and locations, and any facts that a later agent might need to consult. Your processed representation of these materials will be handed off to the answering agents of the system, so be thorough and neutral; do not add opinions or external knowledge.",
+    "producer_note_prompt": "Reference material (one source among several; your fellow analysts hold the other sources, which you cannot see):\n\n{context}\n\nA teammate will later answer questions using ONLY the notes written by you and your fellow analysts; the teammate will not see any source material, and you do not know what the questions will be.\n\nWrite concise, self-contained notes (up to about 150 words) capturing the key facts of YOUR material: names, dates, numbers, titles, and relations, exactly as they appear. The notes must stand alone. Do not add outside knowledge. Do not guess about the other sources. Output only the notes.",
+    "note": "NOTE_PROMPT_MULTI_QBLIND 为冻结实验变量(kvarena_prompts.json);build/consume 共用 handoff_common.producer_prompt_ids 构造(consume 侧须传同 --prompt_key,否则 born_at/sha1 断言拦截)。",
+    "example_prompts": {
+      "hotpotqa": {
+        "born_at": 2064,
+        "prompt_sha1": "e75399e9704a9465be082896f7e9f95495877405",
+        "prompt_head": "<|im_start|>system\nYou are DocAnalyst, the document analysis agent in a multi-agent pipeline. Your team receives incoming reference materials and prepares them for downstream agents. Read the following materials carefully and internalize their content: track the entities that appear, the relations between them, dates and locations, and any facts that a later agent might need to consult. Your processed representation of these materials will be handed off to the answering agents of the system, so be thorough and neut",
+        "prompt_tail": "ntained notes (up to about 150 words) capturing the key facts of YOUR material: names, dates, numbers, titles, and relations, exactly as they appear. The notes must stand alone. Do not add outside knowledge. Do not guess about the other sources. Output only the notes.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+      }
+    }
+  },
+  "note_token_ids_semantics": "生成出的 token id 序列(剥尾部 eos)= 笔记权威形态;消费端切片/拼接/T2T 一律用它,零重分词。",
+  "per_subset_stats": {
+    "hotpotqa": {
+      "n_samples": 100,
+      "n_notes_total": 874,
+      "file": "[local path omitted]",
+      "n_notes_per_sample": {
+        "min": 4,
+        "med": 9,
+        "max": 10,
+        "mean": 8.74
+      },
+      "note_tokens_per_sample": {
+        "min": 744,
+        "med": 2025,
+        "max": 2452,
+        "mean": 1894.7
+      },
+      "note_len": {
+        "min": 57,
+        "med": 222,
+        "max": 256,
+        "mean": 216.8
+      },
+      "length_cap_count": 170,
+      "length_cap_rate": 0.195,
+      "think_leak_count": 0,
+      "empty_count": 0,
+      "no_relevant_count": 0,
+      "no_relevant_rate": 0,
+      "answer_present_note_count": 141,
+      "answer_present_note_rate": 0.161,
+      "answer_in_any_note_count": 69,
+      "answer_in_any_note_rate": 0.69
+    }
+  }
+}

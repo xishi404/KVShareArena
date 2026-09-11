@@ -1,0 +1,1214 @@
+{
+  "summary": {
+    "cond": "naive_concat_pos",
+    "model": "Qwen/Qwen3-8B",
+    "subset": "hotpotqa",
+    "n": 100,
+    "sec_mean": 0.3725141477584839,
+    "f1_raw": 0.2740260672452488,
+    "f1_first": 0.2936292418484235,
+    "contains": 0.33
+  },
+  "results": [
+    {
+      "_id": "75439ed8609c12817aaee0fa4f749aebb3e4a36dfa72390e",
+      "golds": [
+        "Deftones"
+      ],
+      "n_chunks": 10,
+      "pred": "The band is Deftones.",
+      "sec": 0.4912698268890381,
+      "f1_raw": 0.5,
+      "f1_first": 0.5,
+      "contains": 1.0
+    },
+    {
+      "_id": "c5d6aa8cb0ad17a88eb66d578e86f783e3ac1f3684df9425",
+      "golds": [
+        "37.5"
+      ],
+      "n_chunks": 10,
+      "pred": "The length of the bridge is 326 feet (99 m).",
+      "sec": 0.32804059982299805,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "f1ea70c4e2c13d2fda1feda75a72a345c0e91f083220e95a",
+      "golds": [
+        "King James II of England"
+      ],
+      "n_chunks": 10,
+      "pred": "The last monarch of England to be overthrown before the 1690 English general election was James II of England.",
+      "sec": 0.5738141536712646,
+      "f1_raw": 0.3636363636363636,
+      "f1_first": 0.3636363636363636,
+      "contains": 0.0
+    },
+    {
+      "_id": "c5f1f53de09eb82eae93ae68a9581141a8cc8f3df6851926",
+      "golds": [
+        "Lake Wallace"
+      ],
+      "n_chunks": 10,
+      "pred": "Lake Wallace",
+      "sec": 0.06986761093139648,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "56dbceaf2e826fbb177035f03d7a263d62365856f21f39da",
+      "golds": [
+        "Alice's Adventures in Wonderland"
+      ],
+      "n_chunks": 4,
+      "pred": "Alice's Adventures in Wonderland",
+      "sec": 0.17691707611083984,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "3faa54c1f192293c709684aa60c6e2e8cfe34ff55c8b6248",
+      "golds": [
+        "Mimosa"
+      ],
+      "n_chunks": 10,
+      "pred": "Mimosa.",
+      "sec": 0.12999749183654785,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "e0998dbc2db68c7b18adff7fcc67081acc865c974b721312",
+      "golds": [
+        "number five"
+      ],
+      "n_chunks": 10,
+      "pred": "\"Finally\" (the album) includes the song \"One Thing\" which peaked at number 10 on the US Billboard Hot 100.",
+      "sec": 0.7550792694091797,
+      "f1_raw": 0.1111111111111111,
+      "f1_first": 0.1111111111111111,
+      "contains": 0.0
+    },
+    {
+      "_id": "cb9214532284b8202912b1b75592832daef0b109593185a0",
+      "golds": [
+        "Norman"
+      ],
+      "n_chunks": 10,
+      "pred": "Michigan State University",
+      "sec": 0.13868021965026855,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "0a44085d7963681015a69416470b86da02135ac722d6301b",
+      "golds": [
+        "British"
+      ],
+      "n_chunks": 5,
+      "pred": "British",
+      "sec": 0.08778882026672363,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "75f3798af3596cffefe8b932a00b1976f3f25fa0f42089fc",
+      "golds": [
+        "Hakim Abdullah Jamal"
+      ],
+      "n_chunks": 8,
+      "pred": "Hakim Jamal",
+      "sec": 0.15352106094360352,
+      "f1_raw": 0.8,
+      "f1_first": 0.8,
+      "contains": 0.0
+    },
+    {
+      "_id": "302ee593ca790dfb2dcbfd4341817fc64f8d106f65f61867",
+      "golds": [
+        "BBC Formula One"
+      ],
+      "n_chunks": 10,
+      "pred": "The winner of the 2013 6 Hours of Silverstone is André Lotterer, Benoît Tréluyer, and Marcel F",
+      "sec": 0.7445468902587891,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "1df269c3eca341348a837f39c628f59aa40d663c07875d24",
+      "golds": [
+        "Henry Jackson Society"
+      ],
+      "n_chunks": 9,
+      "pred": "The associate director of Press TV is the associate director of the National Center for Functional Glycomics.",
+      "sec": 0.5231821537017822,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "ad26b1fdaa97e8ef1c290a41a9151cc6b453756cb2715176",
+      "golds": [
+        "University"
+      ],
+      "n_chunks": 6,
+      "pred": "The organization that Sandra Pizzarello and the doctorate have in common is the National Rifle Association (NRA).",
+      "sec": 0.6174342632293701,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "6e541b3b8fc7e59da0da6548a17932b403b2e865d4036982",
+      "golds": [
+        "Big 12 Conference"
+      ],
+      "n_chunks": 9,
+      "pred": "The University of Oklahoma is a member of the Big 12 Conference.",
+      "sec": 0.41016364097595215,
+      "f1_raw": 0.5,
+      "f1_first": 0.5,
+      "contains": 1.0
+    },
+    {
+      "_id": "e0a5da9581af9a4a573423cbdcf207c5436dc35ff8a9d380",
+      "golds": [
+        "an acting career"
+      ],
+      "n_chunks": 10,
+      "pred": "Brandon James Routh moved to Paris.",
+      "sec": 0.23529624938964844,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "4567b6935bf5c64a1974b1089d67d176d9acac6b29836cb7",
+      "golds": [
+        "IK Start"
+      ],
+      "n_chunks": 10,
+      "pred": "Viking",
+      "sec": 0.08282732963562012,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "eac05e5d0936f802e28b0c5081a2c2a1a94fe4f2c20cb2df",
+      "golds": [
+        "Keith Morris"
+      ],
+      "n_chunks": 9,
+      "pred": "Keith Morris",
+      "sec": 0.10204124450683594,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "e5e18488f0e900206332a857f70da66dc59829937c913ff0",
+      "golds": [
+        "video game"
+      ],
+      "n_chunks": 8,
+      "pred": "The form of play that Yameen and Activision have in common is video game development and publishing, specifically through the creation and distribution of video games, particularly",
+      "sec": 0.770592451095581,
+      "f1_raw": 0.14814814814814814,
+      "f1_first": 0.14814814814814814,
+      "contains": 1.0
+    },
+    {
+      "_id": "cb677158d6f710ab0cb440b2024cc61c942a1ea4a963087d",
+      "golds": [
+        "7.2 million"
+      ],
+      "n_chunks": 7,
+      "pred": "Yau Ma Tei North is a district of a city with 7.4 million citizens.",
+      "sec": 0.5238571166992188,
+      "f1_raw": 0.14285714285714285,
+      "f1_first": 0.14285714285714285,
+      "contains": 0.0
+    },
+    {
+      "_id": "105e7f4d337799315ddf870acc4ff2a62a1e6cdf489086cd",
+      "golds": [
+        "Sun"
+      ],
+      "n_chunks": 5,
+      "pred": "Mars",
+      "sec": 0.11481785774230957,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "d136a5063f8e7f5594182b51b05d626ca0671aea2ba22226",
+      "golds": [
+        "Veyyil"
+      ],
+      "n_chunks": 10,
+      "pred": "The first film scored by the man who composed the soundtrack for *Udhayam NH4* is **Veyil (2006)**.",
+      "sec": 0.7522125244140625,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "c261ca6aeaf366815232e91db1ef4dc8408cec3750c38ee9",
+      "golds": [
+        "2000 Summer Olympic Games"
+      ],
+      "n_chunks": 10,
+      "pred": "2000 Summer Olympics",
+      "sec": 0.19280576705932617,
+      "f1_raw": 0.5714285714285715,
+      "f1_first": 0.5714285714285715,
+      "contains": 0.0
+    },
+    {
+      "_id": "4c34b33d7a545c4eba3848d54fc4568fdf186e849897aa6e",
+      "golds": [
+        "Dame Eileen June Atkins"
+      ],
+      "n_chunks": 9,
+      "pred": "The three-time Olivier Award winning English actress who starred in the 1981 BBC television serial \"Sons and Lovers\" is **Jessica Swale",
+      "sec": 0.7694506645202637,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "d7d92c85b8becc33e60fc03507933f8eaf53b5e1067286de",
+      "golds": [
+        "Umina Beach, New South Wales"
+      ],
+      "n_chunks": 10,
+      "pred": "The answer is: Umina Beach.",
+      "sec": 0.21887922286987305,
+      "f1_raw": 0.4444444444444445,
+      "f1_first": 0.5714285714285715,
+      "contains": 0.0
+    },
+    {
+      "_id": "d3b2acfdec13f925424cd7d96b689557edfd08e6dd6177b7",
+      "golds": [
+        "Brothers Quay"
+      ],
+      "n_chunks": 9,
+      "pred": "The question is ambiguous as it is not clear which specific awards are being referred to. However, based on the provided text, the passage mentions that Jake Kasdan",
+      "sec": 0.7747893333435059,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "a1cce86489841f2514678029dbe95b7289b9d47f52f44939",
+      "golds": [
+        "Bill Miner"
+      ],
+      "n_chunks": 10,
+      "pred": "The stagecoach robber that Frederick John Fulton prosecuted was Bill Miner.",
+      "sec": 0.3527517318725586,
+      "f1_raw": 0.33333333333333337,
+      "f1_first": 0.33333333333333337,
+      "contains": 1.0
+    },
+    {
+      "_id": "963e90eba94bba5bf5cf56755032d7bd4a3e4e225d3b8d14",
+      "golds": [
+        "January 18, 1813"
+      ],
+      "n_chunks": 10,
+      "pred": "Joseph F. Glidden was born on March 9, 1826.",
+      "sec": 0.4553043842315674,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "5affd6b287c8ce97502760e33a71598e8eee24b78c3dd95c",
+      "golds": [
+        "United States Secretary of the Interior"
+      ],
+      "n_chunks": 8,
+      "pred": "The position of U.S. Representative for Montana's at-large congressional district.",
+      "sec": 0.4170238971710205,
+      "f1_raw": 0.14285714285714285,
+      "f1_first": 0.14285714285714285,
+      "contains": 0.0
+    },
+    {
+      "_id": "97b31d6d7a9137c220726ad51a6dca3e957e2c94ce5e65b8",
+      "golds": [
+        "Parliament"
+      ],
+      "n_chunks": 10,
+      "pred": "The answer is: Parliament.",
+      "sec": 0.20327448844909668,
+      "f1_raw": 0.5,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "5fc84dadeb648a27c3aaa64698a5bec5d2ef23eb32e22e44",
+      "golds": [
+        "140 million"
+      ],
+      "n_chunks": 7,
+      "pred": "Over 100 million records",
+      "sec": 0.2276630401611328,
+      "f1_raw": 0.3333333333333333,
+      "f1_first": 0.3333333333333333,
+      "contains": 0.0
+    },
+    {
+      "_id": "b785963089bd7f81ee294751c688af85bfe2863dba623373",
+      "golds": [
+        "George Balanchine"
+      ],
+      "n_chunks": 10,
+      "pred": "The answer is George Balanchine.",
+      "sec": 0.2423865795135498,
+      "f1_raw": 0.6666666666666666,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "9303f959145f198df63d2d7ec604a9d6efcb3e8daca89e91",
+      "golds": [
+        "alleged paranormal phenomena"
+      ],
+      "n_chunks": 8,
+      "pred": "The Bennington Triangle and the Bridgewater Triangle are both associated with the concept of urban agriculture and related activities, but they are distinct geographical areas. The Ben",
+      "sec": 0.7684721946716309,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "21bc398556b5612bf0437043cd2800e943bab5929c4bccc5",
+      "golds": [
+        "Mary Astor"
+      ],
+      "n_chunks": 8,
+      "pred": "The answer is: Mary Astor.",
+      "sec": 0.2521626949310303,
+      "f1_raw": 0.6666666666666666,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "01aff89f9ce55470c12450b595c268a225a638582dac204f",
+      "golds": [
+        "Constantine"
+      ],
+      "n_chunks": 7,
+      "pred": "The movie \"The Hunger Games: Mockingjay – Part 1\" was directed by Francis Lawrence.",
+      "sec": 0.5463700294494629,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "3518c800877d0b8cc48ca575de745502b472a139564ffa46",
+      "golds": [
+        "Netflix"
+      ],
+      "n_chunks": 9,
+      "pred": "30 Rock",
+      "sec": 0.12769293785095215,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "9a19f9594aa73716dd38bcbd5ff1c04e57a6649800570f80",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 5,
+      "pred": "Yes.",
+      "sec": 0.11104774475097656,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "de85aaa5c535ba20bdcad5fbabfe13a03687374265a57b44",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 10,
+      "pred": "No.",
+      "sec": 0.07449173927307129,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "40b5d54934bcf22bb9267e605c49d46509f3bd41b1a34c31",
+      "golds": [
+        "the deadpan sketch group"
+      ],
+      "n_chunks": 10,
+      "pred": "Two Episodes of Mash",
+      "sec": 0.13716602325439453,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "02c6e6b95d2a200df20bea7495469c79b1d89ed560890ee3",
+      "golds": [
+        "143,372"
+      ],
+      "n_chunks": 6,
+      "pred": "The population of the city where the transmitter of WLLZ-LP is located is 15,678 as of the 2020",
+      "sec": 0.770982027053833,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "d3249d0550c7105bdd4ed60c9ca9d955db08d362574c2086",
+      "golds": [
+        "Martin Scorsese"
+      ],
+      "n_chunks": 9,
+      "pred": "Leonard Logsdail had a cameo role in the biographical film directed by Martin Scorsese.",
+      "sec": 0.5407609939575195,
+      "f1_raw": 0.2857142857142857,
+      "f1_first": 0.2857142857142857,
+      "contains": 1.0
+    },
+    {
+      "_id": "d6fe5bc54941b566b3c88598bbc459ee4d7098d6c6f22c4d",
+      "golds": [
+        "the City of Peace"
+      ],
+      "n_chunks": 7,
+      "pred": "Baghdad was known as the \"City of Peace\".",
+      "sec": 0.33768153190612793,
+      "f1_raw": 0.6,
+      "f1_first": 0.6,
+      "contains": 1.0
+    },
+    {
+      "_id": "93d2774c99edbde88789a9f989642ff160871ca09e66e46a",
+      "golds": [
+        "English"
+      ],
+      "n_chunks": 9,
+      "pred": "The author of Fifty Shades Freed is British.",
+      "sec": 0.2681610584259033,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "72feb2a8e5b92548a357bfc11e94050464f93f1ce286418c",
+      "golds": [
+        "October 13, 1980"
+      ],
+      "n_chunks": 7,
+      "pred": "Ashanti was born on October 13, 1980.",
+      "sec": 0.4337456226348877,
+      "f1_raw": 0.6,
+      "f1_first": 0.6,
+      "contains": 1.0
+    },
+    {
+      "_id": "e9b828ee7169d1978f3bcb6de5bbb0f54f9ee3bfc0ffdb8b",
+      "golds": [
+        "35 people"
+      ],
+      "n_chunks": 8,
+      "pred": "35 people",
+      "sec": 0.13218235969543457,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "07f505d321fd7a7c04e158059cb69ac3ac7ecdebfb03037d",
+      "golds": [
+        "Saturday"
+      ],
+      "n_chunks": 10,
+      "pred": "The Kentucky Derby is held on the day of the Kentucky Oaks.",
+      "sec": 0.3392019271850586,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "a7c311f9f6423063e02c8236bdd83cc8059fcb9fe78b4fff",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 10,
+      "pred": "No.",
+      "sec": 0.10403990745544434,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "c16a3dd0b5b97180359715cab5c41d528cf2a99e2744f037",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 10,
+      "pred": "No.",
+      "sec": 0.09544014930725098,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "9336554e511e88766228ffa1acd1c6f82c9a41046514c253",
+      "golds": [
+        "Michael Swango"
+      ],
+      "n_chunks": 5,
+      "pred": "Fredric Rieders testified against Wayne Williams, who was convicted of killing as many as 60 patients and received three consecutive life terms to be served in",
+      "sec": 0.781843900680542,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "11b4c60bf00735e20ae817b940d86aa8922e2fcdaa3a0b47",
+      "golds": [
+        "Capital Cities"
+      ],
+      "n_chunks": 9,
+      "pred": "Capital Cities",
+      "sec": 0.09721255302429199,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "795ed5382ff9378f90123aedc2b638c049411295c5678466",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 9,
+      "pred": "No.",
+      "sec": 0.10256671905517578,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "a93aa642fb8802a99b36cd62febe1c4e995096a9320b00c5",
+      "golds": [
+        "American"
+      ],
+      "n_chunks": 9,
+      "pred": "American",
+      "sec": 0.08323311805725098,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "b7af427ee230063a2aabb35691c7a81670c0b7e85ac3b7b2",
+      "golds": [
+        "43,000 marchers"
+      ],
+      "n_chunks": 9,
+      "pred": "The 1932 Bonus Army protest had 500,000 participants.",
+      "sec": 0.5203664302825928,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "bcd98af30c2eb7ce1233459715d27f428b111d12fea529b4",
+      "golds": [
+        "2006"
+      ],
+      "n_chunks": 10,
+      "pred": "The American electronic music duo from Orlando, Florida, that toured with Angelspit is The Crüxshadows. They formed in 2004.",
+      "sec": 0.7544186115264893,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "88b095fb93df1d962625daa1796a46ce4721c316b0ab819b",
+      "golds": [
+        "\"Currer Bell\""
+      ],
+      "n_chunks": 9,
+      "pred": "The telenova \"El Ardiente Secreto\" was based on a novel published under the pen name \"Edith Van Dyne\".",
+      "sec": 0.7180521488189697,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "74ae5bfc8bdac7b560ec92b71604e86654f87b8f7fcbb30a",
+      "golds": [
+        "Iran"
+      ],
+      "n_chunks": 8,
+      "pred": "Iran",
+      "sec": 0.08515024185180664,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "fc6267db9ba02bbb251960231bc87251c581110e4e2b5f3f",
+      "golds": [
+        "Miller v. California"
+      ],
+      "n_chunks": 10,
+      "pred": "Miller v. California was brought to court first.",
+      "sec": 0.30579471588134766,
+      "f1_raw": 0.5454545454545454,
+      "f1_first": 0.5454545454545454,
+      "contains": 1.0
+    },
+    {
+      "_id": "019dbd177ddcff6752aaabc8c0e459f3ae4003f718bd672b",
+      "golds": [
+        "Neighbours"
+      ],
+      "n_chunks": 9,
+      "pred": "The answer is \"Neighbours\".",
+      "sec": 0.198042631149292,
+      "f1_raw": 0.5,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "0d6a7aae6f7e00180107c47a73dedda18caf3949666c4d55",
+      "golds": [
+        "Jaleel Ahmad White"
+      ],
+      "n_chunks": 9,
+      "pred": "Jaleel White",
+      "sec": 0.13725733757019043,
+      "f1_raw": 0.8,
+      "f1_first": 0.8,
+      "contains": 0.0
+    },
+    {
+      "_id": "ab016faac478c4acc6e9ed3ed87f9e29dbed47fd946be244",
+      "golds": [
+        "Claudio Javier López"
+      ],
+      "n_chunks": 10,
+      "pred": "José Daniel Valencia",
+      "sec": 0.12351346015930176,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "1d81e1f410acc77f1d9a844f811045c2cecb0fdc9e717d41",
+      "golds": [
+        "Levni Yilmaz"
+      ],
+      "n_chunks": 10,
+      "pred": "Lev Yilmaz is not mentioned in the passage. The passage is about Pamela B. Green, who is the filmmaker.",
+      "sec": 0.6393833160400391,
+      "f1_raw": 0.1111111111111111,
+      "f1_first": 0.1111111111111111,
+      "contains": 0.0
+    },
+    {
+      "_id": "60ec93a22fbcb65eeadd9f1d2b3c8e4ed44d3a2c4285b168",
+      "golds": [
+        "Tommy"
+      ],
+      "n_chunks": 10,
+      "pred": "\"Like a G6\"",
+      "sec": 0.1973283290863037,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "72a769d6d0fd1c5c90974e60ab97e88e6853b9115a7fb85e",
+      "golds": [
+        "Xcel Energy Inc."
+      ],
+      "n_chunks": 9,
+      "pred": "The passage does not mention Alfred A. Marcus working as a consultant. It states that Clement Studebaker, not Alfred A. Marcus, was the president",
+      "sec": 0.7772870063781738,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "8fddd32ef1d88a5f8fde49152fc015eb80b3d60d1108d073",
+      "golds": [
+        "Sonic Mania"
+      ],
+      "n_chunks": 6,
+      "pred": "Super Ghouls 'n Ghosts",
+      "sec": 0.24490809440612793,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "861e7d3ba836f6a816d0265dc1c9f5566ef4d22b8de223ca",
+      "golds": [
+        "Dragons: Riders of Berk"
+      ],
+      "n_chunks": 6,
+      "pred": "John Paesano wrote the film \"How to Train Your Dragon\" (2010) for DreamWorks Dragons.",
+      "sec": 0.6568191051483154,
+      "f1_raw": 0.11764705882352941,
+      "f1_first": 0.11764705882352941,
+      "contains": 0.0
+    },
+    {
+      "_id": "5748ce1eca37fc55596e58fcff71e45363396002d28e0af9",
+      "golds": [
+        "Puli Alam"
+      ],
+      "n_chunks": 10,
+      "pred": "Logar Province",
+      "sec": 0.11904430389404297,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "5e7675388334946fc508c4c8ac4ab0c491910fcc0e048bfd",
+      "golds": [
+        "coaxial"
+      ],
+      "n_chunks": 10,
+      "pred": "The SR connector is based on the BNC connector.",
+      "sec": 0.28214049339294434,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "7528b0be35e8e6007f07c98b9f2d45ee1c854298134aba5c",
+      "golds": [
+        "director"
+      ],
+      "n_chunks": 10,
+      "pred": "Sarah Price and Rob Schneider are both actors.",
+      "sec": 0.2554299831390381,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "5e3362de0244d2b96c83958c4d3229151999292c369b0197",
+      "golds": [
+        "Bob Dylan"
+      ],
+      "n_chunks": 8,
+      "pred": "The member of a British-American supergroup who recorded a version of \"Nobody's Child\" in 1990 is **George Harrison**.",
+      "sec": 0.7506113052368164,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "139d2fcf8763003414ebd0187eb30b94930de13c4ab754a0",
+      "golds": [
+        "New Zealand, Canada, the United States, the Falkland Islands, and Peru."
+      ],
+      "n_chunks": 5,
+      "pred": "The forests of Mara and Mondrem share a common deer species with the Forest of Macclesfield and the Forest of Wirral.",
+      "sec": 0.7084851264953613,
+      "f1_raw": 0.07692307692307691,
+      "f1_first": 0.07692307692307691,
+      "contains": 0.0
+    },
+    {
+      "_id": "6c64a81fa526cb96d0a191d9cbd85a7e917b5d4f03b316d7",
+      "golds": [
+        "1978"
+      ],
+      "n_chunks": 9,
+      "pred": "1978",
+      "sec": 0.14502453804016113,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "690c31a6d6263dacd649fefc5b5cfa94210205fdcdb43905",
+      "golds": [
+        "no"
+      ],
+      "n_chunks": 9,
+      "pred": "No.",
+      "sec": 0.10714936256408691,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "de202b6e76dc82831c7f14a6d4346d84b0c0e5e3783356cf",
+      "golds": [
+        "writer"
+      ],
+      "n_chunks": 4,
+      "pred": "contemporaries",
+      "sec": 0.1313772201538086,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "f1c0b9a9ec47ccda8ba4b1be0ca7083b961ba0f06b2a4df7",
+      "golds": [
+        "Vernon Smith"
+      ],
+      "n_chunks": 9,
+      "pred": "Vernon L. Smith, the 2002 Nobel Laureate in Economic Sciences.",
+      "sec": 0.5151138305664062,
+      "f1_raw": 0.3636363636363636,
+      "f1_first": 0.3636363636363636,
+      "contains": 0.0
+    },
+    {
+      "_id": "3e4cce5082e968aec7f0c008b1acbd111f505d0579d1c9ee",
+      "golds": [
+        "due to the onset and progression of Alzheimer's disease"
+      ],
+      "n_chunks": 6,
+      "pred": "The CEO of the Denver Broncos, Pat Bowlen, stepped down in 2014 due to the onset and progression of Alzheimer's disease.",
+      "sec": 0.7589585781097412,
+      "f1_raw": 0.6153846153846153,
+      "f1_first": 0.6153846153846153,
+      "contains": 1.0
+    },
+    {
+      "_id": "c9f8b2166f7c44bf2e0843b2c77fb9fa5738af275555ca73",
+      "golds": [
+        "Atlantic Ocean"
+      ],
+      "n_chunks": 10,
+      "pred": "The ingredients for the she-crab soup likely come from the Atlantic Ocean.",
+      "sec": 0.3514437675476074,
+      "f1_raw": 0.3636363636363636,
+      "f1_first": 0.3636363636363636,
+      "contains": 1.0
+    },
+    {
+      "_id": "1a71b5a73ffb21cb52d41e09b1f861748b60f1e59273a080",
+      "golds": [
+        "YIVO"
+      ],
+      "n_chunks": 10,
+      "pred": "The former chair of the American Jewish History Society.",
+      "sec": 0.2580084800720215,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "4636487a1855382398fe1e54284cb7dd3d7b8d178ac4a476",
+      "golds": [
+        "West African descendants"
+      ],
+      "n_chunks": 4,
+      "pred": "The Ovambo people",
+      "sec": 0.19413185119628906,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "8bcda9c521bb7cb5dcd9a8d4987bd5bcf4ec455a84c62f81",
+      "golds": [
+        "Wicked Twister"
+      ],
+      "n_chunks": 10,
+      "pred": "Steel Venom is farther north.",
+      "sec": 0.16320538520812988,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "fddb2049ab13cf002eb07f658ae13d9f99d83538ed881e9b",
+      "golds": [
+        "Australian Supercars Championship"
+      ],
+      "n_chunks": 10,
+      "pred": "The person who substituted for Simon Pagenaud was Simon Pagenaud himself. However, the question seems to be asking for the championship that the substitute driver secured",
+      "sec": 0.6951241493225098,
+      "f1_raw": 0.08,
+      "f1_first": 0.08,
+      "contains": 0.0
+    },
+    {
+      "_id": "c9ee71b5dc7f5a4538d7727c95f80c174d3c9819dfbeac5a",
+      "golds": [
+        "1998"
+      ],
+      "n_chunks": 10,
+      "pred": "The 53rd National Hockey League All-Star Game took place at the indoor arena that was completed in 1998.",
+      "sec": 0.668337345123291,
+      "f1_raw": 0.11764705882352941,
+      "f1_first": 0.11764705882352941,
+      "contains": 1.0
+    },
+    {
+      "_id": "9dc6d234e2406aef691ea02ddc2064f343fc30cbc534c937",
+      "golds": [
+        "yes"
+      ],
+      "n_chunks": 10,
+      "pred": "No.",
+      "sec": 0.07505154609680176,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "034b6ac41cd902b7fbde6b304eb2930d8eea616924ba461f",
+      "golds": [
+        "WAMC"
+      ],
+      "n_chunks": 10,
+      "pred": "The public radio network in New Jersey that allowed Eric Plakun to do his psychiatric work is the National Public Radio (NPR).",
+      "sec": 0.6550178527832031,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "d18fde9d0b8da2a2febb67a679847ee4ee3259e85a9565f4",
+      "golds": [
+        "1961"
+      ],
+      "n_chunks": 10,
+      "pred": "1981",
+      "sec": 0.13948583602905273,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "826474c90684b1813df9324f779959a5e060d1cfc893a85f",
+      "golds": [
+        "Elvis' Christmas Album"
+      ],
+      "n_chunks": 10,
+      "pred": "\"Santa Bring My Baby Back\" was released on the fourth studio album \"Heaven Only Knows\" by Elvis Presley.",
+      "sec": 0.7131893634796143,
+      "f1_raw": 0.2,
+      "f1_first": 0.2,
+      "contains": 0.0
+    },
+    {
+      "_id": "228572a285ddcbb4947f362c07531238d1eec58e0fe0cfc6",
+      "golds": [
+        "West Lafayette, Indiana"
+      ],
+      "n_chunks": 7,
+      "pred": "Purdue University in West Lafayette, Indiana.",
+      "sec": 0.29168081283569336,
+      "f1_raw": 0.6666666666666666,
+      "f1_first": 0.6666666666666666,
+      "contains": 1.0
+    },
+    {
+      "_id": "3056e292ff1583fe84207873be57c6ec28c28b425087ca84",
+      "golds": [
+        "Taoiseach of Ireland"
+      ],
+      "n_chunks": 10,
+      "pred": "The answer is: Taoiseach.",
+      "sec": 0.25214171409606934,
+      "f1_raw": 0.3333333333333333,
+      "f1_first": 0.5,
+      "contains": 0.0
+    },
+    {
+      "_id": "e4df9576e5cd102024e81baf94a43325335d0ba2d8892041",
+      "golds": [
+        "\"Talk That Talk\""
+      ],
+      "n_chunks": 9,
+      "pred": "The song that came out ahead of The Wanted's \"Lightning\" on the UK Singles Chart was \"We Found Love\" by Rihanna.",
+      "sec": 0.6967980861663818,
+      "f1_raw": 0.09523809523809525,
+      "f1_first": 0.09523809523809525,
+      "contains": 0.0
+    },
+    {
+      "_id": "75d66ce7bb5fbcea2d942895c0b10144ba9a94282e2e9f15",
+      "golds": [
+        "poet and novelist"
+      ],
+      "n_chunks": 7,
+      "pred": "Lavinia Greenlaw and Nâzım Hikmet are both poets.",
+      "sec": 0.4429891109466553,
+      "f1_raw": 0.18181818181818182,
+      "f1_first": 0.18181818181818182,
+      "contains": 0.0
+    },
+    {
+      "_id": "a18c0ece7c2ae88d2f9f3ffc5eaa13297a1b5d0125a172ad",
+      "golds": [
+        "Fomento Económico Mexicano"
+      ],
+      "n_chunks": 10,
+      "pred": "Coca-Cola FEMSA",
+      "sec": 0.19448447227478027,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "c274ce731f680eb107c70386e2e341615378165ecc22799e",
+      "golds": [
+        "Ten Walls"
+      ],
+      "n_chunks": 9,
+      "pred": "The Lithuanian producer known for a song that was one of the most popular songs in Ibiza in 2014 is Ten Walls, whose song",
+      "sec": 0.7323830127716064,
+      "f1_raw": 0.17391304347826084,
+      "f1_first": 0.17391304347826084,
+      "contains": 1.0
+    },
+    {
+      "_id": "780b1664552881f2c14a0d943e746855f83709a5399bb4aa",
+      "golds": [
+        "Shari Shattuck"
+      ],
+      "n_chunks": 10,
+      "pred": "The American actress who stars in \"Tainted\" is not explicitly mentioned in the provided text. However, the passage discusses Jennifer Dern, who is known for",
+      "sec": 0.7638630867004395,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "81d43196cac0effe1645b207f826a30550efc3126c35371e",
+      "golds": [
+        "100 metres"
+      ],
+      "n_chunks": 10,
+      "pred": "The 100 metres.",
+      "sec": 0.19831418991088867,
+      "f1_raw": 1.0,
+      "f1_first": 1.0,
+      "contains": 1.0
+    },
+    {
+      "_id": "781060824875cb0343a110f5e6f83d46e638cbb89e2ad7c6",
+      "golds": [
+        "the Veneto region of Northern Italy"
+      ],
+      "n_chunks": 10,
+      "pred": "Cortina d'Ampezzo, Italy",
+      "sec": 0.2781028747558594,
+      "f1_raw": 0.25,
+      "f1_first": 0.25,
+      "contains": 0.0
+    },
+    {
+      "_id": "2bfda75e23447ca7e3213d01331c31816f30190a2ff6df71",
+      "golds": [
+        "Polk County"
+      ],
+      "n_chunks": 10,
+      "pred": "Des Moines, Iowa",
+      "sec": 0.15313172340393066,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "90caafc7fe51eee4143874971f67bb3e0107d26179c437f7",
+      "golds": [
+        "Louisville"
+      ],
+      "n_chunks": 10,
+      "pred": "Louisville, Kentucky",
+      "sec": 0.122802734375,
+      "f1_raw": 0.6666666666666666,
+      "f1_first": 0.6666666666666666,
+      "contains": 1.0
+    },
+    {
+      "_id": "6320310adc4a826b1bb240c63ac1735b7b29e93a59782364",
+      "golds": [
+        "821"
+      ],
+      "n_chunks": 10,
+      "pred": "The Roud Folk Song Index number of the nursery rhyme \"What Are Little Girls Made Of?\" is 12986.",
+      "sec": 0.6583538055419922,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "7e525340152c2f4b26d7fba85c680dde7b75af77356a7c22",
+      "golds": [
+        "Dracula"
+      ],
+      "n_chunks": 10,
+      "pred": "The genus Dracula has more species.",
+      "sec": 0.2250044345855713,
+      "f1_raw": 0.33333333333333337,
+      "f1_first": 0.33333333333333337,
+      "contains": 1.0
+    },
+    {
+      "_id": "3ece2c87c1ddea4a504fd1c67fe75d34ca8f818bd9ea15d0",
+      "golds": [
+        "Switchfoot"
+      ],
+      "n_chunks": 9,
+      "pred": "Matthew Good Band",
+      "sec": 0.1184382438659668,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    },
+    {
+      "_id": "ee07a420f322205e992788e25c0b256cadcd99abd359ff0f",
+      "golds": [
+        "Vienna"
+      ],
+      "n_chunks": 8,
+      "pred": "The home city of the author of the famous novel tracing the life of a male roe deer from his birth onward is Vienna.",
+      "sec": 0.6610186100006104,
+      "f1_raw": 0.1,
+      "f1_first": 0.1,
+      "contains": 1.0
+    },
+    {
+      "_id": "2903a54db35e788f31a967bdfa021d64ac18ed7e1aed919a",
+      "golds": [
+        "Manchester United"
+      ],
+      "n_chunks": 8,
+      "pred": "The football club that plays in the area between the old tool gates, Brook Bar and Trafford Bar is not mentioned in the provided text.",
+      "sec": 0.6765239238739014,
+      "f1_raw": 0.0,
+      "f1_first": 0.0,
+      "contains": 0.0
+    }
+  ]
+}

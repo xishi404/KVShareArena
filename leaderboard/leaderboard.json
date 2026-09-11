@@ -1,0 +1,2239 @@
+{
+  "_meta": {
+    "generated": "2026-09-10",
+    "generated_by": "Measured-result snapshot; browser bundle: tools/build_site.py",
+    "board": "Qwen3-8B as producer and receiver. This export does not include other-model or cross-checkpoint results.",
+    "quality": "PGR = (score - floor) / (ceiling - floor); score = each dataset's official metric (LongBench word F1; FRAMES official autorater).",
+    "significance": "Paired bootstrap vs position alignment: seed 20260730, B=10000, 95% CI. An interval containing zero does not establish equivalence.",
+    "n": {
+      "qasper": 100,
+      "multifieldqa_en": 100,
+      "hotpotqa": 100,
+      "frames": 120,
+      "notes": 100
+    },
+    "sources": {
+      "release": "docs/release.md",
+      "measurements": "leaderboard/leaderboard.json",
+      "definitions": "docs/benchmark.md"
+    },
+    "schema_version": "kva.leaderboard.v1"
+  },
+  "classes": {
+    "1": "selective recomputation",
+    "2": "attention calibration",
+    "3": "position alignment",
+    "4": "anchor-delta reuse",
+    "5": "medium replacement",
+    "6": "fine-tuned repair",
+    "7": "trained soft-token adapter",
+    "8": "decoded-KV handoff repair",
+    "9": "compression under reuse"
+  },
+  "methods": {
+    "naive": {
+      "display": "Naive assembly",
+      "class": "3",
+      "partition": "reference",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "naive_pos": {
+      "display": "+ position alignment",
+      "class": "3",
+      "partition": "reference",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "cacheblend": {
+      "display": "CacheBlend (15% recompute)",
+      "class": "1",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "minipic": {
+      "display": "MiniPIC",
+      "class": "1",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "blockattn": {
+      "display": "Block-Attention",
+      "class": "6",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "kvpacket": {
+      "display": "KVPacket (0% payload recompute)",
+      "class": "7",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "kvcomm": {
+      "display": "KVCOMM (cold start)",
+      "class": "4",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "quant": {
+      "display": "Quant. 4-bit",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "snapkv_r025": {
+      "display": "SnapKV (r=.25)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "snapkv_r05": {
+      "display": "SnapKV (r=.5)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "knorm_r025": {
+      "display": "Knorm (r=.25)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "knorm_r05": {
+      "display": "Knorm (r=.5)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "tova": {
+      "display": "TOVA (r=.25)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "streaming": {
+      "display": "StreamingLLM (r=.25)",
+      "class": "9",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "relaycaching": {
+      "display": "RelayCaching (~28% recompute)",
+      "class": "8",
+      "partition": "official",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "ape": {
+      "display": "APE",
+      "class": "2",
+      "partition": "port",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "legolink": {
+      "display": "LegoLink (~0.4% payload recompute)",
+      "class": "1",
+      "partition": "port",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "legolink0": {
+      "display": "LegoLink (k=0, 0% recompute)",
+      "class": "1",
+      "partition": "port",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    },
+    "prefix_ref": {
+      "display": "Prefix-cache only (ref.)",
+      "class": "",
+      "partition": "reference",
+      "submitter": "KVShareArena authors (paper board)",
+      "date": "2026-08",
+      "provenance": "Measured paper-result snapshot; see docs/release.md for scope and measurement definitions.",
+      "self_reported": false
+    }
+  },
+  "retrieved_evidence": {
+    "subsets": [
+      {
+        "key": "qasper",
+        "label": "Sci.-paper QA"
+      },
+      {
+        "key": "multifieldqa_en",
+        "label": "Single-doc QA"
+      },
+      {
+        "key": "hotpotqa",
+        "label": "Multi-hop QA"
+      },
+      {
+        "key": "frames",
+        "label": "FRAMES (variant)"
+      }
+    ],
+    "rows": [
+      {
+        "key": "naive",
+        "pgr": {
+          "qasper": {
+            "value": 0.687,
+            "sig": false,
+            "direction": null,
+            "delta": 0.027,
+            "ci": [
+              -0.0128,
+              0.0676
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.286,
+            "sig": false,
+            "direction": null,
+            "delta": -0.006,
+            "ci": [
+              -0.0358,
+              0.0222
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.193,
+            "sig": false,
+            "direction": null,
+            "delta": 0.001,
+            "ci": [
+              -0.0417,
+              0.0444
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "naive_pos",
+        "pgr": {
+          "qasper": {
+            "value": 0.62,
+            "sig": null,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          },
+          "multifieldqa_en": {
+            "value": 0.304,
+            "sig": null,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          },
+          "hotpotqa": {
+            "value": -0.196,
+            "sig": null,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          },
+          "frames": {
+            "value": 0.76,
+            "sig": null,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "cacheblend",
+        "pgr": {
+          "qasper": {
+            "value": 0.681,
+            "sig": false,
+            "direction": null,
+            "delta": 0.024,
+            "ci": [
+              -0.0411,
+              0.0897
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.684,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.125,
+            "ci": [
+              0.0672,
+              0.1847
+            ]
+          },
+          "hotpotqa": {
+            "value": 0.394,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.182,
+            "ci": [
+              0.1013,
+              0.2636
+            ]
+          },
+          "frames": {
+            "value": 0.68,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0.1736,
+          "multifieldqa_en": 0.1736,
+          "hotpotqa": 0.1736
+        }
+      },
+      {
+        "key": "minipic",
+        "pgr": {
+          "qasper": {
+            "value": 0.61,
+            "sig": false,
+            "direction": null,
+            "delta": -0.004,
+            "ci": [
+              -0.03,
+              0.0168
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.284,
+            "sig": false,
+            "direction": null,
+            "delta": -0.006,
+            "ci": [
+              -0.0306,
+              0.0155
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.19,
+            "sig": false,
+            "direction": null,
+            "delta": 0.002,
+            "ci": [
+              -0.0516,
+              0.0594
+            ]
+          },
+          "frames": {
+            "value": 0.789,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "blockattn",
+        "pgr": {
+          "qasper": {
+            "value": 0.549,
+            "sig": false,
+            "direction": null,
+            "delta": -0.028,
+            "ci": [
+              -0.0913,
+              0.0318
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.407,
+            "sig": false,
+            "direction": null,
+            "delta": 0.034,
+            "ci": [
+              -0.0095,
+              0.0765
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.633,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.134,
+            "ci": [
+              -0.1978,
+              -0.0728
+            ]
+          },
+          "frames": {
+            "value": 0.62,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "kvpacket",
+        "pgr": {
+          "qasper": {
+            "value": 0.742,
+            "sig": false,
+            "direction": null,
+            "delta": 0.048,
+            "ci": [
+              -0.014,
+              0.1102
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.639,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.11,
+            "ci": [
+              0.0446,
+              0.1763
+            ]
+          },
+          "hotpotqa": {
+            "value": 0.365,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.173,
+            "ci": [
+              0.1097,
+              0.2419
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "kvcomm",
+        "pgr": {
+          "qasper": {
+            "value": -0.142,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.301,
+            "ci": [
+              -0.368,
+              -0.235
+            ]
+          },
+          "multifieldqa_en": {
+            "value": -0.133,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.144,
+            "ci": [
+              -0.193,
+              -0.097
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.837,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.197,
+            "ci": [
+              -0.27,
+              -0.128
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "quant",
+        "pgr": {
+          "qasper": {
+            "value": 0.477,
+            "sig": false,
+            "direction": null,
+            "delta": -0.057,
+            "ci": [
+              -0.1186,
+              0.0001
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.29,
+            "sig": false,
+            "direction": null,
+            "delta": -0.005,
+            "ci": [
+              -0.0405,
+              0.0306
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.421,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.069,
+            "ci": [
+              -0.1225,
+              -0.0187
+            ]
+          },
+          "frames": {
+            "value": 0.46,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.125,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "snapkv_r025",
+        "pgr": {
+          "qasper": {
+            "value": 0.615,
+            "sig": false,
+            "direction": null,
+            "delta": -0.002,
+            "ci": [
+              -0.0322,
+              0.0258
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.269,
+            "sig": false,
+            "direction": null,
+            "delta": -0.011,
+            "ci": [
+              -0.0433,
+              0.0206
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.149,
+            "sig": false,
+            "direction": null,
+            "delta": 0.015,
+            "ci": [
+              -0.0189,
+              0.051
+            ]
+          },
+          "frames": {
+            "value": 0.66,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "snapkv_r05",
+        "pgr": {
+          "qasper": {
+            "value": 0.57,
+            "sig": false,
+            "direction": null,
+            "delta": -0.02,
+            "ci": [
+              -0.0662,
+              0.0285
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.172,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.043,
+            "ci": [
+              -0.0855,
+              -0.003
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.082,
+            "sig": false,
+            "direction": null,
+            "delta": 0.035,
+            "ci": [
+              -0.0077,
+              0.0809
+            ]
+          },
+          "frames": {
+            "value": 0.66,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "knorm_r025",
+        "pgr": {
+          "qasper": {
+            "value": 0.573,
+            "sig": false,
+            "direction": null,
+            "delta": -0.019,
+            "ci": [
+              -0.0818,
+              0.0456
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.295,
+            "sig": false,
+            "direction": null,
+            "delta": -0.003,
+            "ci": [
+              -0.046,
+              0.0382
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.044,
+            "sig": false,
+            "direction": null,
+            "delta": 0.047,
+            "ci": [
+              -0.0138,
+              0.1116
+            ]
+          },
+          "frames": {
+            "value": 0.84,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "knorm_r05",
+        "pgr": {
+          "qasper": {
+            "value": 0.367,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.1,
+            "ci": [
+              -0.166,
+              -0.0328
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.135,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.055,
+            "ci": [
+              -0.105,
+              -0.0098
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.357,
+            "sig": false,
+            "direction": null,
+            "delta": -0.049,
+            "ci": [
+              -0.1065,
+              0.0033
+            ]
+          },
+          "frames": {
+            "value": 0.68,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "tova",
+        "pgr": {
+          "qasper": {
+            "value": 0.586,
+            "sig": false,
+            "direction": null,
+            "delta": -0.013,
+            "ci": [
+              -0.0411,
+              0.009
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.296,
+            "sig": false,
+            "direction": null,
+            "delta": -0.003,
+            "ci": [
+              -0.0293,
+              0.0266
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.225,
+            "sig": false,
+            "direction": null,
+            "delta": -0.009,
+            "ci": [
+              -0.0276,
+              0.0062
+            ]
+          },
+          "frames": {
+            "value": 0.66,
+            "sig": false,
+            "direction": null,
+            "delta": null,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "streaming",
+        "pgr": {
+          "qasper": {
+            "value": 0.64,
+            "sig": false,
+            "direction": null,
+            "delta": 0.008,
+            "ci": [
+              -0.039,
+              0.0583
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.244,
+            "sig": false,
+            "direction": null,
+            "delta": -0.02,
+            "ci": [
+              -0.0539,
+              0.0103
+            ]
+          },
+          "hotpotqa": {
+            "value": -0.286,
+            "sig": false,
+            "direction": null,
+            "delta": -0.028,
+            "ci": [
+              -0.0979,
+              0.0424
+            ]
+          },
+          "frames": {
+            "value": 0.5,
+            "sig": true,
+            "direction": "down",
+            "delta": -0.108,
+            "ci": null
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "ape",
+        "pgr": {
+          "qasper": {
+            "value": 0.443,
+            "sig": false,
+            "direction": null,
+            "delta": -0.07,
+            "ci": [
+              -0.1487,
+              0.0078
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.609,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.101,
+            "ci": [
+              0.0384,
+              0.1631
+            ]
+          },
+          "hotpotqa": {
+            "value": 0.457,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.201,
+            "ci": [
+              0.1218,
+              0.2808
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      },
+      {
+        "key": "legolink",
+        "pgr": {
+          "qasper": {
+            "value": 0.746,
+            "sig": false,
+            "direction": null,
+            "delta": 0.05,
+            "ci": [
+              -0.0118,
+              0.1108
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.57,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.088,
+            "ci": [
+              0.0355,
+              0.1401
+            ]
+          },
+          "hotpotqa": {
+            "value": 0.416,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.188,
+            "ci": [
+              0.1137,
+              0.2667
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0.004,
+          "multifieldqa_en": 0.0041,
+          "hotpotqa": 0.0016
+        }
+      },
+      {
+        "key": "legolink0",
+        "pgr": {
+          "qasper": {
+            "value": 0.49,
+            "sig": false,
+            "direction": null,
+            "delta": -0.051,
+            "ci": [
+              -0.1213,
+              0.0197
+            ]
+          },
+          "multifieldqa_en": {
+            "value": 0.463,
+            "sig": false,
+            "direction": null,
+            "delta": 0.053,
+            "ci": [
+              -0.004,
+              0.1079
+            ]
+          },
+          "hotpotqa": {
+            "value": 0.381,
+            "sig": true,
+            "direction": "up",
+            "delta": 0.178,
+            "ci": [
+              0.102,
+              0.2554
+            ]
+          }
+        },
+        "recompute_share": {
+          "qasper": 0,
+          "multifieldqa_en": 0,
+          "hotpotqa": 0
+        }
+      }
+    ]
+  },
+  "agent_reports": {
+    "ceiling": "dense prefill over the same report text",
+    "rows": [
+      {
+        "key": "naive",
+        "pgr": -0.824,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.269,
+        "ci": [
+          -0.3502,
+          -0.1923
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "naive_pos",
+        "pgr": 0.243,
+        "sig": null,
+        "direction": null,
+        "delta": null,
+        "ci": null,
+        "recompute_share": 0
+      },
+      {
+        "key": "cacheblend",
+        "pgr": 0.674,
+        "sig": true,
+        "direction": "up",
+        "delta": 0.109,
+        "ci": [
+          0.0362,
+          0.1844
+        ],
+        "recompute_share": 0.1736
+      },
+      {
+        "key": "relaycaching",
+        "pgr": 0.572,
+        "sig": true,
+        "direction": "up",
+        "delta": 0.083,
+        "ci": [
+          0.0128,
+          0.1585
+        ],
+        "recompute_share": 0.1384
+      },
+      {
+        "key": "kvpacket",
+        "pgr": 0.217,
+        "sig": false,
+        "direction": null,
+        "delta": -0.006,
+        "ci": [
+          -0.0947,
+          0.0831
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "kvcomm",
+        "pgr": -0.862,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.279,
+        "ci": [
+          -0.363,
+          -0.197
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "minipic",
+        "pgr": -0.098,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.086,
+        "ci": [
+          -0.162,
+          -0.0131
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "blockattn",
+        "pgr": -0.676,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.232,
+        "ci": [
+          -0.3132,
+          -0.1519
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "quant",
+        "pgr": -0.38,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.157,
+        "ci": [
+          -0.2341,
+          -0.0806
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "snapkv_r025",
+        "pgr": -0.222,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.117,
+        "ci": [
+          -0.1954,
+          -0.0411
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "knorm_r025",
+        "pgr": -0.145,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.098,
+        "ci": [
+          -0.1863,
+          -0.0112
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "tova",
+        "pgr": -0.249,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.124,
+        "ci": [
+          -0.2027,
+          -0.0484
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "streaming",
+        "pgr": -0.49,
+        "sig": true,
+        "direction": "down",
+        "delta": -0.185,
+        "ci": [
+          -0.2756,
+          -0.0967
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "legolink",
+        "pgr": 0.495,
+        "sig": false,
+        "direction": null,
+        "delta": 0.064,
+        "ci": [
+          -0.0022,
+          0.1315
+        ],
+        "recompute_share": 0.0089
+      },
+      {
+        "key": "legolink0",
+        "pgr": 0.171,
+        "sig": false,
+        "direction": null,
+        "delta": -0.018,
+        "ci": [
+          -0.0969,
+          0.0601
+        ],
+        "recompute_share": 0
+      },
+      {
+        "key": "ape",
+        "pgr": 0.014,
+        "sig": false,
+        "direction": null,
+        "delta": -0.058,
+        "ci": [
+          -0.1386,
+          0.0226
+        ],
+        "recompute_share": 0
+      }
+    ]
+  },
+  "frontiers": {
+    "compute": {
+      "x_label": "payload fraction recomputed at answer time (lower is cheaper)",
+      "panels": {
+        "qasper": [
+          {
+            "key": "naive",
+            "x": 0,
+            "y": 0.6874
+          },
+          {
+            "key": "naive_pos",
+            "x": 0,
+            "y": 0.6202
+          },
+          {
+            "key": "cacheblend",
+            "x": 0.1736,
+            "y": 0.681
+          },
+          {
+            "key": "minipic",
+            "x": 0,
+            "y": 0.6104
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": 0.5489
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0,
+            "y": 0.5699
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0,
+            "y": 0.6151
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0,
+            "y": 0.367
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0,
+            "y": 0.5734
+          },
+          {
+            "key": "quant",
+            "x": 0,
+            "y": 0.4771
+          },
+          {
+            "key": "streaming",
+            "x": 0,
+            "y": 0.6399
+          },
+          {
+            "key": "tova",
+            "x": 0,
+            "y": 0.5863
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.4428
+          },
+          {
+            "key": "legolink",
+            "x": 0.004,
+            "y": 0.7459
+          },
+          {
+            "key": "kvpacket",
+            "x": 0,
+            "y": 0.7419
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.4904
+          },
+          {
+            "key": "prefix_ref",
+            "x": 1,
+            "y": 1
+          },
+          {
+            "key": "kvcomm",
+            "x": 0,
+            "y": -0.1424
+          }
+        ],
+        "multifieldqa_en": [
+          {
+            "key": "naive",
+            "x": 0,
+            "y": 0.2857
+          },
+          {
+            "key": "naive_pos",
+            "x": 0,
+            "y": 0.3035
+          },
+          {
+            "key": "cacheblend",
+            "x": 0.1736,
+            "y": 0.6836
+          },
+          {
+            "key": "minipic",
+            "x": 0,
+            "y": 0.2844
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": 0.407
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0,
+            "y": 0.1716
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0,
+            "y": 0.269
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0,
+            "y": 0.1352
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0,
+            "y": 0.2954
+          },
+          {
+            "key": "quant",
+            "x": 0,
+            "y": 0.2897
+          },
+          {
+            "key": "streaming",
+            "x": 0,
+            "y": 0.2444
+          },
+          {
+            "key": "tova",
+            "x": 0,
+            "y": 0.2959
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.609
+          },
+          {
+            "key": "legolink",
+            "x": 0.0041,
+            "y": 0.5704
+          },
+          {
+            "key": "kvpacket",
+            "x": 0,
+            "y": 0.6389
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.4629
+          },
+          {
+            "key": "prefix_ref",
+            "x": 1,
+            "y": 1
+          },
+          {
+            "key": "kvcomm",
+            "x": 0,
+            "y": -0.133
+          }
+        ],
+        "hotpotqa": [
+          {
+            "key": "naive",
+            "x": 0,
+            "y": -0.1926
+          },
+          {
+            "key": "naive_pos",
+            "x": 0,
+            "y": -0.1963
+          },
+          {
+            "key": "cacheblend",
+            "x": 0.1736,
+            "y": 0.3942
+          },
+          {
+            "key": "minipic",
+            "x": 0,
+            "y": -0.1897
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": -0.6333
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0,
+            "y": -0.0817
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0,
+            "y": -0.1488
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0,
+            "y": -0.3568
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0,
+            "y": -0.0444
+          },
+          {
+            "key": "quant",
+            "x": 0,
+            "y": -0.4205
+          },
+          {
+            "key": "streaming",
+            "x": 0,
+            "y": -0.2859
+          },
+          {
+            "key": "tova",
+            "x": 0,
+            "y": -0.2253
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.4568
+          },
+          {
+            "key": "legolink",
+            "x": 0.0016,
+            "y": 0.416
+          },
+          {
+            "key": "kvpacket",
+            "x": 0,
+            "y": 0.3646
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.3814
+          },
+          {
+            "key": "prefix_ref",
+            "x": 1,
+            "y": 1
+          },
+          {
+            "key": "kvcomm",
+            "x": 0,
+            "y": -0.8368
+          }
+        ],
+        "notes": [
+          {
+            "key": "naive",
+            "x": 0,
+            "y": -0.8237
+          },
+          {
+            "key": "naive_pos",
+            "x": 0,
+            "y": 0.2426
+          },
+          {
+            "key": "cacheblend",
+            "x": 0.1736,
+            "y": 0.6739
+          },
+          {
+            "key": "quant",
+            "x": 0,
+            "y": -0.3798
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0,
+            "y": -0.2218
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0,
+            "y": -0.1445
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.0139
+          },
+          {
+            "key": "legolink",
+            "x": 0.0089,
+            "y": 0.4949
+          },
+          {
+            "key": "kvpacket",
+            "x": 0,
+            "y": 0.2173
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.1709
+          },
+          {
+            "key": "relaycaching",
+            "x": 0.1384,
+            "y": 0.5719
+          },
+          {
+            "key": "kvcomm",
+            "x": 0,
+            "y": -0.8624
+          }
+        ]
+      }
+    },
+    "memory": {
+      "x_label": "KV bytes saved vs dense bf16 cache (measured tensors)",
+      "panels": {
+        "qasper": [
+          {
+            "key": "cacheblend",
+            "x": 0,
+            "y": 0.681
+          },
+          {
+            "key": "minipic",
+            "x": -0.0311,
+            "y": 0.6104
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": 0.5489
+          },
+          {
+            "key": "kvpacket",
+            "x": -0.0326,
+            "y": 0.7419
+          },
+          {
+            "key": "quant",
+            "x": 0.7188,
+            "y": 0.4771
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0.4997,
+            "y": 0.5699
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0.2499,
+            "y": 0.6151
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0.4997,
+            "y": 0.367
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0.2499,
+            "y": 0.5734
+          },
+          {
+            "key": "tova",
+            "x": 0.2499,
+            "y": 0.5863
+          },
+          {
+            "key": "streaming",
+            "x": 0.2499,
+            "y": 0.6399
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.4428
+          },
+          {
+            "key": "legolink",
+            "x": 0,
+            "y": 0.7459
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.4904
+          }
+        ],
+        "multifieldqa_en": [
+          {
+            "key": "cacheblend",
+            "x": 0,
+            "y": 0.6836
+          },
+          {
+            "key": "minipic",
+            "x": -0.0313,
+            "y": 0.2844
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": 0.407
+          },
+          {
+            "key": "kvpacket",
+            "x": -0.0323,
+            "y": 0.6389
+          },
+          {
+            "key": "quant",
+            "x": 0.7188,
+            "y": 0.2897
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0.4999,
+            "y": 0.1716
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0.25,
+            "y": 0.269
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0.4999,
+            "y": 0.1352
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0.25,
+            "y": 0.2954
+          },
+          {
+            "key": "tova",
+            "x": 0.25,
+            "y": 0.2959
+          },
+          {
+            "key": "streaming",
+            "x": 0.25,
+            "y": 0.2444
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.609
+          },
+          {
+            "key": "legolink",
+            "x": 0,
+            "y": 0.5704
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.4629
+          }
+        ],
+        "hotpotqa": [
+          {
+            "key": "cacheblend",
+            "x": 0,
+            "y": 0.3942
+          },
+          {
+            "key": "minipic",
+            "x": -0.0057,
+            "y": -0.1897
+          },
+          {
+            "key": "blockattn",
+            "x": 0,
+            "y": -0.6333
+          },
+          {
+            "key": "kvpacket",
+            "x": -0.0106,
+            "y": 0.3646
+          },
+          {
+            "key": "quant",
+            "x": 0.7188,
+            "y": -0.4205
+          },
+          {
+            "key": "snapkv_r05",
+            "x": 0.5001,
+            "y": -0.0817
+          },
+          {
+            "key": "snapkv_r025",
+            "x": 0.2502,
+            "y": -0.1488
+          },
+          {
+            "key": "knorm_r05",
+            "x": 0.5001,
+            "y": -0.3568
+          },
+          {
+            "key": "knorm_r025",
+            "x": 0.2502,
+            "y": -0.0444
+          },
+          {
+            "key": "tova",
+            "x": 0.2502,
+            "y": -0.2253
+          },
+          {
+            "key": "streaming",
+            "x": 0.2502,
+            "y": -0.2859
+          },
+          {
+            "key": "ape",
+            "x": 0,
+            "y": 0.4568
+          },
+          {
+            "key": "legolink",
+            "x": 0,
+            "y": 0.416
+          },
+          {
+            "key": "legolink0",
+            "x": 0,
+            "y": 0.3814
+          }
+        ]
+      }
+    },
+    "runtime": {
+      "x_label": "TTFT saved vs same-backend dense prefill",
+      "accountings": {
+        "consumer": "caches in hand (consumer side)",
+        "e2e": "end to end, incl. producer-side encoding"
+      },
+      "panels": {
+        "qasper": {
+          "consumer": [
+            {
+              "key": "naive",
+              "x": 0.8877,
+              "y": 0.6874
+            },
+            {
+              "key": "naive_pos",
+              "x": 0.8902,
+              "y": 0.6202
+            },
+            {
+              "key": "blockattn",
+              "x": 0.8889,
+              "y": 0.5489
+            },
+            {
+              "key": "quant",
+              "x": 0.8906,
+              "y": 0.4771
+            },
+            {
+              "key": "snapkv_r025",
+              "x": 0.8914,
+              "y": 0.6151
+            },
+            {
+              "key": "knorm_r025",
+              "x": 0.8913,
+              "y": 0.5734
+            },
+            {
+              "key": "tova",
+              "x": 0.891,
+              "y": 0.5863
+            },
+            {
+              "key": "streaming",
+              "x": 0.8903,
+              "y": 0.6399
+            },
+            {
+              "key": "snapkv_r05",
+              "x": 0.8929,
+              "y": 0.5699
+            },
+            {
+              "key": "knorm_r05",
+              "x": 0.8906,
+              "y": 0.367
+            },
+            {
+              "key": "ape",
+              "x": 0.7612,
+              "y": 0.4428
+            },
+            {
+              "key": "legolink",
+              "x": 0.8734,
+              "y": 0.7459
+            },
+            {
+              "key": "legolink0",
+              "x": 0.8713,
+              "y": 0.4904
+            },
+            {
+              "key": "kvpacket",
+              "x": 0.7324,
+              "y": 0.7419
+            }
+          ],
+          "e2e": [
+            {
+              "key": "naive",
+              "x": -0.371,
+              "y": 0.6874
+            },
+            {
+              "key": "naive_pos",
+              "x": -0.4845,
+              "y": 0.6202
+            },
+            {
+              "key": "blockattn",
+              "x": -0.4681,
+              "y": 0.5489
+            },
+            {
+              "key": "quant",
+              "x": -1.2086,
+              "y": 0.4771
+            },
+            {
+              "key": "snapkv_r025",
+              "x": -1.0736,
+              "y": 0.6151
+            },
+            {
+              "key": "knorm_r025",
+              "x": -0.6209,
+              "y": 0.5734
+            },
+            {
+              "key": "tova",
+              "x": -1.0856,
+              "y": 0.5863
+            },
+            {
+              "key": "streaming",
+              "x": -0.6364,
+              "y": 0.6399
+            },
+            {
+              "key": "snapkv_r05",
+              "x": -1.0847,
+              "y": 0.5699
+            },
+            {
+              "key": "knorm_r05",
+              "x": -0.5778,
+              "y": 0.367
+            },
+            {
+              "key": "ape",
+              "x": -0.8754,
+              "y": 0.4428
+            },
+            {
+              "key": "legolink",
+              "x": -1.4289,
+              "y": 0.7459
+            },
+            {
+              "key": "legolink0",
+              "x": -0.3852,
+              "y": 0.4904
+            },
+            {
+              "key": "kvpacket",
+              "x": -0.5779,
+              "y": 0.7419
+            }
+          ]
+        },
+        "multifieldqa_en": {
+          "consumer": [
+            {
+              "key": "naive",
+              "x": 0.8965,
+              "y": 0.2857
+            },
+            {
+              "key": "naive_pos",
+              "x": 0.9042,
+              "y": 0.3035
+            },
+            {
+              "key": "blockattn",
+              "x": 0.9033,
+              "y": 0.407
+            },
+            {
+              "key": "quant",
+              "x": 0.9067,
+              "y": 0.2897
+            },
+            {
+              "key": "snapkv_r025",
+              "x": 0.9117,
+              "y": 0.269
+            },
+            {
+              "key": "knorm_r025",
+              "x": 0.9117,
+              "y": 0.2954
+            },
+            {
+              "key": "tova",
+              "x": 0.912,
+              "y": 0.2959
+            },
+            {
+              "key": "streaming",
+              "x": 0.91,
+              "y": 0.2444
+            },
+            {
+              "key": "snapkv_r05",
+              "x": 0.9146,
+              "y": 0.1716
+            },
+            {
+              "key": "knorm_r05",
+              "x": 0.9132,
+              "y": 0.1352
+            },
+            {
+              "key": "ape",
+              "x": 0.804,
+              "y": 0.609
+            },
+            {
+              "key": "legolink0",
+              "x": 0.8949,
+              "y": 0.4629
+            },
+            {
+              "key": "legolink",
+              "x": 0.8973,
+              "y": 0.5704
+            },
+            {
+              "key": "kvpacket",
+              "x": 0.7889,
+              "y": 0.6389
+            }
+          ],
+          "e2e": [
+            {
+              "key": "naive",
+              "x": -0.4023,
+              "y": 0.2857
+            },
+            {
+              "key": "naive_pos",
+              "x": -0.4608,
+              "y": 0.3035
+            },
+            {
+              "key": "blockattn",
+              "x": -0.4917,
+              "y": 0.407
+            },
+            {
+              "key": "quant",
+              "x": -1.297,
+              "y": 0.2897
+            },
+            {
+              "key": "snapkv_r025",
+              "x": -1.1336,
+              "y": 0.269
+            },
+            {
+              "key": "knorm_r025",
+              "x": -0.8783,
+              "y": 0.2954
+            },
+            {
+              "key": "tova",
+              "x": -1.1437,
+              "y": 0.2959
+            },
+            {
+              "key": "streaming",
+              "x": -0.6764,
+              "y": 0.2444
+            },
+            {
+              "key": "snapkv_r05",
+              "x": -1.0423,
+              "y": 0.1716
+            },
+            {
+              "key": "knorm_r05",
+              "x": -0.6055,
+              "y": 0.1352
+            },
+            {
+              "key": "ape",
+              "x": -0.7914,
+              "y": 0.609
+            },
+            {
+              "key": "legolink0",
+              "x": -0.4144,
+              "y": 0.4629
+            },
+            {
+              "key": "legolink",
+              "x": -1.3995,
+              "y": 0.5704
+            },
+            {
+              "key": "kvpacket",
+              "x": -0.5476,
+              "y": 0.6389
+            }
+          ]
+        },
+        "hotpotqa": {
+          "consumer": [
+            {
+              "key": "naive",
+              "x": 0.9347,
+              "y": -0.1926
+            },
+            {
+              "key": "naive_pos",
+              "x": 0.9399,
+              "y": -0.1963
+            },
+            {
+              "key": "blockattn",
+              "x": 0.9394,
+              "y": -0.6333
+            },
+            {
+              "key": "quant",
+              "x": 0.9409,
+              "y": -0.4205
+            },
+            {
+              "key": "snapkv_r025",
+              "x": 0.9517,
+              "y": -0.1488
+            },
+            {
+              "key": "knorm_r025",
+              "x": 0.9508,
+              "y": -0.0444
+            },
+            {
+              "key": "tova",
+              "x": 0.9519,
+              "y": -0.2253
+            },
+            {
+              "key": "streaming",
+              "x": 0.9509,
+              "y": -0.2859
+            },
+            {
+              "key": "snapkv_r05",
+              "x": 0.9627,
+              "y": -0.0817
+            },
+            {
+              "key": "knorm_r05",
+              "x": 0.9618,
+              "y": -0.3568
+            },
+            {
+              "key": "ape",
+              "x": 0.8983,
+              "y": 0.4568
+            },
+            {
+              "key": "legolink",
+              "x": 0.9413,
+              "y": 0.416
+            },
+            {
+              "key": "legolink0",
+              "x": 0.9365,
+              "y": 0.3814
+            },
+            {
+              "key": "kvpacket",
+              "x": 0.9009,
+              "y": 0.3646
+            }
+          ],
+          "e2e": [
+            {
+              "key": "naive",
+              "x": -0.0864,
+              "y": -0.1926
+            },
+            {
+              "key": "naive_pos",
+              "x": -0.0429,
+              "y": -0.1963
+            },
+            {
+              "key": "blockattn",
+              "x": -0.0751,
+              "y": -0.6333
+            },
+            {
+              "key": "quant",
+              "x": -0.1577,
+              "y": -0.4205
+            },
+            {
+              "key": "snapkv_r025",
+              "x": -0.1783,
+              "y": -0.1488
+            },
+            {
+              "key": "knorm_r025",
+              "x": -0.08,
+              "y": -0.0444
+            },
+            {
+              "key": "tova",
+              "x": -0.1624,
+              "y": -0.2253
+            },
+            {
+              "key": "streaming",
+              "x": -0.0712,
+              "y": -0.2859
+            },
+            {
+              "key": "snapkv_r05",
+              "x": -0.1347,
+              "y": -0.0817
+            },
+            {
+              "key": "knorm_r05",
+              "x": -0.0316,
+              "y": -0.3568
+            },
+            {
+              "key": "ape",
+              "x": -14.0653,
+              "y": 0.4568
+            },
+            {
+              "key": "legolink",
+              "x": -0.2698,
+              "y": 0.416
+            },
+            {
+              "key": "legolink0",
+              "x": -0.0436,
+              "y": 0.3814
+            },
+            {
+              "key": "kvpacket",
+              "x": -0.2831,
+              "y": 0.3646
+            }
+          ]
+        },
+        "notes": {
+          "consumer": [
+            {
+              "key": "ape",
+              "x": 0.4299,
+              "y": 0.0139
+            },
+            {
+              "key": "relaycaching",
+              "x": 0.4944,
+              "y": 0.5719
+            },
+            {
+              "key": "legolink",
+              "x": 0.6895,
+              "y": 0.4949
+            },
+            {
+              "key": "legolink0",
+              "x": 0.6859,
+              "y": 0.1709
+            },
+            {
+              "key": "kvpacket",
+              "x": 0.4255,
+              "y": 0.2173
+            }
+          ],
+          "e2e": [
+            {
+              "key": "ape",
+              "x": -1.6866,
+              "y": 0.0139
+            },
+            {
+              "key": "relaycaching",
+              "x": -14.7186,
+              "y": 0.5719
+            },
+            {
+              "key": "legolink",
+              "x": -5.323,
+              "y": 0.4949
+            },
+            {
+              "key": "legolink0",
+              "x": -2.6811,
+              "y": 0.1709
+            },
+            {
+              "key": "kvpacket",
+              "x": -3.0828,
+              "y": 0.2173
+            }
+          ]
+        }
+      }
+    }
+  }
+}

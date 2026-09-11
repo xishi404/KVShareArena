@@ -1,0 +1,228 @@
+"""`kva submit`:把一份 kva.result.v1 结果件 + method card 做成排行榜仓库的 PR。
+
+流程(与 platform/README.md「Submit to the leaderboard」一节一致):
+  1. 本地先跑 `kva validate`(schema / 冻结考卷 _id / 遥测字段 / method_card),不过即拒;
+  2. 把结果 JSON 与 method_card.md 摆进暂存目录 `submissions/<method>/`;
+  3. 有 `gh` CLI 且未加 --dry-run 时:fork → 新分支 submit/<method>-<date> → commit → PR;
+  4. 没有 `gh` 或 --dry-run 时:把准备好的文件路径与手工步骤打印出来。
+
+判分不在这里做:PR 建好后在 PR 里评论 `/evaluate`,GitHub Actions(platform/github/workflows/
+evaluate.yml)用同一个包在纯 CPU 上复算 PGR 与配对 CI 并贴回 PR。
+"""
+import datetime as _dt
+import json
+import os
+import re
+import shutil
+import subprocess
+
+PLACEHOLDER_REPO = "<owner>/<repo>"
+
+# PR 正文模板。platform/github/PULL_REQUEST_TEMPLATE.md 是同结构的空白版(GitHub 给手工开
+# PR 的人用),这里是 kva submit 自动填好的版本。
+PR_BODY = """\
+## Submission: {display}
+
+| field | value |
+| --- | --- |
+| method key | `{method}` |
+| track / subset | {track} / {subset} |
+| receiver model | {model} |
+| backend | {backend} |
+| implementation | {provenance} |
+| samples | {n} |
+| result file | `{result_rel}` |
+| method card | `{card_rel}` |
+
+### Self-reported cost axes
+
+| axis | value |
+| --- | --- |
+| payload fraction recomputed at answer time | {share} |
+| KV bytes per sample | {kv_bytes} |
+| TTFT per sample | {ttft} |
+
+Cost numbers are self-reported and are shown as such on the leaderboard; the scorer
+recomputes quality (PGR and the paired interval) from the per-sample outputs in the
+result file.
+
+### Method card
+
+{card_excerpt}
+
+### Checklist
+
+- [ ] frozen queryset only, no sample selection after seeing results
+- [ ] `build_cache` never saw the question
+- [ ] `kva validate` passes locally
+- [ ] method card states backend, versions, training data (if any), and how each cost number is measured
+
+---
+
+Comment `/evaluate` on this pull request to run the CPU scorer.
+
+*Opened by `kva submit` (kvsharearena {version}).*
+"""
+
+
+def _slug(s):
+    return re.sub(r"[^a-z0-9_.-]+", "-", str(s).lower()).strip("-") or "method"
+
+
+def recompute_share(doc):
+    """逐题 recomputed / dense_payload 之比;分母未报但分子恒为 0 时仍可判定为 0(0 除以任何正数都是 0)。"""
+    rows = doc.get("results") or []
+    rec = [r.get("recomputed_layer_tokens") for r in rows]
+    den = [r.get("dense_payload_layer_tokens") for r in rows]
+    if not rows or any(v is None for v in rec):
+        return None
+    if sum(rec) == 0:
+        return 0.0
+    if any(v is None for v in den) or not sum(den):
+        return None
+    return sum(rec) / sum(den)
+
+
+def _fmt_share(doc):
+    s = recompute_share(doc)
+    return "not reported" if s is None else f"{s * 100:.1f}% (self-reported)"
+
+
+def _fmt_mean(doc, key, unit, scale=1.0):
+    vals = [r.get(key) for r in doc.get("results") or []]
+    vals = [v for v in vals if v is not None]
+    if not vals:
+        return "not reported"
+    return f"{sum(vals) / len(vals) * scale:,.1f} {unit} (self-reported)"
+
+
+def _card_excerpt(card_path, card_dict, limit=1800):
+    if card_path and os.path.exists(card_path):
+        txt = open(card_path, encoding="utf-8").read().strip()
+        return txt[:limit] + ("\n\n*(truncated; see the file in this pull request)*" if len(txt) > limit else "")
+    return "```json\n" + json.dumps(card_dict, ensure_ascii=False, indent=1) + "\n```"
+
+
+def render_body(doc, result_rel, card_rel, card_path=None):
+    from . import __version__ as _v
+    s = doc.get("summary") or {}
+    card = doc.get("method_card") or {}
+    return PR_BODY.format(
+        display=card.get("name") or s.get("method", "?"),
+        method=s.get("method", "?"), track=s.get("track", "?"), subset=s.get("subset", "?"),
+        model=s.get("model", "?"), backend=s.get("backend") or card.get("backend", "?"),
+        provenance=card.get("provenance", "?"), n=s.get("n", "?"),
+        result_rel=result_rel, card_rel=card_rel,
+        share=_fmt_share(doc),
+        kv_bytes=_fmt_mean(doc, "kv_bytes", "bytes"),
+        ttft=_fmt_mean(doc, "ttft_ms", "ms"),
+        card_excerpt=_card_excerpt(card_path, card), version=_v)
+
+
+def stage(doc, result_path, card_path, staging_dir):
+    """把提交件摆成公开仓的 submissions/<method>/ 结构,返回 (目录, 结果件相对路径, 卡片相对路径)。"""
+    method = _slug((doc.get("summary") or {}).get("method", "method"))
+    s = doc.get("summary") or {}
+    rel_dir = os.path.join("submissions", method)
+    out_dir = os.path.join(staging_dir, rel_dir)
+    os.makedirs(out_dir, exist_ok=True)
+    result_rel = os.path.join(rel_dir, f"{method}_{_slug(s.get('track', 're'))}_{_slug(s.get('subset', 'x'))}.json")
+    shutil.copyfile(result_path, os.path.join(staging_dir, result_rel))
+    card_rel = os.path.join(rel_dir, "method_card.md")
+    if card_path:
+        shutil.copyfile(card_path, os.path.join(staging_dir, card_rel))
+    else:  # 没给 .md 就把结果件里的机读 method_card 落成一份最小卡片
+        card = doc.get("method_card") or {}
+        lines = [f"# {card.get('name', method)}", ""]
+        lines += [f"- **{k}**: {json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else v}"
+                  for k, v in card.items()]
+        lines += ["", "*(generated by `kva submit` from the result file's method_card; "
+                      "expand it before merging.)*", ""]
+        open(os.path.join(staging_dir, card_rel), "w", encoding="utf-8").write("\n".join(lines))
+    return out_dir, result_rel, card_rel
+
+
+def have_gh():
+    return shutil.which("gh") is not None
+
+
+def _run(cmd, cwd=None, check=True):
+    print("  $ " + " ".join(cmd))
+    p = subprocess.run(cmd, cwd=cwd, text=True, capture_output=True)
+    if p.returncode and check:
+        raise RuntimeError(f"command failed ({p.returncode}): {' '.join(cmd)}\n{p.stderr.strip()}")
+    return p
+
+
+def open_pr(repo, branch, staging_dir, result_rel, card_rel, title, body, work_dir):
+    """fork → clone → 新分支 → 放文件 → commit → push → PR。返回 PR URL。"""
+    os.makedirs(work_dir, exist_ok=True)
+    clone = os.path.join(work_dir, repo.split("/")[-1])
+    if not os.path.isdir(clone):
+        # fork 已存在时 gh 直接 clone 已有的 fork,不会报错。
+        _run(["gh", "repo", "fork", repo, "--clone"], cwd=work_dir)
+    _run(["git", "checkout", "-B", branch], cwd=clone)
+    for rel in (result_rel, card_rel):
+        dst = os.path.join(clone, rel)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copyfile(os.path.join(staging_dir, rel), dst)
+    _run(["git", "add", result_rel, card_rel], cwd=clone)
+    _run(["git", "commit", "-m", title], cwd=clone)
+    _run(["git", "push", "-u", "origin", branch, "--force"], cwd=clone)
+    body_file = os.path.join(work_dir, "pr_body.md")
+    open(body_file, "w", encoding="utf-8").write(body)
+    p = _run(["gh", "pr", "create", "--repo", repo, "--title", title, "--body-file", body_file], cwd=clone)
+    return p.stdout.strip()
+
+
+def manual_steps(repo, branch, staging_dir, result_rel, card_rel, body_file):
+    return f"""\
+没有自动开 PR(原因见上一行):文件已备好,手工提交步骤如下。
+
+  准备好的文件:
+    {os.path.join(staging_dir, result_rel)}
+    {os.path.join(staging_dir, card_rel)}
+    {body_file}   (PR 正文)
+
+  1. Fork {repo} 并 clone 你的 fork
+  2. cd <你的 fork> && git checkout -b {branch}
+  3. mkdir -p {os.path.dirname(result_rel)} && cp 上面两个文件到同名相对路径
+  4. git add {result_rel} {card_rel} && git commit -m "submission: {branch}"
+  5. git push -u origin {branch}
+  6. gh pr create --repo {repo} --title "<标题>" --body-file {body_file}
+     (或在网页上开 PR,正文粘贴上面的 pr_body.md)
+  7. 在 PR 里评论 /evaluate,让 GitHub Actions 复算 PGR 与配对 CI
+"""
+
+
+def submit(result_path, card_path=None, repo=PLACEHOLDER_REPO, dry_run=False,
+           staging_dir=None, branch=None, date=None):
+    from .schema import load
+    doc = load(result_path)
+    s = doc.get("summary") or {}
+    method = _slug(s.get("method", "method"))
+    date = date or _dt.date.today().isoformat().replace("-", "")
+    branch = branch or f"submit/{method}-{date}"
+    staging_dir = staging_dir or os.path.join(os.getcwd(), ".kva_submit", branch.replace("/", "_"))
+    os.makedirs(staging_dir, exist_ok=True)
+
+    out_dir, result_rel, card_rel = stage(doc, result_path, card_path, staging_dir)
+    title = f"[submission] {(doc.get('method_card') or {}).get('name') or method} — {s.get('track')}/{s.get('subset')}"
+    body = render_body(doc, result_rel, card_rel, card_path)
+    body_file = os.path.join(staging_dir, "pr_body.md")
+    open(body_file, "w", encoding="utf-8").write(body)
+
+    print(f"staged -> {out_dir}")
+    print(f"  {result_rel}\n  {card_rel}\n  {os.path.relpath(body_file, staging_dir)}")
+    if dry_run or not have_gh() or repo == PLACEHOLDER_REPO:
+        why = ("--dry-run" if dry_run else
+               ("gh CLI not found" if not have_gh() else f"--repo not given (still {PLACEHOLDER_REPO})"))
+        print(f"\n[no PR opened: {why}]")
+        print(manual_steps(repo, branch, staging_dir, result_rel, card_rel, body_file))
+        print("--- PR body ---")
+        print(body)
+        return {"staged": staging_dir, "branch": branch, "pr": None}
+    url = open_pr(repo, branch, staging_dir, result_rel, card_rel, title, body,
+                  os.path.join(staging_dir, "_work"))
+    print(f"\nPR: {url}\n下一步:在该 PR 里评论 /evaluate,Actions 会在纯 CPU 上复算 PGR 与配对 CI。")
+    return {"staged": staging_dir, "branch": branch, "pr": url}

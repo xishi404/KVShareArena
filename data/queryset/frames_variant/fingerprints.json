@@ -1,0 +1,3960 @@
+{
+ "schema": "kvsharearena.frames.fingerprints.v1",
+ "purpose": "rebuild + verify FRAMES payloads locally; see `kva data rebuild-frames`",
+ "dataset_variant": "mlperf-e2e-rag-frames-html-2026",
+ "questions": {
+  "repo": "google/frames-benchmark",
+  "revision": "58d9fb6330f3ab1316d1eca12e5e8ef23dcc22ef",
+  "file": "test.tsv",
+  "sha256": "4255093c93b595b5b04c7c8dde290b48ec87d72ca0fb0b760d9dd02740d669ff",
+  "http": "https://huggingface.co/datasets/google/frames-benchmark/resolve/58d9fb6330f3ab1316d1eca12e5e8ef23dcc22ef/test.tsv"
+ },
+ "snapshot": {
+  "source": "MLPerf E2E-RAG FRAMES artifact, hosted by MLCommons",
+  "base_url": "https://inference.mlcommons-storage.org/frames-benchmark-dataset",
+  "md5_manifest_url": "https://inference.mlcommons-storage.org/metadata/frames-benchmark-dataset.md5",
+  "files": {
+   "doc_html/docs.tar.gz": {
+    "md5": "994551fd1a8455f22fa3b5f68f0d8d40",
+    "sha256": "f5e6d7c14f93cdd0af49f9f72e2311419af7c9b0634755fb2310058a84e36e80"
+   },
+   "doc_html/url_mapping.json": {
+    "md5": "abe078da480c5f3014f7f375dc9d396c",
+    "sha256": "7992a39c3b7a647d9e4e64896149e724b878f13e134d158d6b2b02f3d4d94c54"
+   }
+  },
+  "note": "2026 HTML crawl, not the FRAMES authors' 2024 snapshot; every use of this board is labeled as a dataset variant."
+ },
+ "fingerprint_algorithm": {
+  "source_hash": "sha256(materialized page text)[:16]",
+  "bundle_hash": "sha256(\"|\".join(sorted(canonical_urls)))[:16]",
+  "question_sha256": "sha256(re.sub(r\"\\s+\",\" \", question.strip().lower()))",
+  "materializer": "kvsharearena.frames.materialize_html (vendored from pilot/k95_frames_mlperf_audit.py)"
+ },
+ "provenance": {
+  "vendored_from": {
+   "pilot/k95_frames_mlperf_audit.py": "417f53f1521b8fed699393e13a2a42a38a7e204fa746721b769a2dbf08ae2fd9",
+   "pilot/k96_build_queryset.py": "925f6e12d0adb88b51d192fd2d2fe1b8c003fb23a73750c8580f9adaba83011c"
+  },
+  "drift": [],
+  "checked": {
+   "pilot/k95_frames_mlperf_audit.py": "417f53f1521b8fed699393e13a2a42a38a7e204fa746721b769a2dbf08ae2fd9",
+   "pilot/k96_build_queryset.py": "925f6e12d0adb88b51d192fd2d2fe1b8c003fb23a73750c8580f9adaba83011c"
+  }
+ },
+ "splits": {
+  "calibration": {
+   "split_file": "k96_frames_calibration.jsonl",
+   "split_file_sha256": "f71d5f734186ab53ebe3e08af241c27b92be762f529d998c587fe06da317be93",
+   "selector_version": "k96.freeze-split.v1",
+   "n": 60,
+   "samples": [
+    {
+     "_id": "frames_631",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Estadio_Jos%C3%A9_Mart%C3%ADn_Olaeta",
+      "https://en.wikipedia.org/wiki/1944_in_Argentina"
+     ],
+     "source_hashes": [
+      "89fa708bdd9e6fbb",
+      "210cb1a0a266e3ac"
+     ],
+     "bundle_hash": "1083fd5a9a7f909f",
+     "question_sha256": "cd9a42f8232122e66b92002d8417c36a144bd1025775551941905cb48facfc78",
+     "source_revision_ids": [
+      "1340625290",
+      "1353740927"
+     ]
+    },
+    {
+     "_id": "frames_490",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_Xena:_Warrior_Princess_episodes",
+      "https://en.wikipedia.org/wiki/Lucy_Lawless"
+     ],
+     "source_hashes": [
+      "2c918a6cab9d4868",
+      "a8451e6a07aa0473"
+     ],
+     "bundle_hash": "d07e5eeb6439bb0e",
+     "question_sha256": "5c73d4d2dea5c2763cc1d7c3cf05f1f58295b956de35266305a405ee00420f09",
+     "source_revision_ids": [
+      "1348897552",
+      "1359120734"
+     ]
+    },
+    {
+     "_id": "frames_559",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
+      "https://en.wikipedia.org/wiki/List_of_Billboard_200_number-one_albums_of_1999"
+     ],
+     "source_hashes": [
+      "72269c3f97d0af28",
+      "14ba934b61ed6b6a"
+     ],
+     "bundle_hash": "0301e6043626b7f2",
+     "question_sha256": "16a9a2231a58922f06ebe2eee734b0ffed339b3e82070421d3d6054f7a6d46c0",
+     "source_revision_ids": [
+      "1360121116",
+      "1236895384"
+     ]
+    },
+    {
+     "_id": "frames_256",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_supernova_remnants",
+      "https://en.wikipedia.org/wiki/Barque"
+     ],
+     "source_hashes": [
+      "ebc9175755fa6f12",
+      "f53f674587565533"
+     ],
+     "bundle_hash": "f4b3fa3d1207b833",
+     "question_sha256": "0d80d9fe6d94f72bb69d743e8f4ecf003e4c17bd74c0866ebbf58ede6c460785",
+     "source_revision_ids": [
+      "1358684010",
+      "1357934139"
+     ]
+    },
+    {
+     "_id": "frames_85",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Sword_of_the_Valiant",
+      "https://en.wikipedia.org/wiki/Stephen_Weeks"
+     ],
+     "source_hashes": [
+      "93034b3c4f5093d9",
+      "302c15538c1c28d0"
+     ],
+     "bundle_hash": "14419b587bce1bb5",
+     "question_sha256": "17652478cc2ab7a5a8534f84d93f8f6827bac7802b7d4f2222adbf963636adae",
+     "source_revision_ids": [
+      "1339275445",
+      "1186433392"
+     ]
+    },
+    {
+     "_id": "frames_597",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Interstate_94_in_Michigan",
+      "https://en.wikipedia.org/wiki/Ypsilanti,_Michigan"
+     ],
+     "source_hashes": [
+      "52291b0741a93f64",
+      "629d685a9c6c0d90"
+     ],
+     "bundle_hash": "535bc2ae28133f92",
+     "question_sha256": "dcae1eaa7a96fec7d415e186ac1a8552914e77b0be84c8393305f08022860b5d",
+     "source_revision_ids": [
+      "1360694666",
+      "1360254367"
+     ]
+    },
+    {
+     "_id": "frames_704",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Ashes",
+      "https://en.wikipedia.org/wiki/List_of_British_monarchs"
+     ],
+     "source_hashes": [
+      "e22adeca4726c26b",
+      "8adfbc89b794921b"
+     ],
+     "bundle_hash": "9085c3c6ec6d9a50",
+     "question_sha256": "98989198c9283efd103018c49a7fa8a7ef1b1252b0d86055ea74af1760c3302a",
+     "source_revision_ids": [
+      "1360463539",
+      "1359841930"
+     ]
+    },
+    {
+     "_id": "frames_361",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Tom_Thomson",
+      "https://en.wikipedia.org/wiki/Northern_River_(painting)"
+     ],
+     "source_hashes": [
+      "ea9c4c9856f1b13e",
+      "fb28acc3a0df8e65"
+     ],
+     "bundle_hash": "54a6a587dbaa5fbf",
+     "question_sha256": "e0a3d49ca18f860773f5feba6c7ab205316a518a459d04f90badc353cb4d90c7",
+     "source_revision_ids": [
+      "1357226881",
+      "1356070295"
+     ]
+    },
+    {
+     "_id": "frames_638",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Charles_III",
+      "https://en.wikipedia.org/wiki/Member_states_of_the_Commonwealth_of_Nations"
+     ],
+     "source_hashes": [
+      "b5f91e40fcdbbdff",
+      "84c8e0577c5dccab"
+     ],
+     "bundle_hash": "0780132aee9e922b",
+     "question_sha256": "a02db57d497bef9d283317227e9a10d09ea4c594bce542b0a917effc39c7e215",
+     "source_revision_ids": [
+      "1360406109",
+      "1360708421"
+     ]
+    },
+    {
+     "_id": "frames_390",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Cuban_Missile_Crisis",
+      "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number_ones_of_1962"
+     ],
+     "source_hashes": [
+      "22e69c80941e8985",
+      "dbe9ad9e9ada9f08"
+     ],
+     "bundle_hash": "64d328e552980f7a",
+     "question_sha256": "9f2e780ab4c9cb544b87bda4cdc235d9d640f34e27bf0957c845b03de2e7b9d5",
+     "source_revision_ids": [
+      "1359938333",
+      "1354719738"
+     ]
+    },
+    {
+     "_id": "frames_448",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Taylor_Swift_albums_discography",
+      "https://en.wikipedia.org/wiki/Katy_Perry_discography"
+     ],
+     "source_hashes": [
+      "c3acced43c4b0a4c",
+      "d566a1e9448908d4"
+     ],
+     "bundle_hash": "df52d0da42f50e79",
+     "question_sha256": "58f7221eef420df38c2699a5c8b379915ef62836f436866db47dc02d96aeb102",
+     "source_revision_ids": [
+      "1360366703",
+      "1360224165"
+     ]
+    },
+    {
+     "_id": "frames_578",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Walt_Disney_World",
+      "https://en.wikipedia.org/wiki/Remy%27s_Ratatouille_Adventure"
+     ],
+     "source_hashes": [
+      "e6bf73444a80d3b1",
+      "a4586b17bcd37898"
+     ],
+     "bundle_hash": "324826f990bcec1f",
+     "question_sha256": "a18c889af082098d4b9589e678f693af6b4b56ba6ef94d5dbe697e3ace90ebc9",
+     "source_revision_ids": [
+      "1359991177",
+      "1360631308"
+     ]
+    },
+    {
+     "_id": "frames_104",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Gunfight_at_the_O.K._Corral",
+      "https://en.wikipedia.org/wiki/The_Terminator"
+     ],
+     "source_hashes": [
+      "52b9f48f8a5d0cc8",
+      "b73a100183575f97"
+     ],
+     "bundle_hash": "b45393d49ac044d0",
+     "question_sha256": "1fff7ce4cb97a07d3a283f30ebb1cde4e40848545659f0a4cf07df85ccbf4c06",
+     "source_revision_ids": [
+      "1361037837",
+      "1360401844"
+     ]
+    },
+    {
+     "_id": "frames_397",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/2007_NHL_entry_draft",
+      "https://en.wikipedia.org/wiki/Patrick_Kane"
+     ],
+     "source_hashes": [
+      "72124b2faf9bb4b6",
+      "511c7fa0a74e5a9e"
+     ],
+     "bundle_hash": "65ba17fd06ca8646",
+     "question_sha256": "167e87145281dce2132d23108f4d7c3c71060ec52d5cd2dc75a392cfd5a7a4e7",
+     "source_revision_ids": [
+      "1348380127",
+      "1353652974"
+     ]
+    },
+    {
+     "_id": "frames_212",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Pop_Idol",
+      "https://en.wikipedia.org/wiki/Timeline_of_prime_ministers_of_Great_Britain_and_the_United_Kingdom"
+     ],
+     "source_hashes": [
+      "565bd807dff9775f",
+      "2002938d6c387e2e"
+     ],
+     "bundle_hash": "c220bce2a7c6736b",
+     "question_sha256": "e36dac12a512db2bec1084d19e2a909bff5cf86251de7aa28b58b380cbd18786",
+     "source_revision_ids": [
+      "1355337619",
+      "1360588875"
+     ]
+    },
+    {
+     "_id": "frames_642",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Michael_Jordan",
+      "https://en.wikipedia.org/wiki/Michael_B._Jordan"
+     ],
+     "source_hashes": [
+      "d74b41b291b1583b",
+      "9796e5da0a2e872b"
+     ],
+     "bundle_hash": "4b6c680d51df311e",
+     "question_sha256": "c713d58107df3b5ac721ce01957970fb4c0129d1bba5e3044de0503e3dda5e17",
+     "source_revision_ids": [
+      "1361062136",
+      "1360399206"
+     ]
+    },
+    {
+     "_id": "frames_146",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Boston_Marathon",
+      "https://en.wikipedia.org/wiki/Jacqueline_Gareau"
+     ],
+     "source_hashes": [
+      "aa18093af1f63d75",
+      "58c0f0880c112899"
+     ],
+     "bundle_hash": "9567821a834d457c",
+     "question_sha256": "c60967e67dd974c452992c1e080193602e5bbd5419bfc8625a594eb56ab07b17",
+     "source_revision_ids": [
+      "1357528361",
+      "1360861453"
+     ]
+    },
+    {
+     "_id": "frames_323",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/George_Howell_(entrepreneur)",
+      "https://en.wikipedia.org/wiki/Frappuccino"
+     ],
+     "source_hashes": [
+      "f98f2ca81d238068",
+      "57c94045698d824c"
+     ],
+     "bundle_hash": "0ad989772c717b64",
+     "question_sha256": "758f980ffd4ac82b57db5c86f81a0f5a923808121e9af535be9d52fd3d4eb259",
+     "source_revision_ids": [
+      "1342759839",
+      "1360238213"
+     ]
+    },
+    {
+     "_id": "frames_355",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Fourth_Wing",
+      "https://en.wikipedia.org/wiki/Iron_Flame"
+     ],
+     "source_hashes": [
+      "ca5d0fe6b0b1880b",
+      "873b0b4198aa5a06"
+     ],
+     "bundle_hash": "5d25535828d7b939",
+     "question_sha256": "6ebd58e30ff2d719df8d667e3bebfabb4b5f9e09db4fb921d1d5ef182ccccb99",
+     "source_revision_ids": [
+      "1359914044",
+      "1359879750"
+     ]
+    },
+    {
+     "_id": "frames_325",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Bury_North_(UK_Parliament_constituency)",
+      "https://en.wikipedia.org/wiki/Streatham_(UK_Parliament_constituency)"
+     ],
+     "source_hashes": [
+      "09875483333f6e92",
+      "39cc2743452ff66d"
+     ],
+     "bundle_hash": "9367a5eac095b4c1",
+     "question_sha256": "6ca22a4a1b24847ec54b60d8a5bf9e93038c52b0ee2d94ff29da7e659d5e5a38",
+     "source_revision_ids": [
+      "1347090866",
+      "1323474512"
+     ]
+    },
+    {
+     "_id": "frames_337",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Apriona_brunneomarginata",
+      "https://en.wikipedia.org/wiki/Stephan_von_Breuning_(entomologist)",
+      "https://en.wikipedia.org/wiki/Wolfgang_Hutter"
+     ],
+     "source_hashes": [
+      "9a8df054857bd2e2",
+      "a5c1e75667835c2f",
+      "f62a5eb43f7645b0"
+     ],
+     "bundle_hash": "6f549b964e90a04b",
+     "question_sha256": "eb3065d1b5d60cb31add08f31f3601d3c9007648f56f12fc2575a3c8d7e1f9bf",
+     "source_revision_ids": [
+      "1347015116",
+      "1349494356",
+      "1331564319"
+     ]
+    },
+    {
+     "_id": "frames_343",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_largest_cities_throughout_history",
+      "https://en.wikipedia.org/wiki/Edo",
+      "https://en.wikipedia.org/wiki/Tokyo"
+     ],
+     "source_hashes": [
+      "28a57a432fe3151a",
+      "34687c9de585285c",
+      "b789f46533538052"
+     ],
+     "bundle_hash": "6ba61142d31f8773",
+     "question_sha256": "2c63fdbbf37db82739ffa981cd409007c9d25c105e76b6353265d7d1c3c0ed4a",
+     "source_revision_ids": [
+      "1350831330",
+      "1357886420",
+      "1360366142"
+     ]
+    },
+    {
+     "_id": "frames_593",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Obie_Trice",
+      "https://en.wikipedia.org/wiki/The_Hangover",
+      "https://en.wikipedia.org/wiki/The_Hangover_Part_II"
+     ],
+     "source_hashes": [
+      "b87143a068defa4f",
+      "cac9e498ac69d053",
+      "ac9a98c05e1726b8"
+     ],
+     "bundle_hash": "f69f47b69a2f14d7",
+     "question_sha256": "540014e7ee81ad222654a624c658f2bed8e2cb9624cbc900b4bf13430e296ac6",
+     "source_revision_ids": [
+      "1360068198",
+      "1359823471",
+      "1359825360"
+     ]
+    },
+    {
+     "_id": "frames_789",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Family_Guy",
+      "https://en.wikipedia.org/wiki/Seth_MacFarlane",
+      "https://en.wikipedia.org/wiki/American_Airlines_Flight_11"
+     ],
+     "source_hashes": [
+      "b002e47df70d50d1",
+      "d14a35b0ce2db467",
+      "0c47e45c621ef342"
+     ],
+     "bundle_hash": "ed0ebbff011515f8",
+     "question_sha256": "b580ba4e7143b3630ba7837ea10f7c552e1584dd3d0ffeca1b70e629e8e6dc21",
+     "source_revision_ids": [
+      "1360753280",
+      "1359345145",
+      "1360267172"
+     ]
+    },
+    {
+     "_id": "frames_737",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Croix_de_guerre_1914%E2%80%931918_(France)",
+      "https://en.wikipedia.org/wiki/World_War_I",
+      "https://en.wikipedia.org/wiki/Albert_Bartholom%C3%A9"
+     ],
+     "source_hashes": [
+      "0c7ebfbcc8ab1ff2",
+      "266c5bcd0d30f034",
+      "de02742b4756abe1"
+     ],
+     "bundle_hash": "cb3d5deb51728c38",
+     "question_sha256": "2709c7af9148aeefcdece2aef674b60f898cb3424cc3401ecf2c0c0dbb036cd2",
+     "source_revision_ids": [
+      "1357099617",
+      "1358666330",
+      "1334135448"
+     ]
+    },
+    {
+     "_id": "frames_628",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Naruto_Shippuden_the_Movie:_The_Lost_Tower",
+      "https://en.wikipedia.org/wiki/Naruto_Uzumaki",
+      "https://en.wikipedia.org/wiki/Jiraiya_(Naruto)"
+     ],
+     "source_hashes": [
+      "efed8fc835326d78",
+      "3a57bd348d654978",
+      "b558cac544d66df7"
+     ],
+     "bundle_hash": "1e667a7132a9c35f",
+     "question_sha256": "a87d6b82bc369f7d5ee40d5d3daa4f5098248e6a58c198d6965e22adf45bf89b",
+     "source_revision_ids": [
+      "1345044804",
+      "1360159235",
+      "1354884822"
+     ]
+    },
+    {
+     "_id": "frames_300",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/1984_(Van_Halen_album)",
+      "https://en.wikipedia.org/wiki/1984_Summer_Olympics",
+      "https://en.wikipedia.org/wiki/Van_Halen_discography"
+     ],
+     "source_hashes": [
+      "bb6f1064dc1fb279",
+      "fb2591cd4477e3ff",
+      "b3f5ff8c33083917"
+     ],
+     "bundle_hash": "72c669d09a1aba53",
+     "question_sha256": "2305089f425f8a7c07693d51afdce0cb85328834012a9a4217dd2c53268f0031",
+     "source_revision_ids": [
+      "1360117800",
+      "1359936337",
+      "1351739481"
+     ]
+    },
+    {
+     "_id": "frames_478",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Fulton_surface-to-air_recovery_system",
+      "https://en.wikipedia.org/wiki/The_Dark_Knight",
+      "https://en.wikipedia.org/wiki/Heath_Ledger"
+     ],
+     "source_hashes": [
+      "b5bb5ecffc6ba72b",
+      "a178fbb58e95e132",
+      "de74219cf212b8e4"
+     ],
+     "bundle_hash": "15f885013ddcec5c",
+     "question_sha256": "ad23a929a4a9b747843f5beb83597b7cdde6b052af01c1a7f23fa6a5da6531e4",
+     "source_revision_ids": [
+      "1359521657",
+      "1360809140",
+      "1359561811"
+     ]
+    },
+    {
+     "_id": "frames_749",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/1984_Summer_Olympics_medal_table",
+      "https://en.wikipedia.org/wiki/Spain_at_the_1984_Summer_Olympics",
+      "https://en.wikipedia.org/wiki/Sailing_at_the_1984_Summer_Olympics_%E2%80%93_470"
+     ],
+     "source_hashes": [
+      "0eb0ff5d9bf7cfb9",
+      "d95f70271555593f",
+      "e4e548cfbfec3945"
+     ],
+     "bundle_hash": "bb933f99fe2d57ab",
+     "question_sha256": "8bad714821b9abe59f5bff6fa3a8d066cc0336ac34de847848aa416f917285cd",
+     "source_revision_ids": [
+      "1338512989",
+      "1357578683",
+      "1357303129"
+     ]
+    },
+    {
+     "_id": "frames_354",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States",
+      "https://en.wikipedia.org/wiki/Herbert_Hoover",
+      "https://en.wikipedia.org/wiki/Nuclear_weapon"
+     ],
+     "source_hashes": [
+      "82798b8048ffbb45",
+      "25e0553b400e5c79",
+      "ad36f363fad4f124"
+     ],
+     "bundle_hash": "a2b2f1f882b42a35",
+     "question_sha256": "322c8009875c5c1d8c67cb394836fa56722ce6a2e6fb7db6e90e2332b88f16b7",
+     "source_revision_ids": [
+      "1358132819",
+      "1359749542",
+      "1358026532"
+     ]
+    },
+    {
+     "_id": "frames_200",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/It%27s_Always_Sunny_in_Philadelphia",
+      "https://en.wikipedia.org/wiki/Danny_DeVito",
+      "https://en.wikipedia.org/wiki/List_of_awards_and_nominations_received_by_Danny_DeVito"
+     ],
+     "source_hashes": [
+      "d71c8c9b2a64e44d",
+      "01701d733e990003",
+      "2bdced8c70e7f78d"
+     ],
+     "bundle_hash": "1def54106f93913a",
+     "question_sha256": "c8084857fc434b3b574324fb711c4a8935e445802eaa8a32131cd0c68891956a",
+     "source_revision_ids": [
+      "1360723590",
+      "1361093893",
+      "1354555318"
+     ]
+    },
+    {
+     "_id": "frames_201",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Epcot",
+      "https://en.wikipedia.org/wiki/List_of_cities_in_Germany_by_population",
+      "https://en.wikipedia.org/wiki/Gold"
+     ],
+     "source_hashes": [
+      "fc1a2569521e2ca8",
+      "fef64545f91b2f4e",
+      "6b573a067243a1f0"
+     ],
+     "bundle_hash": "311fc5c7ddd6f845",
+     "question_sha256": "ec6aa634d97ed5a7345a6a99e148d29ba6d7ac5e7ea814858fada6e7a38150fe",
+     "source_revision_ids": [
+      "1358427333",
+      "1360613508",
+      "1358452804"
+     ]
+    },
+    {
+     "_id": "frames_686",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign",
+      "https://en.wikipedia.org/wiki/Hugh_Hefner",
+      "https://en.wikipedia.org/wiki/Minyong_Kim"
+     ],
+     "source_hashes": [
+      "88a198838b94eea1",
+      "658448a3fa7371ee",
+      "4047ee45d1957d43"
+     ],
+     "bundle_hash": "b9906c1f132eb574",
+     "question_sha256": "95b5fac20abb99384ee151c99cc4cfb421290a517b1a8d705b0d1b217165099b",
+     "source_revision_ids": [
+      "1359590049",
+      "1360553253",
+      "1343252586"
+     ]
+    },
+    {
+     "_id": "frames_215",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/George_Eliot",
+      "https://en.wikipedia.org/wiki/Middlemarch",
+      "https://en.wikipedia.org/wiki/Tertius_Zongo"
+     ],
+     "source_hashes": [
+      "a9bb87b76d34fb85",
+      "11ecaec85c90c24f",
+      "545d753b50a5ac5d"
+     ],
+     "bundle_hash": "5869ec6e33f20d33",
+     "question_sha256": "6e70d3edc086e8a5ef19b7c2e8d6decb97f611c50958e63125971a11f8cb7998",
+     "source_revision_ids": [
+      "1359126507",
+      "1359597773",
+      "1335970279"
+     ]
+    },
+    {
+     "_id": "frames_364",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Great_Orme",
+      "https://en.wikipedia.org/wiki/Llandudno",
+      "https://en.wikipedia.org/wiki/Llandudno,_Western_Cape"
+     ],
+     "source_hashes": [
+      "92073a5a339424da",
+      "ef923d7750461876",
+      "53ccdeb29db27ceb"
+     ],
+     "bundle_hash": "51f6fe76d91483ee",
+     "question_sha256": "64d9d162c848a2199470f25ae165edad90cfbdb5f50d5aee57b9d7d9c7ec186f",
+     "source_revision_ids": [
+      "1355663547",
+      "1353935143",
+      "1340764916"
+     ]
+    },
+    {
+     "_id": "frames_819",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Miasma_theory",
+      "https://en.wikipedia.org/wiki/John_Snow",
+      "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+     ],
+     "source_hashes": [
+      "db22886bd641dee6",
+      "e6fe442036ef6a63",
+      "46ae0a91fe0dd9c9"
+     ],
+     "bundle_hash": "87646e9537f88d41",
+     "question_sha256": "b297938f9ae038cfa02d776dc18b57ad62887dd288f25ea6340473da99333566",
+     "source_revision_ids": [
+      "1349879007",
+      "1358852016",
+      "1360508626"
+     ]
+    },
+    {
+     "_id": "frames_644",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/1989_(album)",
+      "https://en.wikipedia.org/wiki/Satoshi_Tajiri",
+      "https://en.wikipedia.org/wiki/Pok%C3%A9mon"
+     ],
+     "source_hashes": [
+      "0fc7d448f96931ad",
+      "ce9f56a20b01eb90",
+      "94427f0faa3298af"
+     ],
+     "bundle_hash": "30efb24dbdcb956d",
+     "question_sha256": "253d9de42e43f5b8238a7715b1a33571a575b3c9dc34e22d13e08ae0132e823f",
+     "source_revision_ids": [
+      "1360994267",
+      "1355088727",
+      "1358591276"
+     ]
+    },
+    {
+     "_id": "frames_322",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Pekhart",
+      "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.",
+      "https://en.wikipedia.org/wiki/Southampton_F.C."
+     ],
+     "source_hashes": [
+      "9a99de1d3b55019d",
+      "5700fd411d3bfc76",
+      "81d0b5cfa08d2abd"
+     ],
+     "bundle_hash": "f73d0ac98da4a2f4",
+     "question_sha256": "b23fea95660db4252e0d41e986831977b2b960cce8482229b5932342f461424e",
+     "source_revision_ids": [
+      "1356255771",
+      "1360925350",
+      "1359002842"
+     ]
+    },
+    {
+     "_id": "frames_486",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Appalachian_Trail",
+      "https://en.wikipedia.org/wiki/Grandma_Gatewood",
+      "https://en.wikipedia.org/wiki/Jennifer_Pharr_Davis"
+     ],
+     "source_hashes": [
+      "ab53e1079370bb5b",
+      "e97dfd321ed10f7a",
+      "6767f90e23624c58"
+     ],
+     "bundle_hash": "5960e14af8657c9b",
+     "question_sha256": "b9b31d74b934c35b1bb443fcb01731aacc23e40d0e9facfdd1fd268966f66d52",
+     "source_revision_ids": [
+      "1360491804",
+      "1316937185",
+      "1354355558"
+     ]
+    },
+    {
+     "_id": "frames_420",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Hagia_Sophia",
+      "https://en.wikipedia.org/wiki/Gli",
+      "https://en.wikipedia.org/wiki/Barack_Obama"
+     ],
+     "source_hashes": [
+      "86f3e8c6b4bb7cf4",
+      "d7305307fab7627d",
+      "b783c261e57ceece"
+     ],
+     "bundle_hash": "cae125f7c664e6fb",
+     "question_sha256": "3c3897e3389c3d0dfc2cf89e69f407f5cd1b02f484b4e97893b8449380f0396d",
+     "source_revision_ids": [
+      "1360867377",
+      "1355116172",
+      "1360866046"
+     ]
+    },
+    {
+     "_id": "frames_431",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/John_of_Lancaster,_Duke_of_Bedford",
+      "https://en.wikipedia.org/wiki/Fritz_Koenig",
+      "https://en.wikipedia.org/wiki/Edith_Windsor",
+      "https://en.wikipedia.org/wiki/Ulf_Merbold"
+     ],
+     "source_hashes": [
+      "0c9cddc036d6d42f",
+      "f44cebc2ffa98826",
+      "b2cf0a3ca9c3bfbe",
+      "ce6c61322fcc2374"
+     ],
+     "bundle_hash": "cbfd74a5b3a9ad37",
+     "question_sha256": "52081eeac8134102d4ca9a7d9b2e83ffd5549396914499a21de7fa1cd50837f0",
+     "source_revision_ids": [
+      "1360291039",
+      "1321926992",
+      "1360274329",
+      "1360291351"
+     ]
+    },
+    {
+     "_id": "frames_179",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/West_Quoddy_Head_Light",
+      "https://en.wikipedia.org/wiki/Cape_Sarichef_Light",
+      "https://en.wikipedia.org/wiki/Module:Location_map/data/USA_New_York_City",
+      "https://en.wikipedia.org/wiki/Prague"
+     ],
+     "source_hashes": [
+      "a78c2e6a2cbf0da7",
+      "eb4ac07d2948ba88",
+      "8574c1267054270f",
+      "2e0e09876c4b47d6"
+     ],
+     "bundle_hash": "6afb649be8e068e9",
+     "question_sha256": "e0d498578568c9584dbe718b7e1ede125805e5bed7c649a7f30f9867cb84683b",
+     "source_revision_ids": [
+      "1352837257",
+      "1303280724",
+      "829188881",
+      "1359581149"
+     ]
+    },
+    {
+     "_id": "frames_40",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Stratovolcano",
+      "https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD",
+      "https://en.wikipedia.org/wiki/Pompeii",
+      "https://en.wikipedia.org/wiki/World_Heritage_Committee"
+     ],
+     "source_hashes": [
+      "405e6d7e3d36cd52",
+      "73866d78a4f83f3d",
+      "b1389a699d35913a",
+      "17cece1712f1ecd1"
+     ],
+     "bundle_hash": "844020147b32830d",
+     "question_sha256": "69ecaae0aee09e9123b32ed567851be20214096dde45bbcecc9c1b8fbc855241",
+     "source_revision_ids": [
+      "1353365498",
+      "1360310392",
+      "1360837372",
+      "1343362006"
+     ]
+    },
+    {
+     "_id": "frames_259",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Joan_Didion",
+      "https://en.wikipedia.org/wiki/Play_It_as_It_Lays",
+      "https://en.wikipedia.org/wiki/Play_It_as_It_Lays_(film)",
+      "https://en.wikipedia.org/wiki/Frank_Perry",
+      "https://en.wikipedia.org/wiki/Katy_Perry",
+      "https://en.wikipedia.org/wiki/List_of_awards_and_nominations_received_by_Katy_Perry"
+     ],
+     "source_hashes": [
+      "fa08180119278a25",
+      "c034479da578b87f",
+      "08e8b1666ad5011b",
+      "90282bce71b4b961",
+      "6ec51074939fd8ad",
+      "613ad85c180d7911"
+     ],
+     "bundle_hash": "f4fbff71f879de62",
+     "question_sha256": "c049c84d1bbaccc5aa03372a7f676154630299121da251d6d0d10d3573d8975e",
+     "source_revision_ids": [
+      "1360407871",
+      "1358342063",
+      "1339648984",
+      "1358332083",
+      "1361069814",
+      "1354201791"
+     ]
+    },
+    {
+     "_id": "frames_109",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Canary_Islands",
+      "https://en.wikipedia.org/wiki/Tenerife",
+      "https://en.wikipedia.org/wiki/Fuerteventura",
+      "https://en.wikipedia.org/wiki/Gran_Canaria"
+     ],
+     "source_hashes": [
+      "ab869d476f88770f",
+      "a27a23a84a3b6470",
+      "00dd195a7c4433d1",
+      "169a3ecf165103dc"
+     ],
+     "bundle_hash": "8894d12129db6346",
+     "question_sha256": "8e9a08d838849f8784dc155b98461f4645b59f0a02a96edf46c823da37d7e24f",
+     "source_revision_ids": [
+      "1360624785",
+      "1360384471",
+      "1360076670",
+      "1347449615"
+     ]
+    },
+    {
+     "_id": "frames_741",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Marine_chronometer",
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States",
+      "https://en.wikipedia.org/wiki/Melville_Fuller",
+      "https://en.wikipedia.org/wiki/William_Henry_Harrison"
+     ],
+     "source_hashes": [
+      "00cad2dd5e1513f3",
+      "82798b8048ffbb45",
+      "16efa4735d1653fe",
+      "5a6deea31ba66031"
+     ],
+     "bundle_hash": "67e03932056bbd93",
+     "question_sha256": "563660e010054ed39970fb3c79f352ac93f0f414170c1d61f771806ef92732ec",
+     "source_revision_ids": [
+      "1347030045",
+      "1358132819",
+      "1357961819",
+      "1360465967"
+     ]
+    },
+    {
+     "_id": "frames_41",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Minardi_M194",
+      "https://en.wikipedia.org/wiki/Pierluigi_Martini",
+      "https://en.wikipedia.org/wiki/Giancarlo_Martini",
+      "https://en.wikipedia.org/wiki/List_of_cocktails"
+     ],
+     "source_hashes": [
+      "8464478dfed4b771",
+      "b4cbd640b98bb899",
+      "0172734707f5b948",
+      "7d9c226d7c6d9dbd"
+     ],
+     "bundle_hash": "7e2b96d4af47e393",
+     "question_sha256": "1e3d734de2b3b516d3d7aa41584aca3893ada1a539a3fdf78c10e7c6da8d20ce",
+     "source_revision_ids": [
+      "1322947832",
+      "1359912397",
+      "1359566179",
+      "1360540046"
+     ]
+    },
+    {
+     "_id": "frames_246",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Battle_of_Hastings",
+      "https://en.wikipedia.org/wiki/Guy_Fawkes",
+      "https://en.wikipedia.org/wiki/2012_Summer_Olympics_opening_ceremony",
+      "https://en.wikipedia.org/wiki/Henry_I_of_England",
+      "https://en.wikipedia.org/wiki/Battle_of_Naseby",
+      "https://en.wikipedia.org/wiki/Liz_Truss"
+     ],
+     "source_hashes": [
+      "d5dd7766da0e69d0",
+      "1deb726096b44dea",
+      "0a4cc43a052bef47",
+      "5d41c0d2938dc0ba",
+      "75d60d5a9a7f5705",
+      "4739c3be460c3db2"
+     ],
+     "bundle_hash": "ca0d8ee75bbdb76f",
+     "question_sha256": "fbc52c51d838f41abaa9af1eeb02950764eab5782e7d5bf7342d15127154d83a",
+     "source_revision_ids": [
+      "1357055273",
+      "1355017268",
+      "1360637791",
+      "1360556627",
+      "1356720131",
+      "1361055023"
+     ]
+    },
+    {
+     "_id": "frames_190",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Jonas_Brothers",
+      "https://en.wikipedia.org/wiki/Nick_Jonas",
+      "https://en.wikipedia.org/wiki/Joe_Jonas",
+      "https://en.wikipedia.org/wiki/Kevin_Jonas",
+      "https://en.wikipedia.org/wiki/Disneynature",
+      "https://en.wikipedia.org/wiki/Priyanka_Chopra"
+     ],
+     "source_hashes": [
+      "0776c946257f6f1f",
+      "a837f1ec475a7cf4",
+      "e5127f87f843b584",
+      "04211894bcefa1a5",
+      "bdcf2a01d789ccec",
+      "b73892b194656f58"
+     ],
+     "bundle_hash": "4e1086d2dfce1407",
+     "question_sha256": "5c27fd2a67ee5d2d3055916846cc143545879bb3c78314e01dd9eca37c8e87a3",
+     "source_revision_ids": [
+      "1356749496",
+      "1358725704",
+      "1355240005",
+      "1357376369",
+      "1359835440",
+      "1359660199"
+     ]
+    },
+    {
+     "_id": "frames_791",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Greg_Rusedski",
+      "https://en.wikipedia.org/wiki/Karol_Kučera",
+      "https://en.wikipedia.org/wiki/2003_US_Open_%E2%80%93_Men%27s_singles",
+      "https://en.wikipedia.org/wiki/Alexander_Popp"
+     ],
+     "source_hashes": [
+      "2d48dc8e84d8721a",
+      "b52bdf3c48abec77",
+      "053943866ac36b01",
+      "c5855aa4e23efa44"
+     ],
+     "bundle_hash": "a84dba45a361fec1",
+     "question_sha256": "64cf80e5d2f06da6c4600566f1255ee78fc947cbb1f51f8e7055f14ef608e64b",
+     "source_revision_ids": [
+      "1356017741",
+      "1344565617",
+      "1359060167",
+      "1353391247"
+     ]
+    },
+    {
+     "_id": "frames_6",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Zirconium",
+      "https://en.wikipedia.org/wiki/Martin_Heinrich_Klaproth",
+      "https://en.wikipedia.org/wiki/Uranium",
+      "https://en.wikipedia.org/wiki/Mendelevium",
+      "https://en.wikipedia.org/wiki/Periodic_table"
+     ],
+     "source_hashes": [
+      "5a6d5f7acbaa6bf7",
+      "66b77c32350cf196",
+      "494ac2e640397ff8",
+      "ce5d719e448b2aba",
+      "bd6145cc21a490bd"
+     ],
+     "bundle_hash": "f66f77491d4dd646",
+     "question_sha256": "96db27dfecb20840482f7f15d1a61717fc4c9a2602023a2fded515056335dec3",
+     "source_revision_ids": [
+      "1360601852",
+      "1340827708",
+      "1359425550",
+      "1338637367",
+      "1360487132"
+     ]
+    },
+    {
+     "_id": "frames_720",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Meryl_Streep",
+      "https://en.wikipedia.org/wiki/Kramer_vs._Kramer",
+      "https://en.wikipedia.org/wiki/Pioneer_11",
+      "https://en.wikipedia.org/wiki/The_Seduction_of_Joe_Tynan"
+     ],
+     "source_hashes": [
+      "7849031d44903abb",
+      "baf82b51b177a070",
+      "c714568a23cfdcbe",
+      "c2cb367e17ed7fa8"
+     ],
+     "bundle_hash": "f13b1c69d8543b00",
+     "question_sha256": "6de54161164302f7fe81f6af65c3474c9cda51702bd5de9b0a88f19ffb778dcb",
+     "source_revision_ids": [
+      "1360811981",
+      "1341195708",
+      "1356025476",
+      "1355963157"
+     ]
+    },
+    {
+     "_id": "frames_625",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Song_Remains_the_Same_(album)",
+      "https://en.wikipedia.org/wiki/Madison_Square_Garden",
+      "https://en.wikipedia.org/wiki/AC/DC_discography",
+      "https://en.wikipedia.org/wiki/If_You_Want_Blood_You%27ve_Got_It",
+      "https://en.wikipedia.org/wiki/The_Apollo,_Glasgow"
+     ],
+     "source_hashes": [
+      "37c661bb40acd6b1",
+      "4fbd8ec21fa433e6",
+      "f1db7c540da13bc0",
+      "eae0b52bced44d56",
+      "c8bd19ba827ab040"
+     ],
+     "bundle_hash": "c76d3f1561743c94",
+     "question_sha256": "59885e184077d40f87776337f05d728950ef442ec1940561e46dfa5958373142",
+     "source_revision_ids": [
+      "1355464769",
+      "1360775639",
+      "1360606713",
+      "1343841576",
+      "1329028676"
+     ]
+    },
+    {
+     "_id": "frames_184",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/2020–21_Bundesliga",
+      "https://en.wikipedia.org/wiki/Erling_Haaland",
+      "https://en.wikipedia.org/wiki/André_Silva_(footballer,_born_1995)",
+      "https://en.wikipedia.org/wiki/Robert_Lewandowski"
+     ],
+     "source_hashes": [
+      "115551692b5d3ab0",
+      "7cd17f03e94b4be4",
+      "7fff16eaf92213cd",
+      "8c2797f667d9abb5"
+     ],
+     "bundle_hash": "cdfa3baca33f0b14",
+     "question_sha256": "916cbed71834f6b7de17bd7f6893f91166643e05a6940c7aed828b5edcf7a448",
+     "source_revision_ids": [
+      "1358887216",
+      "1361046742",
+      "1359906518",
+      "1359248697"
+     ]
+    },
+    {
+     "_id": "frames_770",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Donahoe,_Texas",
+      "https://en.wikipedia.org/wiki/Bartlett_Independent_School_District",
+      "https://en.wikipedia.org/wiki/Bulldog",
+      "https://en.wikipedia.org/wiki/England"
+     ],
+     "source_hashes": [
+      "e0493d7a55edc928",
+      "a497a8bb88b69340",
+      "6d6512d23516a2a1",
+      "0290edee5409843c"
+     ],
+     "bundle_hash": "0bcec22d157ec314",
+     "question_sha256": "5afd4940708831a4f851d23a6210d131765ffaf88cbe4c8fa81672cf3fe7a3a2",
+     "source_revision_ids": [
+      "1303547070",
+      "1319748336",
+      "1361111041",
+      "1360096056"
+     ]
+    },
+    {
+     "_id": "frames_492",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Netflix",
+      "https://en.wikipedia.org/wiki/Marc_Randolph",
+      "https://en.wikipedia.org/wiki/One_Percent_for_the_Planet",
+      "https://en.wikipedia.org/wiki/Yvon_Chouinard"
+     ],
+     "source_hashes": [
+      "674ec2a2fb329efe",
+      "28118831bae80d49",
+      "a7bc73eccc016016",
+      "0f0417f4266a7790"
+     ],
+     "bundle_hash": "f634d5f6de1cb25f",
+     "question_sha256": "30912c379f638a2d95b031f8bb84ce9e89f7c39d4605828849211c68ee2a7ca8",
+     "source_revision_ids": [
+      "1360588087",
+      "1357426704",
+      "1357082651",
+      "1352051381"
+     ]
+    },
+    {
+     "_id": "frames_313",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States",
+      "https://en.wikipedia.org/wiki/John_Muir",
+      "https://en.wikipedia.org/wiki/Ulysses_S._Grant",
+      "https://en.wikipedia.org/wiki/Theodore_Roosevelt"
+     ],
+     "source_hashes": [
+      "e660c74beb9dcae5",
+      "dbba8ce1439fddb3",
+      "d03261f8be3adfc9",
+      "e09f20e1c5b58cfa"
+     ],
+     "bundle_hash": "003c5e6d0793989a",
+     "question_sha256": "6655f2127e34c221dbba19c4611c3c439d81426bac9e14ba06bcf3b0cd71e4a4",
+     "source_revision_ids": [
+      "1347797214",
+      "1360604254",
+      "1359878646",
+      "1361101419"
+     ]
+    },
+    {
+     "_id": "frames_87",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Lesticus_purpurascens",
+      "https://en.wikipedia.org/wiki/Stefano_Ludovico_Straneo",
+      "https://en.wikipedia.org/wiki/Pterostichinae",
+      "https://en.wikipedia.org/wiki/Franco_Andrea_Bonelli"
+     ],
+     "source_hashes": [
+      "7fe016b60aa69240",
+      "cc7f1483a9b05f7a",
+      "b4c6c8e0757265c1",
+      "3e213012ea78d109"
+     ],
+     "bundle_hash": "c4fb6d25ddb7bf0a",
+     "question_sha256": "01baecd225d0b4a90eee40ea21c1838ee8d20f31301f2d053c31a18f8267ba15",
+     "source_revision_ids": [
+      "1301797572",
+      "1356122079",
+      "1355336044",
+      "1354640470"
+     ]
+    },
+    {
+     "_id": "frames_694",
+     "n_sources": 7,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Eric_Jubb",
+      "https://en.wikipedia.org/wiki/Swimming_at_the_1948_Summer_Olympics_%E2%80%93_Men%27s_100_metre_freestyle",
+      "https://en.wikipedia.org/wiki/Sachin_Nag",
+      "https://en.wikipedia.org/wiki/Ali_Mustafa_Baghdady",
+      "https://en.wikipedia.org/wiki/Warren_Boyd_(swimmer)",
+      "https://en.wikipedia.org/wiki/Alberto_Isaac",
+      "https://en.wikipedia.org/wiki/G%C3%A9za_K%C3%A1das"
+     ],
+     "source_hashes": [
+      "fd44958f230604df",
+      "a5054e8d902fa708",
+      "cb97ee9d56c72195",
+      "b08613b04f5a0412",
+      "939091bd4db61f66",
+      "b9b3dc9430c8b562",
+      "003b5b66d16ba0ba"
+     ],
+     "bundle_hash": "768fe3f1e5b7577f",
+     "question_sha256": "c1910c115e6cd76c42e8734a1b194d2072d6acd0c17a7b41e3a65988abb29360",
+     "source_revision_ids": [
+      "1327560782",
+      "1360841123",
+      "1359258193",
+      "1351623757",
+      "1251185377",
+      "1360813279",
+      "1329525500"
+     ]
+    },
+    {
+     "_id": "frames_776",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Jane_Austen",
+      "https://en.wikipedia.org/wiki/Pride_and_Prejudice",
+      "https://en.wikipedia.org/wiki/Pride_%26_Prejudice_(2005_film)",
+      "https://en.wikipedia.org/wiki/Joe_Wright"
+     ],
+     "source_hashes": [
+      "b75e1f953a973d96",
+      "c7813969eed95983",
+      "983a4df2ba132089",
+      "6d66335835e2bed1"
+     ],
+     "bundle_hash": "61a60d46baa94478",
+     "question_sha256": "5071f0fcb46743459676d5f85489b3c33fcab0b888ea38ae53a167225426b58b",
+     "source_revision_ids": [
+      "1360461979",
+      "1361069802",
+      "1360432749",
+      "1355543614"
+     ]
+    }
+   ]
+  },
+  "test": {
+   "split_file": "k96_frames_test.jsonl",
+   "split_file_sha256": "e4c2b03fbf5f61bc6c0f03ef169fa60cda2340a3f2c48c945e8a74beb13eb045",
+   "selector_version": "k96.freeze-split.v1",
+   "n": 120,
+   "samples": [
+    {
+     "_id": "frames_188",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Haribomo",
+      "https://en.wikipedia.org/wiki/Mali"
+     ],
+     "source_hashes": [
+      "dcbaf24810cba155",
+      "696afe2c08880489"
+     ],
+     "bundle_hash": "1532f912749ec283",
+     "question_sha256": "d675a7fd96a1369ae9a64a0c7188050b1b95e65d3f176129bc0a732ac5088770",
+     "source_revision_ids": [
+      "1234038425",
+      "1361084168"
+     ]
+    },
+    {
+     "_id": "frames_347",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Field_hockey_at_the_Pan_American_Games",
+      "https://en.wikipedia.org/wiki/Field_hockey_at_the_Summer_Olympics"
+     ],
+     "source_hashes": [
+      "aefe6b4ac18cc280",
+      "899db56bfb6a4259"
+     ],
+     "bundle_hash": "baa7b053522c77f8",
+     "question_sha256": "afbfc50477c1c9af2b9ab165b80189141a02461cf68e65c711ee0dd243c89e99",
+     "source_revision_ids": [
+      "1360200525",
+      "1361095970"
+     ]
+    },
+    {
+     "_id": "frames_154",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Pablo_Picasso",
+      "https://en.wikipedia.org/wiki/The_Dark_Side_of_the_Moon"
+     ],
+     "source_hashes": [
+      "959fc73abecb6d1e",
+      "0bd728c63f637c3b"
+     ],
+     "bundle_hash": "fd6b0cb6b1a8ff6f",
+     "question_sha256": "633c7fda452f755de552e71e4fb5c30e2a6b1f41a0ab7fa0551e2b7360247f86",
+     "source_revision_ids": [
+      "1360887279",
+      "1360518484"
+     ]
+    },
+    {
+     "_id": "frames_622",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Assassination_of_John_F._Kennedy",
+      "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"
+     ],
+     "source_hashes": [
+      "b59714a6d0929324",
+      "d62a7124ee408201"
+     ],
+     "bundle_hash": "f3ce069910b9e8d3",
+     "question_sha256": "5f690057d9606721b2cb7dca8e459a8567f08e7d2fe39329667b9b228fca21c5",
+     "source_revision_ids": [
+      "1360743497",
+      "1360494643"
+     ]
+    },
+    {
+     "_id": "frames_376",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Great_blue_turaco",
+      "https://en.wikipedia.org/wiki/Louis_Pierre_Vieillot"
+     ],
+     "source_hashes": [
+      "39ab397833362dd3",
+      "0b6cb0014620befc"
+     ],
+     "bundle_hash": "354a3ebe36b6e21f",
+     "question_sha256": "85e00e83f0cd1679cb4140a331fe7c992d94891fd4bd6dd3036c2a8d43280f8f",
+     "source_revision_ids": [
+      "1357346142",
+      "1342795529"
+     ]
+    },
+    {
+     "_id": "frames_809",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Shizuoka_Prefecture",
+      "https://en.wikipedia.org/wiki/Yoshinobu_Ishikawa"
+     ],
+     "source_hashes": [
+      "ffa106228b4684ee",
+      "4d3bbd7a5dee43c6"
+     ],
+     "bundle_hash": "dd84ad11d401f1f2",
+     "question_sha256": "e05a7f37ea582c435bb1e67fb8664edc671c3a8b65f7f416a16f1603b77037b4",
+     "source_revision_ids": [
+      "1340285259",
+      "1349745420"
+     ]
+    },
+    {
+     "_id": "frames_470",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Grand_Slam_(tennis)",
+      "https://en.wikipedia.org/wiki/Tennis_at_the_1988_Summer_Olympics_%E2%80%93_Women%27s_singles"
+     ],
+     "source_hashes": [
+      "83437dafd531161c",
+      "1df5c6ee9e82ff5d"
+     ],
+     "bundle_hash": "1302c4412954ac54",
+     "question_sha256": "771e245c9041bbf2d785b47f4f208d33350524c99dbbbac359df31b4f6375274",
+     "source_revision_ids": [
+      "1358604085",
+      "1339297694"
+     ]
+    },
+    {
+     "_id": "frames_463",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Akira_Toriyama",
+      "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Diamond_and_Pearl"
+     ],
+     "source_hashes": [
+      "c0bb07057c54dbc9",
+      "09477a64863131aa"
+     ],
+     "bundle_hash": "47faac2b3ef166d7",
+     "question_sha256": "7c61318662698d04aa40fa4ff473c9977bc1034fa6be74f7c4497476d07c1391",
+     "source_revision_ids": [
+      "1360252640",
+      "1352991954"
+     ]
+    },
+    {
+     "_id": "frames_681",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Maastricht_Treaty",
+      "https://en.wikipedia.org/wiki/Netherlands"
+     ],
+     "source_hashes": [
+      "8f4bf80e7420b25d",
+      "2b7b555b84978c3b"
+     ],
+     "bundle_hash": "3dac72ed102b4768",
+     "question_sha256": "01bb97a1052d88710c1139dc93e8765ff9cbb80076211c8c2bc2e1630bb62e6c",
+     "source_revision_ids": [
+      "1360900516",
+      "1360825251"
+     ]
+    },
+    {
+     "_id": "frames_469",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/South_Korea_at_the_2006_Winter_Olympics",
+      "https://en.wikipedia.org/wiki/South_Korea_at_the_2002_Winter_Olympics"
+     ],
+     "source_hashes": [
+      "16865a8b4500ecbc",
+      "5b4331df8537fb7c"
+     ],
+     "bundle_hash": "7be6fba81df3fd60",
+     "question_sha256": "6c8cf6283cac25e46d33d0818e10a58a08d80879471ff791fcc1e723f34bfcac",
+     "source_revision_ids": [
+      "1342123510",
+      "1338977790"
+     ]
+    },
+    {
+     "_id": "frames_170",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Niland_brothers",
+      "https://en.wikipedia.org/wiki/Saving_Private_Ryan"
+     ],
+     "source_hashes": [
+      "346d43f05f812e38",
+      "89a771604c8416a5"
+     ],
+     "bundle_hash": "c6838e2a3fe9e3da",
+     "question_sha256": "152934d70fbe31da94c81c4f559e1ce607a2d978a86bebda572c64f0a2b8fb59",
+     "source_revision_ids": [
+      "1328180162",
+      "1360934999"
+     ]
+    },
+    {
+     "_id": "frames_796",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Falklands_War",
+      "https://en.wikipedia.org/wiki/1982_FIFA_World_Cup"
+     ],
+     "source_hashes": [
+      "515e241a87e241b6",
+      "4a2e7569af4d2073"
+     ],
+     "bundle_hash": "faef7c496e361be9",
+     "question_sha256": "ed179452669747ba298bd0902e2a6e07fd9caa9fb4f85dd2f4e8e1def525fe2d",
+     "source_revision_ids": [
+      "1361065554",
+      "1361070054"
+     ]
+    },
+    {
+     "_id": "frames_216",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Mountain_Cheese_Olympics",
+      "https://en.wikipedia.org/wiki/Appenzell_District"
+     ],
+     "source_hashes": [
+      "e1e26ed6c5972df0",
+      "eae1d1f23e2bd096"
+     ],
+     "bundle_hash": "e53c9c300f8d7fc7",
+     "question_sha256": "e25e537c23573dc6eb0b185fc1f549ed9b4196ac80789d5d6da6b8bd6e4d12e9",
+     "source_revision_ids": [
+      "1300647761",
+      "1317032968"
+     ]
+    },
+    {
+     "_id": "frames_584",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/John_Wall_(philosopher)",
+      "https://en.wikipedia.org/wiki/1965_Leeds_City_Council_election"
+     ],
+     "source_hashes": [
+      "685e96cc170baf8a",
+      "816a43bdfc54d9bb"
+     ],
+     "bundle_hash": "1777e28d78235735",
+     "question_sha256": "e80131c100bdf1c125053fc7fd37a25d2dbbda69f2e58fb08a81dc42f039d571",
+     "source_revision_ids": [
+      "1318058076",
+      "1316641819"
+     ]
+    },
+    {
+     "_id": "frames_665",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Beatles_discography",
+      "https://en.wikipedia.org/wiki/George_Harrison"
+     ],
+     "source_hashes": [
+      "c1d557005fb38fa5",
+      "10651d1815df7513"
+     ],
+     "bundle_hash": "da5a64e8439b8cf7",
+     "question_sha256": "9414a262ca8f42923a6cd2363094a624daa1efa5abaadabc73fccba369536d67",
+     "source_revision_ids": [
+      "1361088043",
+      "1358647707"
+     ]
+    },
+    {
+     "_id": "frames_574",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/SS_Edmund_Fitzgerald",
+      "https://en.wikipedia.org/wiki/Edmund_Fitzgerald_(disambiguation)"
+     ],
+     "source_hashes": [
+      "03ae869640907938",
+      "ee90fa1f8a9fdfd3"
+     ],
+     "bundle_hash": "080e6683e1e461b6",
+     "question_sha256": "dcb490068b649f7201fa1eb2dd3508ebde2b8e00ad4a12cc1972a9441ed1684e",
+     "source_revision_ids": [
+      "1361073441",
+      "1319934352"
+     ]
+    },
+    {
+     "_id": "frames_805",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Tate_McRae",
+      "https://en.wikipedia.org/wiki/So_You_Think_You_Can_Dance:_The_Next_Generation_(American_TV_series)"
+     ],
+     "source_hashes": [
+      "c4757ad330652aab",
+      "305322ef63ec3fab"
+     ],
+     "bundle_hash": "c09e4b1c7f94f3d2",
+     "question_sha256": "e15b83dc77221a1893a115fb8a6dc42216b3099822f5a8b07d77dec6ed601163",
+     "source_revision_ids": [
+      "1361051387",
+      "1360144595"
+     ]
+    },
+    {
+     "_id": "frames_279",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Dragon_Ball",
+      "https://en.wikipedia.org/wiki/Akira_Toriyama"
+     ],
+     "source_hashes": [
+      "96f91bae8c4ff482",
+      "c0bb07057c54dbc9"
+     ],
+     "bundle_hash": "cd0ea48fadf0ee3f",
+     "question_sha256": "95c9b40af3fb46abd2c70ea8c4c40f5863e54747ee1ac367a8ccf25ac4723bda",
+     "source_revision_ids": [
+      "1358839011",
+      "1360252640"
+     ]
+    },
+    {
+     "_id": "frames_83",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Philadelphia",
+      "https://en.wikipedia.org/wiki/List_of_ONS_built-up_areas_in_England_by_population"
+     ],
+     "source_hashes": [
+      "e2a93719c4ca3c48",
+      "0ce8feb3ed4df9a8"
+     ],
+     "bundle_hash": "5f2c4f309d622dce",
+     "question_sha256": "7f032f14c856364f6c8c9aba92419ddff1fd4c0b442997561897dd7fd231d8d3",
+     "source_revision_ids": [
+      "1360338393",
+      "1358731809"
+     ]
+    },
+    {
+     "_id": "frames_509",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Maritsa_Iztok_Complex",
+      "https://en.wikipedia.org/wiki/Bulgaria"
+     ],
+     "source_hashes": [
+      "38848d4e60393365",
+      "9f99ca028ca134b9"
+     ],
+     "bundle_hash": "28641d71d36f2c5d",
+     "question_sha256": "e94be33b266be3b16dfcb65ea4f9a0ea50f446a68951eaa8127cc03033037abf",
+     "source_revision_ids": [
+      "1339827197",
+      "1360841119"
+     ]
+    },
+    {
+     "_id": "frames_773",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Milo%C5%A1_Beleslin",
+      "https://en.wikipedia.org/wiki/%C5%BDAK_Subotica"
+     ],
+     "source_hashes": [
+      "684eab701b9f05ea",
+      "5032f2afa9bc8bdd"
+     ],
+     "bundle_hash": "0b38654321ba8b3c",
+     "question_sha256": "021d3fefb78d905f4cbb4f7e959f804f9245b4153f3721ada1c1edb0250a2e15",
+     "source_revision_ids": [
+      "1248708930",
+      "1336010933"
+     ]
+    },
+    {
+     "_id": "frames_588",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Mette_Solli",
+      "https://en.wikipedia.org/wiki/Molde"
+     ],
+     "source_hashes": [
+      "8b5c5342f1d8cebc",
+      "7d89978be672991c"
+     ],
+     "bundle_hash": "318921d2dc6232dc",
+     "question_sha256": "15d06485c49b36b8eb7d8efd6e2cf132fbd370e50af62cb96c3c1c3b8c175225",
+     "source_revision_ids": [
+      "1340520871",
+      "1348616999"
+     ]
+    },
+    {
+     "_id": "frames_135",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Sens%C5%8D-ji",
+      "https://en.wikipedia.org/wiki/Avalokite%C5%9Bvara"
+     ],
+     "source_hashes": [
+      "34a048d6860321a9",
+      "6a78a570e106baae"
+     ],
+     "bundle_hash": "29bd93a612d22bae",
+     "question_sha256": "b4d8ad35f425c951e832b726cf2f9a5df3fa776aeb4f2524c0a7cc7488f5c39c",
+     "source_revision_ids": [
+      "1353599057",
+      "1354820181"
+     ]
+    },
+    {
+     "_id": "frames_114",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Mona_Lisa",
+      "https://en.wikipedia.org/wiki/Serj_Tankian"
+     ],
+     "source_hashes": [
+      "e35aa4351e74df0f",
+      "0b478a9cd40f88b8"
+     ],
+     "bundle_hash": "8ade5509c0b72c6c",
+     "question_sha256": "dd32a3ab5f2fe4459eed2a1a6d28b707198bd365098cbb2bd3f212071b0f755f",
+     "source_revision_ids": [
+      "1361009727",
+      "1360464185"
+     ]
+    },
+    {
+     "_id": "frames_569",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Cam_Plante",
+      "https://en.wikipedia.org/wiki/1984%E2%80%9385_NHL_season"
+     ],
+     "source_hashes": [
+      "d4bcc4ac2c478843",
+      "70e8509b9068cca3"
+     ],
+     "bundle_hash": "d2e7f5698f2d71c8",
+     "question_sha256": "ae151fcb4876583141a71fb64b80ff1f82d60bd26cc8bf3072fb848389b0b5e5",
+     "source_revision_ids": [
+      "1353834650",
+      "1324439632"
+     ]
+    },
+    {
+     "_id": "frames_287",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Cold_Blow_and_the_Rainy_Night_(song)",
+      "https://en.wikipedia.org/wiki/A_Folk_Song_A_Day"
+     ],
+     "source_hashes": [
+      "0a0c8bacceb9487a",
+      "4956bf3a20e5c0d8"
+     ],
+     "bundle_hash": "64fe15f8bc4f6bd6",
+     "question_sha256": "edc63d78b2781d448248070cbfe0282877862b7f847551cca69b5553fd40d97a",
+     "source_revision_ids": [
+      "1223361745",
+      "1249190692"
+     ]
+    },
+    {
+     "_id": "frames_382",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Justin_Trudeau",
+      "https://en.wikipedia.org/wiki/List_of_prime_ministers_of_France"
+     ],
+     "source_hashes": [
+      "35792ac8d9b9d862",
+      "6a07718b8d90b10e"
+     ],
+     "bundle_hash": "181ccedb3dcff1f9",
+     "question_sha256": "5096d72e7e852d7f0102fcde684b773a6fe7b84fe016aededb0c719bbcf66c0f",
+     "source_revision_ids": [
+      "1360381253",
+      "1361082759"
+     ]
+    },
+    {
+     "_id": "frames_743",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Morgan_Rielly",
+      "https://en.wikipedia.org/wiki/Toronto_Maple_Leafs"
+     ],
+     "source_hashes": [
+      "e2fd522e130d6240",
+      "d05d4774b5aa99c5"
+     ],
+     "bundle_hash": "8e820545fa8b00c7",
+     "question_sha256": "3e84307d02e9f39e0e236ffef36bfea5ef7391754078ebe8e07814695691bcc5",
+     "source_revision_ids": [
+      "1359905555",
+      "1361036448"
+     ]
+    },
+    {
+     "_id": "frames_183",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_tallest_buildings_and_structures",
+      "https://en.wikipedia.org/wiki/Burj_Khalifa"
+     ],
+     "source_hashes": [
+      "8325612b34009b31",
+      "8511026b3ea2b614"
+     ],
+     "bundle_hash": "46f00787a6a47f22",
+     "question_sha256": "04bef4d73f6e9e1826d806438f7f5858cfbf11694bd32420af6950f9fd19cba7",
+     "source_revision_ids": [
+      "1357713768",
+      "1357004604"
+     ]
+    },
+    {
+     "_id": "frames_335",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Queen_(band)",
+      "https://en.wikipedia.org/wiki/Smile_(band)"
+     ],
+     "source_hashes": [
+      "33fc7d6b683bd7f8",
+      "d466dd39966f1a2f"
+     ],
+     "bundle_hash": "2fe5abaaebfd3884",
+     "question_sha256": "a5974e6f49309de52ba249eb6cfea962fa0cc20985df6dd2faf2b271ff170328",
+     "source_revision_ids": [
+      "1360479244",
+      "1352509535"
+     ]
+    },
+    {
+     "_id": "frames_424",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States",
+      "https://en.wikipedia.org/wiki/Daniel_D._Tompkins"
+     ],
+     "source_hashes": [
+      "82798b8048ffbb45",
+      "6b6661cf7ab41b1c"
+     ],
+     "bundle_hash": "9feff4740e5d9444",
+     "question_sha256": "1e7c2ffa30a3822397fad207b6a0348f801aba20e1b08305003653e2c0ca2633",
+     "source_revision_ids": [
+      "1358132819",
+      "1353636179"
+     ]
+    },
+    {
+     "_id": "frames_592",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Yellowstone_National_Park",
+      "https://en.wikipedia.org/wiki/List_of_extreme_temperatures_in_Canada"
+     ],
+     "source_hashes": [
+      "35721d144ce639b9",
+      "d0084fba77cd1ff4"
+     ],
+     "bundle_hash": "6aa3383025716940",
+     "question_sha256": "d0b5d43e8726d603e8ffdfc43483d429880bdab6dc500c7ce1ab683bc387b2dd",
+     "source_revision_ids": [
+      "1361004484",
+      "1360996284"
+     ]
+    },
+    {
+     "_id": "frames_64",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Eggstock_(Uri_Alps)",
+      "https://en.wikipedia.org/wiki/Eggstock_(Schwyzer_Alps)"
+     ],
+     "source_hashes": [
+      "7e870398c587c893",
+      "c85f5c9d2f92b20c"
+     ],
+     "bundle_hash": "2fb5859ab9b5c7f7",
+     "question_sha256": "6029cca77e137fd20d700d67029527b36c4252f59ed0dadff87366d606403241",
+     "source_revision_ids": [
+      "1355423848",
+      "1355658196"
+     ]
+    },
+    {
+     "_id": "frames_426",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Roche_Tower",
+      "https://en.wikipedia.org/wiki/Herzog_%26_de_Meuron"
+     ],
+     "source_hashes": [
+      "f5ca25d5908df971",
+      "4601f1bb66f92043"
+     ],
+     "bundle_hash": "741d0c4bec714919",
+     "question_sha256": "8f0d6557d8c84f8b38631b600cdba54d10ebd01a4e524f84a23ada7963646eb8",
+     "source_revision_ids": [
+      "1345057064",
+      "1359992318"
+     ]
+    },
+    {
+     "_id": "frames_511",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Beyonc%C3%A9",
+      "https://en.wikipedia.org/wiki/Taylor_Swift"
+     ],
+     "source_hashes": [
+      "4deee06e7076f06d",
+      "6cc2ff66286f55a7"
+     ],
+     "bundle_hash": "16b52477d0b08a81",
+     "question_sha256": "9981c0524ae2fd21ac43034a972b860bf771c4ee9bf2e18627f2caf974cf35d6",
+     "source_revision_ids": [
+      "1360385718",
+      "1361104110"
+     ]
+    },
+    {
+     "_id": "frames_112",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Fred_McLeod_(rugby_union)",
+      "https://en.wikipedia.org/wiki/University_of_Edinburgh"
+     ],
+     "source_hashes": [
+      "b1991d8c8a4034bd",
+      "e2abc777393dfc02"
+     ],
+     "bundle_hash": "e3be7d9cd57bb08d",
+     "question_sha256": "ff417dd9770dad23d078b38b6f451a77de23c7af9ad11d91d0a736bf085b52d3",
+     "source_revision_ids": [
+      "1355266608",
+      "1360744610"
+     ]
+    },
+    {
+     "_id": "frames_762",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Jamal_Murray",
+      "https://en.wikipedia.org/wiki/2021_NBA_draft"
+     ],
+     "source_hashes": [
+      "fa41d131eb5c4ad2",
+      "74cca69deb5652a4"
+     ],
+     "bundle_hash": "de8f4c8695364d9c",
+     "question_sha256": "ad99a671079849a9d82023bbd4e8bd7c14c5974d185e3f3d8fd0cb253451b830",
+     "source_revision_ids": [
+      "1360899605",
+      "1360880965"
+     ]
+    },
+    {
+     "_id": "frames_643",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Cillian_Murphy",
+      "https://en.wikipedia.org/wiki/University_College_Cork"
+     ],
+     "source_hashes": [
+      "38ea7a0155381b36",
+      "9017efbcf1263e39"
+     ],
+     "bundle_hash": "a2eacdf455f48654",
+     "question_sha256": "ff0e7d9a55720610cc4290d35a9d80c93d196d8a790ee61d88865af19f833ce4",
+     "source_revision_ids": [
+      "1356773929",
+      "1359589499"
+     ]
+    },
+    {
+     "_id": "frames_607",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Walt_Disney_Imagineering",
+      "https://en.wikipedia.org/wiki/Glendale_Galleria"
+     ],
+     "source_hashes": [
+      "12abedb04b88074b",
+      "4a2c2420b0eb5645"
+     ],
+     "bundle_hash": "730f0b6053822b1f",
+     "question_sha256": "1a8197bea26464f63bbf5e78529cb6990bb672de2a52cf092ba62a5421d50613",
+     "source_revision_ids": [
+      "1359668043",
+      "1360667539"
+     ]
+    },
+    {
+     "_id": "frames_379",
+     "n_sources": 2,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Treaty_of_Resht",
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States"
+     ],
+     "source_hashes": [
+      "1b6d75d5685d3c3b",
+      "82798b8048ffbb45"
+     ],
+     "bundle_hash": "497834004cd8c008",
+     "question_sha256": "4f63bc0b25021d480178a2e3b35929ac8ce9d8d7ed65f7a72b442499b608c834",
+     "source_revision_ids": [
+      "1357092985",
+      "1358132819"
+     ]
+    },
+    {
+     "_id": "frames_346",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Foster_(short_story)",
+      "https://en.wikipedia.org/wiki/Claire_Keegan",
+      "https://en.wikipedia.org/wiki/County_Wicklow"
+     ],
+     "source_hashes": [
+      "1bc48261a12ed65f",
+      "45f333fc57a1fc5b",
+      "ddcf4be1819a3da0"
+     ],
+     "bundle_hash": "f7d134cbc01fefd1",
+     "question_sha256": "111202bc78b3d08943fff5dc59b0fcc6c3fea7dbfe01d50336af499446b14b86",
+     "source_revision_ids": [
+      "1330102360",
+      "1347641134",
+      "1360207686"
+     ]
+    },
+    {
+     "_id": "frames_26",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Blue_moon",
+      "https://en.wikipedia.org/wiki/World_War_I",
+      "https://en.wikipedia.org/wiki/World_War_II"
+     ],
+     "source_hashes": [
+      "32c5086cf5539274",
+      "266c5bcd0d30f034",
+      "0a0ff3ab2f8fda75"
+     ],
+     "bundle_hash": "6284e64ac3ba1720",
+     "question_sha256": "5d91d3c2a993e15188b855fda87250b00acaec8748430ae91f17285aad3dd4a1",
+     "source_revision_ids": [
+      "1359702153",
+      "1358666330",
+      "1361091757"
+     ]
+    },
+    {
+     "_id": "frames_715",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Conquest_of_Bread",
+      "https://en.wikipedia.org/wiki/Peter_Kropotkin",
+      "https://en.wikipedia.org/wiki/Mutual_Aid:_A_Factor_of_Evolution"
+     ],
+     "source_hashes": [
+      "1ba7a25b0afcefcd",
+      "61673303609066ad",
+      "9b206b58b33abc34"
+     ],
+     "bundle_hash": "a02e26bd2d255563",
+     "question_sha256": "e0838663d0eb6f12b1f3209a2ab18cf75a6647ff0515e3eb677235e7beb1fd98",
+     "source_revision_ids": [
+      "1357558183",
+      "1360570329",
+      "1350454699"
+     ]
+    },
+    {
+     "_id": "frames_677",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Archibald_Sinclair,_1st_Viscount_Thurso",
+      "https://en.wikipedia.org/wiki/Ethel_Sands",
+      "https://en.wikipedia.org/wiki/Anna_Hope_Hudson"
+     ],
+     "source_hashes": [
+      "27b2d3c6902481a5",
+      "a4aa87b0b659d431",
+      "c96159eff575ee67"
+     ],
+     "bundle_hash": "0e7437a492899a25",
+     "question_sha256": "e645fab9a9c13f118fe340eb35cac042ef85d1ab14f8774e20b7ecb89ebc7b62",
+     "source_revision_ids": [
+      "1347886491",
+      "1360727707",
+      "1278590737"
+     ]
+    },
+    {
+     "_id": "frames_107",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/U.S._national_banks_of_Hawaii",
+      "https://en.wikipedia.org/wiki/Charles_Reed_Bishop",
+      "https://en.wikipedia.org/wiki/First_Hawaiian_Bank"
+     ],
+     "source_hashes": [
+      "7ce8c355e3b66c65",
+      "620d802fc29d4aa4",
+      "56069debb17e99c3"
+     ],
+     "bundle_hash": "01f756c336988236",
+     "question_sha256": "f7120142d3bf24bd386b5e4f3426fb99d018d89f18134e96fc2cb8bae0eca5e2",
+     "source_revision_ids": [
+      "1336215785",
+      "1359931604",
+      "1359438058"
+     ]
+    },
+    {
+     "_id": "frames_306",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Jordan_Luck",
+      "https://en.wikipedia.org/wiki/The_Exponents",
+      "https://en.wikipedia.org/wiki/Amplifier_(Dance_Exponents_album)"
+     ],
+     "source_hashes": [
+      "62ffb470d6c2039b",
+      "df355607b9feacd5",
+      "27f70b3107257e3e"
+     ],
+     "bundle_hash": "51d4e9941febf060",
+     "question_sha256": "af9e645ef35f0fcb65aa5852baa8bbe6d2aa6384c13d0f18d829ab8cb5a556eb",
+     "source_revision_ids": [
+      "1279864874",
+      "1343347251",
+      "1220844644"
+     ]
+    },
+    {
+     "_id": "frames_69",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Rakel_Hiltunen",
+      "https://en.wikipedia.org/wiki/Parliament_of_Finland",
+      "https://en.wikipedia.org/wiki/Social_Democratic_Party_of_Finland"
+     ],
+     "source_hashes": [
+      "0f6f902a984bcb8b",
+      "9e6911822c1ba264",
+      "05dbbf876e30fe20"
+     ],
+     "bundle_hash": "546b6bd13bac28d6",
+     "question_sha256": "f519ee739e9f55f815f838d2ffd9e934efaa0365fa192ae1ae096d08172c214f",
+     "source_revision_ids": [
+      "1355866598",
+      "1360884832",
+      "1355088544"
+     ]
+    },
+    {
+     "_id": "frames_356",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Danon_The_Kid",
+      "https://en.wikipedia.org/wiki/Hanshin_Racecourse",
+      "https://en.wikipedia.org/wiki/Takarazuka,_Hy%C5%8Dgo"
+     ],
+     "source_hashes": [
+      "d2619078522a6d10",
+      "3b4fd4ea6014f8ef",
+      "2aaee28d8dc04939"
+     ],
+     "bundle_hash": "9a274e1d2371c067",
+     "question_sha256": "d0cee1411279dc7a0cda4789b2bbfbdcf1c7fa3599fa59f05cb6da4a19ddc4e6",
+     "source_revision_ids": [
+      "1337059731",
+      "1360227157",
+      "1353675808"
+     ]
+    },
+    {
+     "_id": "frames_531",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Florida_Atlantic_Owls_men%27s_basketball",
+      "https://en.wikipedia.org/wiki/American_Athletic_Conference_Men%27s_Basketball_Player_of_the_Year",
+      "https://en.wikipedia.org/wiki/Johnell_Davis"
+     ],
+     "source_hashes": [
+      "3926e3f6d4425bae",
+      "c305865f4e2028fb",
+      "be822d28cf4729e6"
+     ],
+     "bundle_hash": "ef3ba321b9c185de",
+     "question_sha256": "f3ac91d759ecfe6c2d7c96de658de1a428025a4061a9464358a175069028f302",
+     "source_revision_ids": [
+      "1352681039",
+      "1343482154",
+      "1333101786"
+     ]
+    },
+    {
+     "_id": "frames_455",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Galileo%27s_middle_finger",
+      "https://en.wikipedia.org/wiki/Laurentian_Library",
+      "https://en.wikipedia.org/wiki/Literary_and_Philosophical_Society_of_Newcastle_upon_Tyne"
+     ],
+     "source_hashes": [
+      "4952cf23a6701adb",
+      "a3fcce6a8cbbd914",
+      "a525d3e778c1fdda"
+     ],
+     "bundle_hash": "c95a7b5e3ca76855",
+     "question_sha256": "b339a154f049a72a50adc0c8071fbadcb450742f3fe3895c9e1e3630ee2fad6f",
+     "source_revision_ids": [
+      "1359075035",
+      "1351396789",
+      "1316895966"
+     ]
+    },
+    {
+     "_id": "frames_134",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Mariah_Carey",
+      "https://en.wikipedia.org/wiki/1969",
+      "https://en.wikipedia.org/wiki/Apollo_9"
+     ],
+     "source_hashes": [
+      "5fbadec0f2d391b9",
+      "73d8f03d3da8da19",
+      "9a77dbd939e3ec24"
+     ],
+     "bundle_hash": "353b3972e624c1c1",
+     "question_sha256": "8f6f1421d477f78cbc412b68572770877939b596ff5480f27d1fee785d1d7c92",
+     "source_revision_ids": [
+      "1361090888",
+      "1360108372",
+      "1355494772"
+     ]
+    },
+    {
+     "_id": "frames_235",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Procellariiformes",
+      "https://en.wikipedia.org/wiki/Aaron_Dessner",
+      "https://en.wikipedia.org/wiki/The_Tortured_Poets_Department"
+     ],
+     "source_hashes": [
+      "d8a5d1d57cc3652f",
+      "dc34921c7d7f8aa4",
+      "63429139093dc4b9"
+     ],
+     "bundle_hash": "8c00a4b6e9bb5715",
+     "question_sha256": "0942e4b4612b9fcac26780dab08173388f11084375914fbaf147b4094eeb441e",
+     "source_revision_ids": [
+      "1360770487",
+      "1357279408",
+      "1361000026"
+     ]
+    },
+    {
+     "_id": "frames_562",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Unified_Team_at_the_Olympics",
+      "https://en.wikipedia.org/wiki/Soviet_Union",
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_Russia"
+     ],
+     "source_hashes": [
+      "17c9acc21606745f",
+      "7506dfd5f96310d8",
+      "ba99320c1c1646f0"
+     ],
+     "bundle_hash": "ac278597c16d1ef2",
+     "question_sha256": "a478fb314aec24c7e772ec512c809e19a5e89f51d59c104277a8152a16d8459b",
+     "source_revision_ids": [
+      "1357577787",
+      "1361040271",
+      "1349379616"
+     ]
+    },
+    {
+     "_id": "frames_263",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/2023_Tour_de_France",
+      "https://en.wikipedia.org/wiki/Bilbao",
+      "https://en.wikipedia.org/wiki/Diego_L%C3%B3pez_V_de_Haro"
+     ],
+     "source_hashes": [
+      "39849652baafef67",
+      "a9bf35b6e3edbb31",
+      "68e8b3af42fc96c4"
+     ],
+     "bundle_hash": "bb50979dd1f2d0f5",
+     "question_sha256": "ab7ab503018bfffb642ca0a191aca21b602760164a05e7a81bfe2e84528a7029",
+     "source_revision_ids": [
+      "1304408275",
+      "1359827172",
+      "1358193815"
+     ]
+    },
+    {
+     "_id": "frames_453",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Summer_Triangle",
+      "https://en.wikipedia.org/wiki/Sagitta",
+      "https://en.wikipedia.org/wiki/Vulpecula"
+     ],
+     "source_hashes": [
+      "965ec98266ccf180",
+      "b6300a68d82ee173",
+      "97cd3822f653e331"
+     ],
+     "bundle_hash": "a3e61847f813a402",
+     "question_sha256": "99c203eca4dd1f1b2fb2ad0af5ac7802a213149d518674a98f7cd7d471de8d41",
+     "source_revision_ids": [
+      "1331883179",
+      "1347622001",
+      "1352308448"
+     ]
+    },
+    {
+     "_id": "frames_10",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Janet_Cumbrae_Stewart",
+      "https://en.wikipedia.org/wiki/Melbourne_Society_of_Women_Painters_and_Sculptors",
+      "https://en.wikipedia.org/wiki/Dora_Wilson"
+     ],
+     "source_hashes": [
+      "78fc507e2412ab1a",
+      "09d68bfcfc8821a1",
+      "bcbda210055a7e15"
+     ],
+     "bundle_hash": "6948c495ca5b4ae9",
+     "question_sha256": "4d17448836805d98e6577fd9b096ce479450715d049317446e59d7009667e246",
+     "source_revision_ids": [
+      "1343569979",
+      "1360233682",
+      "1327747554"
+     ]
+    },
+    {
+     "_id": "frames_728",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/University_of_Oxford",
+      "https://en.wikipedia.org/wiki/Stephen_Hawking",
+      "https://en.wikipedia.org/wiki/Albert_Einstein_Medal"
+     ],
+     "source_hashes": [
+      "b2c1bc5b4b7c54b3",
+      "9d11ea23eacc2c2e",
+      "d885ec864e773d47"
+     ],
+     "bundle_hash": "816ed75e6d082727",
+     "question_sha256": "a56e4ee1075d900c2a31c621de7d013451bbdb8d09cef737b9c2311404b619fd",
+     "source_revision_ids": [
+      "1359906319",
+      "1360693611",
+      "1302995382"
+     ]
+    },
+    {
+     "_id": "frames_28",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/William_M._Ray_II",
+      "https://en.wikipedia.org/wiki/Barack_Obama",
+      "https://en.wikipedia.org/wiki/Regions_of_France"
+     ],
+     "source_hashes": [
+      "cb1aad8ad32b4d70",
+      "b783c261e57ceece",
+      "02ce1ff395dc1677"
+     ],
+     "bundle_hash": "bc6fabedef3cacf8",
+     "question_sha256": "1bc9bd5b66b92557bb70f7c8121b0c52cebd5303d616b2190e9c5fc87bece2b6",
+     "source_revision_ids": [
+      "1358718080",
+      "1360866046",
+      "1357052919"
+     ]
+    },
+    {
+     "_id": "frames_554",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_U.S._states_by_date_of_admission_to_the_Union",
+      "https://en.wikipedia.org/wiki/Alaska",
+      "https://en.wikipedia.org/wiki/Juneau,_Alaska"
+     ],
+     "source_hashes": [
+      "21b3a91b9f685e69",
+      "589dfd23355ae416",
+      "79147ffc2b684148"
+     ],
+     "bundle_hash": "369500a54e8dde42",
+     "question_sha256": "c16f600e0c5b1ebe97bf176c84aea49d356c2fb9da32eb1ccfaec959be4d37b9",
+     "source_revision_ids": [
+      "1358876253",
+      "1360936911",
+      "1360693420"
+     ]
+    },
+    {
+     "_id": "frames_561",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Gilmore_Girls",
+      "https://en.wikipedia.org/wiki/Yale_University",
+      "https://en.wikipedia.org/wiki/Boola_Boola"
+     ],
+     "source_hashes": [
+      "954c1e57ca28765a",
+      "1136735989ef575e",
+      "a928c299fc967ce6"
+     ],
+     "bundle_hash": "6aedc0dd634976ac",
+     "question_sha256": "1704760273e426fd6682e42bc9a674d6d327cf878691fd4bb8e3673e2e1ca100",
+     "source_revision_ids": [
+      "1359750540",
+      "1359953586",
+      "1296135356"
+     ]
+    },
+    {
+     "_id": "frames_111",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Stephen_Etnier",
+      "https://en.wikipedia.org/wiki/The_Moon_and_Sixpence",
+      "https://en.wikipedia.org/wiki/USS_Mizpah"
+     ],
+     "source_hashes": [
+      "8a8bfa1dae1cdf1d",
+      "323ce9ab619e6edf",
+      "5b7b85f5bce36030"
+     ],
+     "bundle_hash": "4429db29b1e1ab04",
+     "question_sha256": "a65b76ba4a369a9102c38c754563f865f83675b8054cc01e2e01860abab11fde",
+     "source_revision_ids": [
+      "1288299174",
+      "1354738991",
+      "1346467233"
+     ]
+    },
+    {
+     "_id": "frames_23",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Chikhali,_Latur_district",
+      "https://en.wikipedia.org/wiki/Panchayati_raj",
+      "https://en.wikipedia.org/wiki/Mahatma_Gandhi"
+     ],
+     "source_hashes": [
+      "9de47d4822cd608a",
+      "783b6dd68c72be00",
+      "a9b79b16312f08cd"
+     ],
+     "bundle_hash": "85caa25eefcef19d",
+     "question_sha256": "baa9000186c150d7bb0ce6a05ae7636a72ba01cc77b81f374e461647eabe3395",
+     "source_revision_ids": [
+      "1125976686",
+      "1351325812",
+      "1360596431"
+     ]
+    },
+    {
+     "_id": "frames_221",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/York_city_walls",
+      "https://en.wikipedia.org/wiki/Great_North_Run",
+      "https://en.wikipedia.org/wiki/Half_marathon"
+     ],
+     "source_hashes": [
+      "05b70b6c8bf274d9",
+      "2cc8d164bbcf0960",
+      "8427080597079ab0"
+     ],
+     "bundle_hash": "aa24d75c5e5f39f1",
+     "question_sha256": "f32bc668094730a207a8ce3d5e05c79e24c7db5314aae33c1dca34bd33d0c744",
+     "source_revision_ids": [
+      "1360479733",
+      "1354434758",
+      "1360882928"
+     ]
+    },
+    {
+     "_id": "frames_722",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Rathmullan",
+      "https://en.wikipedia.org/wiki/Flight_of_the_Earls",
+      "https://en.wikipedia.org/wiki/Charles_Patrick_Meehan"
+     ],
+     "source_hashes": [
+      "2d56129abc37ee2b",
+      "71f12238b05d14c8",
+      "a4b89d8b569e3b3e"
+     ],
+     "bundle_hash": "cae81e99f4aefc2f",
+     "question_sha256": "2196b2874632184357a6c8c9f56dd1bebdd021a7186fb3632c9056c533ae9b91",
+     "source_revision_ids": [
+      "1324261734",
+      "1360495515",
+      "1343529370"
+     ]
+    },
+    {
+     "_id": "frames_690",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Office",
+      "https://en.wikipedia.org/wiki/Steve_Carell",
+      "https://en.wikipedia.org/wiki/IF_(film)"
+     ],
+     "source_hashes": [
+      "fbf16226f2fcbdc9",
+      "727e56b659e23313",
+      "207632974b0de2f5"
+     ],
+     "bundle_hash": "d856fa5804f5dfc7",
+     "question_sha256": "f00547eb61ff97f99f1e9438b160530484d8e1f1b14a806852f72037a6d0c800",
+     "source_revision_ids": [
+      "1358992220",
+      "1360755511",
+      "1360110277"
+     ]
+    },
+    {
+     "_id": "frames_594",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Lose_Your_Way_(album)",
+      "https://en.wikipedia.org/wiki/Bath,_Somerset",
+      "https://en.wikipedia.org/wiki/Sally_Lunn_bun"
+     ],
+     "source_hashes": [
+      "6b6bfdde90b169bc",
+      "0867d95b69bb4512",
+      "1fd8ad198827db65"
+     ],
+     "bundle_hash": "3ca3a9ca8599f840",
+     "question_sha256": "f2ba7bb79e2b4beae796eb9bf4c5358ee2b40bca55d70a63123529156523f4ed",
+     "source_revision_ids": [
+      "1328562983",
+      "1358091912",
+      "1346838468"
+     ]
+    },
+    {
+     "_id": "frames_508",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_Game_of_the_Year_awards",
+      "https://en.wikipedia.org/wiki/GoldenEye_007_(1997_video_game)",
+      "https://en.wikipedia.org/wiki/D.I.C.E._Award_for_Game_of_the_Year"
+     ],
+     "source_hashes": [
+      "409b575fc09d195d",
+      "6f07b33cd45512d6",
+      "c1fa71f15be087e8"
+     ],
+     "bundle_hash": "61277d4a10f87c71",
+     "question_sha256": "0d62c0b0acf9ee8b7125e6d449d694866f96c3b6f133f4f2fa3a6a84b3346a29",
+     "source_revision_ids": [
+      "1356503945",
+      "1359263232",
+      "1356510911"
+     ]
+    },
+    {
+     "_id": "frames_19",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/United_States_federal_executive_departments",
+      "https://en.wikipedia.org/wiki/United_States_Secretary_of_Homeland_Security",
+      "https://en.wikipedia.org/wiki/Tom_Ridge"
+     ],
+     "source_hashes": [
+      "692e406308ae04b5",
+      "14c138580f1557a0",
+      "b5893b64376e4f71"
+     ],
+     "bundle_hash": "7d6f29053b7bb68c",
+     "question_sha256": "a3ee03793857302dfc345705002e364761e02b1abb9c07db2f338b62574ce594",
+     "source_revision_ids": [
+      "1350435166",
+      "1357173600",
+      "1357669794"
+     ]
+    },
+    {
+     "_id": "frames_573",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Monteiro-Mor_Palace",
+      "https://en.wikipedia.org/wiki/Lumiar",
+      "https://en.wikipedia.org/wiki/Hospital_Pulido_Valente"
+     ],
+     "source_hashes": [
+      "36c1ca6c95971faf",
+      "18ee77a0218e78c9",
+      "937f135ed546d3ff"
+     ],
+     "bundle_hash": "887c135f6f6dac92",
+     "question_sha256": "fdfb9ae483f6e096ecff599f6b4d72a82efb3e3de63caf2b3d98c5b574aa7583",
+     "source_revision_ids": [
+      "1360491235",
+      "1356367990",
+      "1344802348"
+     ]
+    },
+    {
+     "_id": "frames_753",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Ottawa",
+      "https://en.wikipedia.org/wiki/Justice_Building",
+      "https://en.wikipedia.org/wiki/Thomas_W._Fuller"
+     ],
+     "source_hashes": [
+      "0f0e01562ecdda2e",
+      "07f5d0b82be1ffdf",
+      "c77fe2e595d90b1d"
+     ],
+     "bundle_hash": "5d16040b66b99b3b",
+     "question_sha256": "03601ceecca52fb334498f6568b8d3b01bd75988265b8dcc8728a93318c01e8a",
+     "source_revision_ids": [
+      "1361059517",
+      "1341804212",
+      "1341167487"
+     ]
+    },
+    {
+     "_id": "frames_687",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Kalkbrenner",
+      "https://en.wikipedia.org/wiki/Lime_kiln",
+      "https://en.wikipedia.org/wiki/Calcium_oxide"
+     ],
+     "source_hashes": [
+      "dc1ef50ae122e48d",
+      "0be6cd943399d31f",
+      "d19307d610b09671"
+     ],
+     "bundle_hash": "7dd1a2081a5bda97",
+     "question_sha256": "c61d14b18240b6c036d68a2c22b5bbfd3b5890acacb0281006c873ddf221842b",
+     "source_revision_ids": [
+      "1303409761",
+      "1346541720",
+      "1360277321"
+     ]
+    },
+    {
+     "_id": "frames_388",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Call_Me_Maybe",
+      "https://en.wikipedia.org/wiki/List_of_Billboard_number-one_country_songs_of_2012",
+      "https://en.wikipedia.org/wiki/Reality_(Kenny_Chesney_song)"
+     ],
+     "source_hashes": [
+      "c477a2e85cf08c3e",
+      "651b112e34ac9e4d",
+      "e93ca06b40c9d182"
+     ],
+     "bundle_hash": "e36fa002a256063d",
+     "question_sha256": "333f918c2a50231822919266940f2a17590bc0ad51b42b798ff6fa0ce37e5d67",
+     "source_revision_ids": [
+      "1360745667",
+      "1340505025",
+      "1353312632"
+     ]
+    },
+    {
+     "_id": "frames_213",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Diving_duck",
+      "https://en.wikipedia.org/wiki/Prairie_Pothole_Region",
+      "https://en.wikipedia.org/wiki/Canvasback"
+     ],
+     "source_hashes": [
+      "d75dcf4ce13af36c",
+      "5ead5af9e26609d1",
+      "a2c85517913984fd"
+     ],
+     "bundle_hash": "7bf52ff32ccff27f",
+     "question_sha256": "8416adc29d5aa8d5fe8f898484a8a74efd904e5313a8a9c67c449c90eb2ad406",
+     "source_revision_ids": [
+      "1354909377",
+      "1322373075",
+      "1356837041"
+     ]
+    },
+    {
+     "_id": "frames_669",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Lebua_at_State_Tower",
+      "https://en.wikipedia.org/wiki/List_of_Volkswagen_vehicles",
+      "https://en.wikipedia.org/wiki/Volkswagen_Scirocco"
+     ],
+     "source_hashes": [
+      "79c16b3e84f9d780",
+      "902efb2e2b1f3895",
+      "82a282d4547d1658"
+     ],
+     "bundle_hash": "5b674b712472be1e",
+     "question_sha256": "1496806e8e085b9a192dad45f273a1c34bfc9e5909c052a985f077b2b1b328e4",
+     "source_revision_ids": [
+      "1344552638",
+      "1360728303",
+      "1353063194"
+     ]
+    },
+    {
+     "_id": "frames_459",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/David_Fincher",
+      "https://en.wikipedia.org/wiki/Aardvark",
+      "https://en.wikipedia.org/wiki/Puppy_teething"
+     ],
+     "source_hashes": [
+      "93c08570c0f6d746",
+      "c0df4ef24fbd16ad",
+      "7930dcda88a8c50b"
+     ],
+     "bundle_hash": "0ed3660e0bc578ab",
+     "question_sha256": "738c3c12c9801bd49648a2e64855644d0d4508dec7970ba17322f48f4208d6c2",
+     "source_revision_ids": [
+      "1361062937",
+      "1360221515",
+      "1292406099"
+     ]
+    },
+    {
+     "_id": "frames_384",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_airports_in_the_Greater_Houston_Area",
+      "https://en.wikipedia.org/wiki/Lists_of_airports",
+      "https://en.wikipedia.org/wiki/List_of_airports_by_IATA_airport_code:_L"
+     ],
+     "source_hashes": [
+      "3c78a1a806ccc5bf",
+      "926cf4b4ecf3ee54",
+      "db167ab8ef561d49"
+     ],
+     "bundle_hash": "40c6e6de51ce9e8e",
+     "question_sha256": "dd71800bc6332e1190cc6e05414f953b0aa3db7dc5e1404bed50b6c2bf08f338",
+     "source_revision_ids": [
+      "1278561808",
+      "1335087645",
+      "1334380704"
+     ]
+    },
+    {
+     "_id": "frames_723",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Slush_Puppie",
+      "https://en.wikipedia.org/wiki/Hushpuppy",
+      "https://en.wikipedia.org/wiki/Moxostoma"
+     ],
+     "source_hashes": [
+      "81359d9214324585",
+      "17c539cef237d036",
+      "2f7089bad821504f"
+     ],
+     "bundle_hash": "64bea79b67638f1d",
+     "question_sha256": "5bd4a44403162d3878ad1cb704f4cc183bc2946523bd1dacf931028dc15d07ac",
+     "source_revision_ids": [
+      "1360326993",
+      "1354391862",
+      "1357477072"
+     ]
+    },
+    {
+     "_id": "frames_563",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Priest_(1994_film)",
+      "https://en.wikipedia.org/wiki/Linus_Roache",
+      "https://en.wikipedia.org/wiki/The_Wings_of_the_Dove_(1997_film)"
+     ],
+     "source_hashes": [
+      "8ba6b5fd06c44082",
+      "f50475a33f6a9a22",
+      "fc50904a356ae77c"
+     ],
+     "bundle_hash": "b183510f755bf816",
+     "question_sha256": "d3a0be55c8bc116085af7d1fda0b4638abf0a099b331af601c5cbc2457416adc",
+     "source_revision_ids": [
+      "1352330850",
+      "1351090925",
+      "1339249979"
+     ]
+    },
+    {
+     "_id": "frames_389",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Sydney_Peace_Prize",
+      "https://en.wikipedia.org/wiki/Noam_Chomsky",
+      "https://en.wikipedia.org/wiki/Nim_Chimpsky"
+     ],
+     "source_hashes": [
+      "026df014964642bc",
+      "7f11a6ca305dcef2",
+      "e30ac9f6dbbf919e"
+     ],
+     "bundle_hash": "f166e3a9f412b33c",
+     "question_sha256": "7bbc739b5fba58aff7e77c5eb05ad215682b3ab840a7330867e3b76f4744c4be",
+     "source_revision_ids": [
+      "1353153097",
+      "1361048686",
+      "1350548001"
+     ]
+    },
+    {
+     "_id": "frames_547",
+     "n_sources": 3,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Triple_Crown_of_Thoroughbred_Racing_(United_States)",
+      "https://en.wikipedia.org/wiki/Triple_Crown_(baseball)",
+      "https://en.wikipedia.org/wiki/Franklin_D._Roosevelt"
+     ],
+     "source_hashes": [
+      "bbe3f60847378e1d",
+      "589e5ca4a782ba5a",
+      "29a7b6af20b57ac9"
+     ],
+     "bundle_hash": "cd7ae8b7a18778a5",
+     "question_sha256": "272fb33fd7f214eba3c3e8bd1b45df87c082832f7b4868a6e9a88d6a9ef103d6",
+     "source_revision_ids": [
+      "1358606593",
+      "1360058624",
+      "1360543840"
+     ]
+    },
+    {
+     "_id": "frames_275",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Brihadisvara_Temple",
+      "https://en.wikipedia.org/wiki/Rajaraja_I",
+      "https://en.wikipedia.org/wiki/Kundavai_Pir%C4%81ttiy%C4%81r",
+      "https://en.wikipedia.org/wiki/Bana_Kingdom"
+     ],
+     "source_hashes": [
+      "f36be2a22de8854a",
+      "6c00c3e145bcdebf",
+      "bce0024ca6879ccf",
+      "546a442953477bff"
+     ],
+     "bundle_hash": "31bb0506c2a19980",
+     "question_sha256": "a6398ab1286dce18b1edc71ffbc0f4c5b41c63a1ce99ce6c4b709ae0c30f4b6c",
+     "source_revision_ids": [
+      "1357370840",
+      "1360205524",
+      "1343265224",
+      "1359955148"
+     ]
+    },
+    {
+     "_id": "frames_542",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Navy_%E2%80%93_Merchant_Marine_Memorial",
+      "https://en.wikipedia.org/wiki/Columbia_Island_(Washington,_D.C.)",
+      "https://en.wikipedia.org/wiki/Uniformed_services_of_the_United_States",
+      "https://en.wikipedia.org/wiki/World_War_II"
+     ],
+     "source_hashes": [
+      "0ca23ee8f4175778",
+      "1c28bbe1ffd30d68",
+      "322f7c2f9a26ad95",
+      "0a0ff3ab2f8fda75"
+     ],
+     "bundle_hash": "2b41ddfbf43ef299",
+     "question_sha256": "725c4195642431285426c5e947febb6f91a9dd55df0654751d104dbbeaea2570",
+     "source_revision_ids": [
+      "1327519350",
+      "1356112702",
+      "1353460787",
+      "1361091757"
+     ]
+    },
+    {
+     "_id": "frames_558",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/The_Dragonfly_Sea",
+      "https://en.wikipedia.org/wiki/Alfred_A._Knopf",
+      "https://en.wikipedia.org/wiki/Alfred_A._Knopf_Sr.",
+      "https://en.wikipedia.org/wiki/Columbia_University"
+     ],
+     "source_hashes": [
+      "f391e576facf580a",
+      "4ab191b0d9439cbd",
+      "f92e2bc55e8a8d88",
+      "8654448d2320207e"
+     ],
+     "bundle_hash": "960b2cc90321dff2",
+     "question_sha256": "1bee1df258f9674279141db1d01ea98257cef988d7280d753b5d59f3f70ffce6",
+     "source_revision_ids": [
+      "1350853022",
+      "1360756467",
+      "1340157482",
+      "1360987901"
+     ]
+    },
+    {
+     "_id": "frames_438",
+     "n_sources": 7,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Sport_climbing_at_the_Summer_Olympics",
+      "https://en.wikipedia.org/wiki/Alberto_Gin%C3%A9s_L%C3%B3pez",
+      "https://en.wikipedia.org/wiki/Nathaniel_Coleman",
+      "https://en.wikipedia.org/wiki/Jakob_Schubert",
+      "https://en.wikipedia.org/wiki/Janja_Garnbret",
+      "https://en.wikipedia.org/wiki/Miho_Nonaka",
+      "https://en.wikipedia.org/wiki/Akiyo_Noguchi"
+     ],
+     "source_hashes": [
+      "dc0bbb47d388cbfd",
+      "6d76cb30ae5cbe1f",
+      "bc6fe304029831fb",
+      "a15f3dd03dc65254",
+      "e4da0c1cdcb1c6ca",
+      "675991b945bba8c6",
+      "43086ad6fb307322"
+     ],
+     "bundle_hash": "998c268fd2c8c9af",
+     "question_sha256": "690682ef2babd9612eba219d06f98105e06bf71e7ef10f78c1637f3a6f8f0098",
+     "source_revision_ids": [
+      "1338367717",
+      "1345525837",
+      "1306516988",
+      "1360516464",
+      "1360491339",
+      "1332872596",
+      "1331713776"
+     ]
+    },
+    {
+     "_id": "frames_465",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Empire_State_Building",
+      "https://en.wikipedia.org/wiki/Shreve,_Lamb_%26_Harmon",
+      "https://en.wikipedia.org/wiki/Richmond_Shreve",
+      "https://en.wikipedia.org/wiki/William_F._Lamb"
+     ],
+     "source_hashes": [
+      "0908e35bf607cffc",
+      "be3d46b101ecbd8f",
+      "f8dd902ea131d67a",
+      "b70ae677f15f0a02"
+     ],
+     "bundle_hash": "39e88fc319747a00",
+     "question_sha256": "5c70bac52c0986358e173cf950cd8d0f48a40efca577e8b210dfdf2d569ad31e",
+     "source_revision_ids": [
+      "1359535988",
+      "1302004446",
+      "1342483179",
+      "1356459631"
+     ]
+    },
+    {
+     "_id": "frames_166",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Vampire_Weekend",
+      "https://en.wikipedia.org/wiki/Ezra_Koenig",
+      "https://en.wikipedia.org/wiki/Chris_Baio",
+      "https://en.wikipedia.org/wiki/Chris_Tomson",
+      "https://en.wikipedia.org/wiki/Astrological_sign"
+     ],
+     "source_hashes": [
+      "f059fccd9166179e",
+      "864cadeedb4830e2",
+      "a8dc3a0ff54f9a48",
+      "8cae8d76c3fceb44",
+      "7a5e23551099bf5a"
+     ],
+     "bundle_hash": "af345ce6a9772c7d",
+     "question_sha256": "ac2a1d3f8051f76d9578b640027e3ea5ff694ffd2905ccb8db43932bed345fe4",
+     "source_revision_ids": [
+      "1350618510",
+      "1354725104",
+      "1346496292",
+      "1353586030",
+      "1356013497"
+     ]
+    },
+    {
+     "_id": "frames_241",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Actor_in_a_Motion_Picture_%E2%80%93_Drama",
+      "https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Screenplay",
+      "https://en.wikipedia.org/wiki/Tim_Robbins",
+      "https://en.wikipedia.org/wiki/Patrick_Sheane_Duncan"
+     ],
+     "source_hashes": [
+      "472fc8ca1c25ae56",
+      "abdd190faec299f6",
+      "64c3c1465ceca266",
+      "efb5172c8ae13374"
+     ],
+     "bundle_hash": "8c497fc5a667378b",
+     "question_sha256": "a351f78c1cb1694bc613fd3f66f035a92f89fca2eb05149330c1e562ed6b0cab",
+     "source_revision_ids": [
+      "1358319171",
+      "1358623769",
+      "1359720602",
+      "1300190313"
+     ]
+    },
+    {
+     "_id": "frames_239",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Wheatland_(James_Buchanan_House)",
+      "https://en.wikipedia.org/wiki/Wheatland,_Wyoming",
+      "https://en.wikipedia.org/wiki/Cardano_(blockchain_platform)",
+      "https://en.wikipedia.org/wiki/Ethereum"
+     ],
+     "source_hashes": [
+      "6590a2e4ccece116",
+      "524ea452612ee2e1",
+      "74e9268874909dc8",
+      "88c6bc2a539c3382"
+     ],
+     "bundle_hash": "9ef5b66680eac185",
+     "question_sha256": "fce79124ce57e97e6d6adbdaaa198e6d240ecb14399352ed97533b13dde92abb",
+     "source_revision_ids": [
+      "1334131123",
+      "1353381963",
+      "1345627574",
+      "1360810245"
+     ]
+    },
+    {
+     "_id": "frames_149",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+      "https://en.wikipedia.org/wiki/India",
+      "https://en.wikipedia.org/wiki/China",
+      "https://en.wikipedia.org/wiki/United_States",
+      "https://en.wikipedia.org/wiki/Indonesia",
+      "https://en.wikipedia.org/wiki/Pakistan"
+     ],
+     "source_hashes": [
+      "bf5767364be0a2fb",
+      "f69157b53db47c24",
+      "0deaf6e45837a76f",
+      "70bc4b7dda74f0e5",
+      "2103031b218c173f",
+      "dd04ab43fe8e2057"
+     ],
+     "bundle_hash": "5675f1a989c56d91",
+     "question_sha256": "17a66b9b08a319e34089eb130ab124bf132bfaf5d5af59b3f35fb002492b883f",
+     "source_revision_ids": [
+      "1358463511",
+      "1360404235",
+      "1361096467",
+      "1361064196",
+      "1360934331",
+      "1360305174"
+     ]
+    },
+    {
+     "_id": "frames_229",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_Major_League_Baseball_career_home_run_leaders",
+      "https://en.wikipedia.org/wiki/List_of_Major_League_Baseball_career_runs_batted_in_leaders",
+      "https://en.wikipedia.org/wiki/List_of_Major_League_Baseball_career_hits_leaders",
+      "https://en.wikipedia.org/wiki/Gold_Glove_Award"
+     ],
+     "source_hashes": [
+      "c2ddf1555d74023b",
+      "3e720d32ff8285dc",
+      "6c32cc21724ad0f9",
+      "64b83aa801769299"
+     ],
+     "bundle_hash": "551dc16510455840",
+     "question_sha256": "e993d61b1153659022c4241e322acb9a1ebbbced9b3f666cc387e2d3cbe42f8e",
+     "source_revision_ids": [
+      "1361029645",
+      "1361089190",
+      "1361089086",
+      "1356631144"
+     ]
+    },
+    {
+     "_id": "frames_7",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Father_of_Asahd",
+      "https://en.wikipedia.org/wiki/DJ_Khaled",
+      "https://en.wikipedia.org/wiki/Dr._Phillips_High_School",
+      "https://en.wikipedia.org/wiki/Mark_Ruiz"
+     ],
+     "source_hashes": [
+      "e9ac74d8ff53bb3f",
+      "b300dd78964bc537",
+      "69b117cdf8df1f10",
+      "e77dc63249c0cc87"
+     ],
+     "bundle_hash": "adc061ade63d6519",
+     "question_sha256": "5029828288d73f0743a55ce0e4d4fa1462d6e41e6b60ee9449d9aa91e6645af8",
+     "source_revision_ids": [
+      "1351272942",
+      "1360331015",
+      "1358696163",
+      "1337491753"
+     ]
+    },
+    {
+     "_id": "frames_0",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/President_of_the_United_States",
+      "https://en.wikipedia.org/wiki/James_Buchanan",
+      "https://en.wikipedia.org/wiki/Harriet_Lane",
+      "https://en.wikipedia.org/wiki/List_of_presidents_of_the_United_States_who_died_in_office",
+      "https://en.wikipedia.org/wiki/James_A._Garfield"
+     ],
+     "source_hashes": [
+      "b6593cf438ba6064",
+      "e1a967fdb9e1b80e",
+      "bc098b0d5405573d",
+      "0673355c6b0e559f",
+      "079fda902c72c44f"
+     ],
+     "bundle_hash": "6587e899a1041236",
+     "question_sha256": "a0965768e7a9d2186254b739257062b5230e9a232587094920ed9ba9a25f011d",
+     "source_revision_ids": [
+      "1360629496",
+      "1360702879",
+      "1353445579",
+      "1342049752",
+      "1360929947"
+     ]
+    },
+    {
+     "_id": "frames_209",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Superman_%26_Bugs_Bunny",
+      "https://en.wikipedia.org/wiki/New_Guardians",
+      "https://en.wikipedia.org/wiki/Joe_Staton",
+      "https://en.wikipedia.org/wiki/Constantine_W._Curris",
+      "https://en.wikipedia.org/wiki/Murray_State_University"
+     ],
+     "source_hashes": [
+      "d59a411b2c67ac38",
+      "9cbf77275e68f648",
+      "64e8e062ea6b9637",
+      "f9108504ca85b080",
+      "38df7039a8e80474"
+     ],
+     "bundle_hash": "a1d03fbdbb4bf1a7",
+     "question_sha256": "e9c09fe271a27dd773ef210850bd7b591c7d39c5e72b024dda27bae01028bf6d",
+     "source_revision_ids": [
+      "1353573262",
+      "1329733065",
+      "1353828553",
+      "1354633656",
+      "1359780344"
+     ]
+    },
+    {
+     "_id": "frames_373",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Speech_disorder",
+      "https://en.wikipedia.org/wiki/Apraxia_of_speech",
+      "https://en.wikipedia.org/wiki/Hugo_Liepmann",
+      "https://en.wikipedia.org/wiki/List_of_Nobel_Peace_Prize_laureates"
+     ],
+     "source_hashes": [
+      "2a7c86ff6608b0eb",
+      "1823b356229f867f",
+      "af3bbb44627458d9",
+      "66227be6bc8087d2"
+     ],
+     "bundle_hash": "25dd8624f4406e16",
+     "question_sha256": "b41d74cb35593d12ce719fb91fe1635ecc674fd11ad43b4eba7c4f908499a27c",
+     "source_revision_ids": [
+      "1346937352",
+      "1312957028",
+      "1348366855",
+      "1361062394"
+     ]
+    },
+    {
+     "_id": "frames_707",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Presidential_Medal_of_Freedom",
+      "https://en.wikipedia.org/wiki/Willie_Mays",
+      "https://en.wikipedia.org/wiki/Nobel_Peace_Prize",
+      "https://en.wikipedia.org/wiki/List_of_Nobel_Peace_Prize_laureates",
+      "https://en.wikipedia.org/wiki/Tunisian_National_Dialogue_Quartet"
+     ],
+     "source_hashes": [
+      "820987c9feb83038",
+      "3a4f2a60d7569f08",
+      "64271cff7c7955aa",
+      "66227be6bc8087d2",
+      "459c1cac977d678f"
+     ],
+     "bundle_hash": "d075fadc249e66e0",
+     "question_sha256": "2785e1b798130579693b635ce3376d6fe054e4b1d3b6529983f11bc4a15c22d9",
+     "source_revision_ids": [
+      "1356625447",
+      "1352844519",
+      "1360713375",
+      "1361062394",
+      "1351364673"
+     ]
+    },
+    {
+     "_id": "frames_402",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/A_Brooklyn_State_of_Mind",
+      "https://en.wikipedia.org/wiki/Morgana_King",
+      "https://en.wikipedia.org/wiki/C%27%C3%A8_la_luna_mezzo_mare",
+      "https://en.wikipedia.org/wiki/The_Godfather"
+     ],
+     "source_hashes": [
+      "96fe929b77b38b75",
+      "2db4245ecf3936de",
+      "8960129ead1f5e52",
+      "964202196e821b5d"
+     ],
+     "bundle_hash": "9098e23224ade1b5",
+     "question_sha256": "d006abd3bf4c1da36651f3bdf1df63bc711bc4c75c6c208c8731cd8a08f8f25a",
+     "source_revision_ids": [
+      "1339655552",
+      "1349771239",
+      "1326889223",
+      "1361086861"
+     ]
+    },
+    {
+     "_id": "frames_199",
+     "n_sources": 15,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Lords_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_I_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_II_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_III_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_V_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_IV_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_VI_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_VII_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_VIII_of_Montpellier",
+      "https://en.wikipedia.org/wiki/William_IX_of_Montpellier",
+      "https://en.wikipedia.org/wiki/Marie_of_Montpellier",
+      "https://en.wikipedia.org/wiki/James_I_of_Aragon",
+      "https://en.wikipedia.org/wiki/James_II_of_Majorca",
+      "https://en.wikipedia.org/wiki/Sancho_of_Majorca",
+      "https://en.wikipedia.org/wiki/James_III_of_Majorca"
+     ],
+     "source_hashes": [
+      "6fc7a1b80f718c7c",
+      "066f19ce9407d28b",
+      "a2fa7ea43fb86f45",
+      "07a8a72b1de25f13",
+      "081aa5100caf5221",
+      "3fe14b92db0a2630",
+      "0942b6751ddbe437",
+      "4dac118eb42542b6",
+      "14a4ab2b5b017877",
+      "a6bbb02d2269eab8",
+      "641948db4e253c11",
+      "277673cc290febaa",
+      "c3a0092c2a80969d",
+      "3c88362bd269a50d",
+      "5be978c0b4828bbf"
+     ],
+     "bundle_hash": "67a5347f709df7c5",
+     "question_sha256": "8b66594f7f58c5aebb284f077b916d5701c164bd6e787d351f5f6dc0fffc85cf",
+     "source_revision_ids": [
+      "1352238665",
+      "1358902481",
+      "1343950680",
+      "1167882342",
+      "1360658552",
+      "1354801393",
+      "1354801342",
+      "1358357103",
+      "1358357117",
+      "1342693685",
+      "1358813907",
+      "1360319414",
+      "1340615099",
+      "1358091534",
+      "1352153098"
+     ]
+    },
+    {
+     "_id": "frames_15",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Bratislava_International_Film_Festival",
+      "https://en.wikipedia.org/wiki/Boredom_in_Brno",
+      "https://en.wikipedia.org/wiki/Ji%C5%99%C3%AD_Bro%C5%BEek",
+      "https://en.wikipedia.org/wiki/Roudnice_nad_Labem"
+     ],
+     "source_hashes": [
+      "e0d94a7766d122bb",
+      "c81a1528272c2107",
+      "7f5bf316aa088116",
+      "7e18ea74b354cec5"
+     ],
+     "bundle_hash": "5126620f176ad252",
+     "question_sha256": "f920e8d312ed746412489e18c908261849f2718a0eff235db127de47397c458b",
+     "source_revision_ids": [
+      "1337581373",
+      "1331368014",
+      "1359610729",
+      "1357738693"
+     ]
+    },
+    {
+     "_id": "frames_205",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Cotton_gin",
+      "https://en.wikipedia.org/wiki/Pneumatics",
+      "https://en.wikipedia.org/wiki/Joseph_Gayetty",
+      "https://en.wikipedia.org/wiki/Walter_Hunt_(inventor)"
+     ],
+     "source_hashes": [
+      "f543d241f871dd80",
+      "6fde479af17d1b46",
+      "86ddd0e187597d13",
+      "4e3a076678fe5652"
+     ],
+     "bundle_hash": "c0d4dcc09531d963",
+     "question_sha256": "176e9f4b3fbcd52cddeddf30587d819f9a805f0884d080aa9d0830b0975c0423",
+     "source_revision_ids": [
+      "1360965004",
+      "1338706752",
+      "1337937718",
+      "1352257558"
+     ]
+    },
+    {
+     "_id": "frames_63",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Mikhail_Theodoropoulos",
+      "https://en.wikipedia.org/wiki/Wrestling_at_the_1960_Summer_Olympics_%E2%80%93_Men%27s_Greco-Roman_bantamweight",
+      "https://en.wikipedia.org/wiki/Greco-Roman_wrestling",
+      "https://en.wikipedia.org/wiki/List_of_World_and_Olympic_Champions_in_Greco-Roman_wrestling"
+     ],
+     "source_hashes": [
+      "6caa1b29ba0bf888",
+      "48d484a08ebef7c9",
+      "5c7d67aab2560111",
+      "8f9ab8e1e0d59be2"
+     ],
+     "bundle_hash": "92a14ccd16c10d28",
+     "question_sha256": "b8f1c22f35056ba3d39ccac2dee686756f5434b85f49238e11189d8ceec3a5fc",
+     "source_revision_ids": [
+      "1261401773",
+      "1285815258",
+      "1359466428",
+      "1355059297"
+     ]
+    },
+    {
+     "_id": "frames_44",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom",
+      "https://en.wikipedia.org/wiki/G_postcode_area",
+      "https://en.wikipedia.org/wiki/Bridgeton,_Glasgow",
+      "https://en.wikipedia.org/wiki/Bridgeton_railway_station",
+      "https://en.wikipedia.org/wiki/Calton,_Glasgow",
+      "https://en.wikipedia.org/wiki/Dalmarnock"
+     ],
+     "source_hashes": [
+      "ea855bf8964eeefb",
+      "6e4a715020b694e8",
+      "09212ade5dd3aabe",
+      "43b092a977fa2b3f",
+      "91c954e96365e514",
+      "03980ebfd9151911"
+     ],
+     "bundle_hash": "b0e47972ad5f348b",
+     "question_sha256": "2fa4f011dd01b03b5c339661666f85918427497e5df15c0077ea3e5bb27c40ed",
+     "source_revision_ids": [
+      "1352221714",
+      "1319069308",
+      "1339683906",
+      "1326090425",
+      "1355620134",
+      "1317296334"
+     ]
+    },
+    {
+     "_id": "frames_77",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Clive_Barker",
+      "https://en.wikipedia.org/wiki/William,_Prince_of_Wales",
+      "https://en.wikipedia.org/wiki/Malcolm_Bradbury",
+      "https://en.wikipedia.org/wiki/England"
+     ],
+     "source_hashes": [
+      "ea5c87c8633f46ba",
+      "167a5caee7f8ab48",
+      "0c5fc1e5075d6a76",
+      "0290edee5409843c"
+     ],
+     "bundle_hash": "16e6fd247a28cc0b",
+     "question_sha256": "c0031bbd609e54fba588f08dfaa3ad2ba9c4722fea0e8cc013cd4eeba6699506",
+     "source_revision_ids": [
+      "1360955806",
+      "1360723016",
+      "1337272473",
+      "1360096056"
+     ]
+    },
+    {
+     "_id": "frames_139",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Postcolonial_Love_Poem",
+      "https://en.wikipedia.org/wiki/Natalie_Diaz",
+      "https://en.wikipedia.org/wiki/MacArthur_Fellows_Program",
+      "https://en.wikipedia.org/wiki/Dominique_Morisseau"
+     ],
+     "source_hashes": [
+      "d04c936aa6251a1a",
+      "4b0b59dc021cf4b8",
+      "6cebf2227aa4fe16",
+      "4e3fec80ee622c81"
+     ],
+     "bundle_hash": "472aa2fc47ef4f91",
+     "question_sha256": "715836cc13fac6b3ba2325b539980589eb2b69cbc1f3a8e49ea45824be4e671e",
+     "source_revision_ids": [
+      "1332442682",
+      "1348448775",
+      "1355950234",
+      "1359874955"
+     ]
+    },
+    {
+     "_id": "frames_12",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Basibasy_mine",
+      "https://en.wikipedia.org/wiki/Titanium",
+      "https://en.wikipedia.org/wiki/William_Gregor",
+      "https://en.wikipedia.org/wiki/Christmas"
+     ],
+     "source_hashes": [
+      "a635cef5167f0b75",
+      "65b5357a5d222260",
+      "862a5a7b7ff1b82a",
+      "3cc420573791fcd4"
+     ],
+     "bundle_hash": "c6018680af4ae542",
+     "question_sha256": "21bbf6dde39de79ce7f6be8b4f3b181ad81b171dfcc4a49a3054e91ab00305a4",
+     "source_revision_ids": [
+      "1333123170",
+      "1360742622",
+      "1359323737",
+      "1359240481"
+     ]
+    },
+    {
+     "_id": "frames_117",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Province",
+      "https://en.wikipedia.org/wiki/Provinces_and_territories_of_Canada",
+      "https://en.wikipedia.org/wiki/Prince_Edward_Island",
+      "https://en.wikipedia.org/wiki/Cypripedium_acaule"
+     ],
+     "source_hashes": [
+      "d3aabfff7220a29f",
+      "96fa77d80075d21f",
+      "ec04c8fb5c174829",
+      "a603bae99c734bf3"
+     ],
+     "bundle_hash": "f1aff720712272e2",
+     "question_sha256": "b19420e41c0cd8a8d3adfdcd5fee8002c4f41e5cb42fad3ad4efefbf87728653",
+     "source_revision_ids": [
+      "1359034361",
+      "1360872952",
+      "1359890996",
+      "1357998591"
+     ]
+    },
+    {
+     "_id": "frames_496",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Northern_California",
+      "https://en.wikipedia.org/wiki/San_Jose,_California",
+      "https://en.wikipedia.org/wiki/National_Register_of_Historic_Places",
+      "https://en.wikipedia.org/wiki/Winchester_Mystery_House"
+     ],
+     "source_hashes": [
+      "fe36af242670dfa3",
+      "d16185ff7a13fd52",
+      "7f8175813d99e100",
+      "871c8f8252ba275f"
+     ],
+     "bundle_hash": "dccd28218fc89dc7",
+     "question_sha256": "24d2bc6b3f9dc6a6e0f8830573bd825a1e5bb997e8af40267cb6080bc587da10",
+     "source_revision_ids": [
+      "1356393810",
+      "1360838100",
+      "1358870835",
+      "1356317028"
+     ]
+    },
+    {
+     "_id": "frames_602",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Aerith_Gainsborough",
+      "https://en.wikipedia.org/wiki/Final_Fantasy_VII",
+      "https://en.wikipedia.org/wiki/Barret_Wallace",
+      "https://en.wikipedia.org/wiki/Tifa_Lockhart"
+     ],
+     "source_hashes": [
+      "0d692ee8df12e41a",
+      "abf52a9dbff227f4",
+      "198b238f293cea40",
+      "9544fadf071bdb9b"
+     ],
+     "bundle_hash": "15d10aa173cb9fb7",
+     "question_sha256": "026056cd67e1885ac65ac38aa69983d3b32b5de7fb219f0e500d32bcbf6e79f1",
+     "source_revision_ids": [
+      "1358439411",
+      "1358313347",
+      "1358416551",
+      "1358439231"
+     ]
+    },
+    {
+     "_id": "frames_595",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/HMS_Holland_1",
+      "https://en.wikipedia.org/wiki/1901",
+      "https://en.wikipedia.org/wiki/Queen_Victoria",
+      "https://en.wikipedia.org/wiki/William_IV"
+     ],
+     "source_hashes": [
+      "d9f1d3783b152ae5",
+      "142cd9033f3c2f40",
+      "b1c59bb942edb73a",
+      "5eb1a84d0c51a978"
+     ],
+     "bundle_hash": "f8ae17c9cbbf7bf9",
+     "question_sha256": "0861e91c9991337440bc5b2c3be0eb71c32f75e80806c1525a861c16b6d93bfb",
+     "source_revision_ids": [
+      "1337694207",
+      "1360942386",
+      "1361031198",
+      "1360837081"
+     ]
+    },
+    {
+     "_id": "frames_310",
+     "n_sources": 5,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/List_of_honorary_citizens_of_Beijing",
+      "https://en.wikipedia.org/wiki/George_E._Killian",
+      "https://en.wikipedia.org/wiki/Ohio_Northern_University",
+      "https://en.wikipedia.org/wiki/University_of_Mount_Union",
+      "https://en.wikipedia.org/wiki/NCAA_Division_III_men%27s_cross_country_championships"
+     ],
+     "source_hashes": [
+      "0c0372d89700af7a",
+      "d4ff03c135a968ab",
+      "c3a4a9ce1a56d1a9",
+      "ca667bb7f6d24240",
+      "7e52763816c80ea1"
+     ],
+     "bundle_hash": "50088f21df62faab",
+     "question_sha256": "092c01375032b19e16fda03324ce760067408db190cf6e95960af71870c6cf89",
+     "source_revision_ids": [
+      "1097490194",
+      "1341359822",
+      "1359852030",
+      "1359893894",
+      "1360082156"
+     ]
+    },
+    {
+     "_id": "frames_683",
+     "n_sources": 6,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Miami_Book_Fair_International",
+      "https://en.wikipedia.org/wiki/Miami_Dade_College",
+      "https://en.wikipedia.org/wiki/Kentucky_Women_Writers_Conference",
+      "https://en.wikipedia.org/wiki/University_of_Kentucky",
+      "https://en.wikipedia.org/wiki/Eli_Capilouto",
+      "https://en.wikipedia.org/wiki/Madeline_Pumariega"
+     ],
+     "source_hashes": [
+      "f64aad0cbdbf0819",
+      "b06e2cbf80b3ef76",
+      "4bf13ea5dcc72e48",
+      "4c11b39ef826d5ba",
+      "b696d9a502b0477f",
+      "612763543b3a3580"
+     ],
+     "bundle_hash": "d4f40cbb91e576b9",
+     "question_sha256": "432dcbd0a62ec866f57d3dbcc7ba5c4af63bb75d1452412c62d5dada8c8f2e40",
+     "source_revision_ids": [
+      "1350877271",
+      "1360837447",
+      "1349803886",
+      "1360872463",
+      "1355760693",
+      "1328408747"
+     ]
+    },
+    {
+     "_id": "frames_330",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/City_of_London",
+      "https://en.wikipedia.org/wiki/City_of_London_Police",
+      "https://en.wikipedia.org/wiki/2019_European_Parliament_election_in_Lombardy",
+      "https://en.wikipedia.org/wiki/Forza_Italia_(2013)"
+     ],
+     "source_hashes": [
+      "5990fea7fefdaa82",
+      "0e616c7f2ddce581",
+      "3f9773e2ba3ee8e3",
+      "0d0ff102b61f0600"
+     ],
+     "bundle_hash": "1f6c04fd8c7a0680",
+     "question_sha256": "2e55aa55956bb7134e0f95f9656442737f06602fb475b36bc0fe4d7f85347628",
+     "source_revision_ids": [
+      "1360153509",
+      "1358717491",
+      "1332235109",
+      "1361083245"
+     ]
+    },
+    {
+     "_id": "frames_421",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/La_La_Land",
+      "https://en.wikipedia.org/wiki/Damien_Chazelle",
+      "https://en.wikipedia.org/wiki/Ryan_Gosling",
+      "https://en.wikipedia.org/wiki/Emma_Stone"
+     ],
+     "source_hashes": [
+      "69c62d652c3c2e19",
+      "656bf9c929663229",
+      "70a14ca2d860f55d",
+      "b0776c9a38e20aa7"
+     ],
+     "bundle_hash": "ae23e0de27fd8f7e",
+     "question_sha256": "59a392392f453e9f2284feae33840364b9f3a40a6cd51f91bc7f64545f9ac921",
+     "source_revision_ids": [
+      "1360374955",
+      "1358410919",
+      "1360773477",
+      "1360934211"
+     ]
+    },
+    {
+     "_id": "frames_372",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Morus_(plant)",
+      "https://en.wikipedia.org/wiki/Rosales",
+      "https://en.wikipedia.org/wiki/Cannabaceae",
+      "https://en.wikipedia.org/wiki/Rosaceae"
+     ],
+     "source_hashes": [
+      "e473702bf42575de",
+      "ff6ff4c539a8be54",
+      "7e70ad3e6f9f0fc1",
+      "8da8da727672cc4c"
+     ],
+     "bundle_hash": "de3ed4b1d936b572",
+     "question_sha256": "60964dd1ef5d9aa868cd9650bda6f211204b7166d4586741105690996c95c6ac",
+     "source_revision_ids": [
+      "1356644593",
+      "1354634319",
+      "1359306881",
+      "1356857832"
+     ]
+    },
+    {
+     "_id": "frames_378",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Bill_Clinton",
+      "https://en.wikipedia.org/wiki/George_W._Bush",
+      "https://en.wikipedia.org/wiki/Barack_Obama",
+      "https://en.wikipedia.org/wiki/Donald_Trump"
+     ],
+     "source_hashes": [
+      "a5c03d25dc93de77",
+      "aee13c78b3d6ed7f",
+      "b783c261e57ceece",
+      "c8db05c7886a1ebb"
+     ],
+     "bundle_hash": "35724ec184409444",
+     "question_sha256": "d80a56cf7a6c78ce84c4b3222bb2115f2e03674294f660103843c699171d3543",
+     "source_revision_ids": [
+      "1359923636",
+      "1360999403",
+      "1360866046",
+      "1361093698"
+     ]
+    },
+    {
+     "_id": "frames_659",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/5th_Cavalry_Regiment",
+      "https://en.wikipedia.org/wiki/Philippines",
+      "https://en.wikipedia.org/wiki/1972_Winter_Olympics",
+      "https://en.wikipedia.org/wiki/Makomanai_Open_Stadium"
+     ],
+     "source_hashes": [
+      "59d5966c8bde36cc",
+      "eb84db664ecb8784",
+      "9e03efe8f457f547",
+      "3027403e07796e12"
+     ],
+     "bundle_hash": "a73c0847f466b4ca",
+     "question_sha256": "0bf59442cbf49a000a811c8da534efda920befb9a71c42ab624d1a51cbf1d19d",
+     "source_revision_ids": [
+      "1358019431",
+      "1360913533",
+      "1348775924",
+      "1339834119"
+     ]
+    },
+    {
+     "_id": "frames_127",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/City_Boy:_The_Adventures_of_Herbie_Bookbinder",
+      "https://en.wikipedia.org/wiki/Herman_Wouk",
+      "https://en.wikipedia.org/wiki/War_and_Remembrance_(miniseries)",
+      "https://en.wikipedia.org/wiki/Hart_Bochner"
+     ],
+     "source_hashes": [
+      "1ecaadfdcc77a396",
+      "a40a4fbdbacc38f7",
+      "4984391b6dd0c390",
+      "a4bf1711cb0a6be4"
+     ],
+     "bundle_hash": "593916456d5fa28e",
+     "question_sha256": "d008843d614085bf22cee96784c53be075c27528f1bb3393dbb0739c9dd0f77f",
+     "source_revision_ids": [
+      "1354708657",
+      "1355132045",
+      "1357306913",
+      "1354076455"
+     ]
+    },
+    {
+     "_id": "frames_783",
+     "n_sources": 7,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/New_England",
+      "https://en.wikipedia.org/wiki/Connecticut",
+      "https://en.wikipedia.org/wiki/Maine",
+      "https://en.wikipedia.org/wiki/Massachusetts",
+      "https://en.wikipedia.org/wiki/New_Hampshire",
+      "https://en.wikipedia.org/wiki/Rhode_Island",
+      "https://en.wikipedia.org/wiki/Vermont"
+     ],
+     "source_hashes": [
+      "9bfb87e20bd6bc21",
+      "e5f530f5afd14e46",
+      "8968c1fb96c491da",
+      "8c36d3758653d9cc",
+      "fa6f4b72d1c44dc6",
+      "b12e165a10be6638",
+      "5838350b9c4e32d2"
+     ],
+     "bundle_hash": "bcceb9146a527f30",
+     "question_sha256": "7ceaf6ba3fcb30594873eca31de09a298c36752c35b00c65d018e8022fd958f1",
+     "source_revision_ids": [
+      "1360712804",
+      "1359960416",
+      "1360079780",
+      "1361064916",
+      "1359795027",
+      "1360383791",
+      "1359896353"
+     ]
+    },
+    {
+     "_id": "frames_68",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Kirby_(series)",
+      "https://en.wikipedia.org/wiki/Masahiro_Sakurai",
+      "https://en.wikipedia.org/wiki/Super_Smash_Bros._Ultimate",
+      "https://en.wikipedia.org/wiki/The_Game_Awards_2020"
+     ],
+     "source_hashes": [
+      "8bcb01ed257c9992",
+      "ae0ea317a42ea84e",
+      "27eb757b94479e9a",
+      "c5a35a551385ac6e"
+     ],
+     "bundle_hash": "561ff279c28cd810",
+     "question_sha256": "2589747dc5edf31be0b457356d2037664be872742cd6df2474e6c27fa1f4ffe8",
+     "source_revision_ids": [
+      "1360999954",
+      "1337292915",
+      "1360490686",
+      "1356807422"
+     ]
+    },
+    {
+     "_id": "frames_503",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/Prince_Philip,_Duke_of_Edinburgh",
+      "https://en.wikipedia.org/wiki/The_Duke_of_Edinburgh%27s_Award",
+      "https://en.wikipedia.org/wiki/Pregnancy",
+      "https://en.wikipedia.org/wiki/Silver"
+     ],
+     "source_hashes": [
+      "e8f6d096871b610d",
+      "96869cea6c8207a4",
+      "d56caca0c519d66c",
+      "bc86c00cd7b7768e"
+     ],
+     "bundle_hash": "2dcf5f7543d6917d",
+     "question_sha256": "d7d71067162f8722f5748dc63d308e10c35ac79291ca755772235ea8ce9091a7",
+     "source_revision_ids": [
+      "1358524945",
+      "1358216408",
+      "1360086523",
+      "1356588723"
+     ]
+    },
+    {
+     "_id": "frames_417",
+     "n_sources": 4,
+     "canonical_urls": [
+      "https://en.wikipedia.org/wiki/%22Weird_Al%22_Yankovic",
+      "https://en.wikipedia.org/wiki/Even_Worse",
+      "https://en.wikipedia.org/wiki/Tiffany_Darwish",
+      "https://en.wikipedia.org/wiki/The_Color_of_Silence"
+     ],
+     "source_hashes": [
+      "3ccd02622207c9e6",
+      "5e9a94b7f1803005",
+      "1150feecb2d4daae",
+      "a8477d3d5764510a"
+     ],
+     "bundle_hash": "b12638f5a7d455e7",
+     "question_sha256": "606346b0733b2ed22b0d4c03f9416ab7c26fadc8cb33a61ed9ff9c84f55451bd",
+     "source_revision_ids": [
+      "1360835602",
+      "1356081836",
+      "1360855920",
+      "1355640819"
+     ]
+    }
+   ]
+  }
+ }
+}

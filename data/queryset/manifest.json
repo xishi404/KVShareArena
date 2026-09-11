@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "n": 100,
+  "max_tok_D_plus_Q": 29000,
+  "tokenizer": "Qwen/Qwen3-8B",
+  "date": "2026-07-13",
+  "chunk_size_token512": 512,
+  "subsets": {
+    "hotpotqa": {
+      "total": 200,
+      "dropped_len": 0,
+      "dropped_struct": 0,
+      "kept_pool": 200,
+      "frozen": 100,
+      "tok_mean": 13185,
+      "tok_max": 17514,
+      "chunks_mean": 8.74
+    },
+    "qasper": {
+      "total": 200,
+      "dropped_len": 0,
+      "dropped_struct": 0,
+      "kept_pool": 200,
+      "frozen": 100,
+      "tok_mean": 5331,
+      "tok_max": 20040,
+      "chunks_mean": 10.85
+    },
+    "multifieldqa_en": {
+      "total": 150,
+      "dropped_len": 0,
+      "dropped_struct": 0,
+      "kept_pool": 150,
+      "frozen": 100,
+      "tok_mean": 7616,
+      "tok_max": 16461,
+      "chunks_mean": 15.36
+    }
+  }
+}

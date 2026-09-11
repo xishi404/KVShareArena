@@ -1,0 +1,12 @@
+{
+  "README.md": "8df43a2100d729ee08d1a5781d82532f97608d3ebdce517617004c92e31f6442",
+  "agent_reports/hotpotqa_notes.jsonl": "27d9b5a045a8e215314c7ddb482dd19ddd996bbc904b062ce3164dcf43f09312",
+  "agent_reports/manifest.json": "2d87a17499a16a5edb88735b8a2d811d06d3664361c699e78aac91ab3ee3c964",
+  "frames_variant/calibration_split.jsonl": "f71d5f734186ab53ebe3e08af241c27b92be762f529d998c587fe06da317be93",
+  "frames_variant/fingerprints.json": "2e4b11b8d302e0da9b9a7dcce5ca671f1b9ac1fa1822d7761e7d6364114fb57a",
+  "frames_variant/test_split.jsonl": "e4c2b03fbf5f61bc6c0f03ef169fa60cda2340a3f2c48c945e8a74beb13eb045",
+  "hotpotqa_n100.jsonl": "64c11bb75fcb4828f2abc7da2e61aaf2745a3c4e83a20c75f12cb71bbe42cd7b",
+  "manifest.json": "e33a3a6784e5849e2551418bf9bb132abd881ee2fcc88699f1d8aafb562c4c73",
+  "multifieldqa_en_n100.jsonl": "3d79a96a771dc19ccaaf08c030f526c3de32bb52d29c1243f3513117ff1aff90",
+  "qasper_n100.jsonl": "bf3e13d209af5fd8c5aa188c195ec76cbaf909ebdb157c3f858ed4bcdf7c5c13"
+}

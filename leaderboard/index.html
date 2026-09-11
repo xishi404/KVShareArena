@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the quality and cost of KV-cache reuse. Compare methods on frozen tasks and choose the trade-off that matters to you.">
+  <meta name="theme-color" content="#203d86">
+  <title>KVShareArena — Explore KV-cache reuse</title>
+  <link rel="stylesheet" href="arena.css">
+  <script src="leaderboard_data.js" defer></script>
+  <script src="arena.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#leaderboard">Skip to leaderboard</a>
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>KVShareArena</a>
+      <div class="nav-links"><a href="#leaderboard">Leaderboard</a><a href="#guide">How it works</a><a href="https://github.com/xishi404/KVShareArena">GitHub ↗</a><a href="leaderboard.json" download="kvsharearena-data.json">Download data <span aria-hidden="true">↗</span></a></div>
+      <span class="version">Public preview</span>
+    </div>
+  </nav>
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow light"><span class="status-dot"></span> A SHARED TEST FOR KV-CACHE REUSE</span>
+        <h1>Reuse the cache.<br><em>Know the trade-off.</em></h1>
+        <p>Compare answer quality, compute, memory, and latency.<br class="desktop-break"> Find the right balance for your workload.</p>
+        <div class="hero-actions"><a class="button amber" href="#leaderboard">Explore the leaderboard <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#guide">Understand the benchmark <span aria-hidden="true">→</span></a></div>
+        <div class="hero-tags"><span>Retrieved Evidence</span><span>Agent Reports</span></div>
+      </div>
+      <div class="hero-figure" aria-label="Three separately cached sources assembled into a new prompt">
+        <div class="figure-top"><span class="mini-symbol" aria-hidden="true">▤</span><strong>Same sources. A new prompt.</strong><span class="figure-label">KV REUSE</span></div>
+        <div class="source-label">CACHE EACH SOURCE SEPARATELY</div>
+        <div class="source-caches"><div class="cache blue"><span>Source A</span><div><i></i><i></i><i></i><i></i><i></i></div></div><div class="cache orange"><span>Source B</span><div><i></i><i></i><i></i><i></i><i></i></div></div><div class="cache teal"><span>Source C</span><div><i></i><i></i><i></i><i></i><i></i></div></div></div>
+        <div class="assembly-arrow"><span>↓</span> Assemble for this request</div>
+        <div class="prompt-strip"><span>Prefix</span><span class="blue">A</span><span class="orange">B</span><span class="teal">C</span><span>Question</span></div>
+        <div class="figure-bottom"><span>Reuse or repair</span><span aria-hidden="true">→</span><strong>Measure quality + cost</strong></div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="stats" aria-label="Current data coverage">
+      <div><strong id="stat-methods">—</strong><span>method configurations</span></div>
+      <div><strong>2</strong><span>workloads</span></div>
+      <div><strong id="stat-datasets">—</strong><span>source datasets</span></div>
+      <div><strong>3</strong><span>cost dimensions</span></div>
+    </section>
+    <section id="leaderboard" class="leaderboard-section">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE THE RESULTS</span><h2>Your priorities. Your comparison.</h2><p>Choose a task, then adjust the balance between quality and cost.</p></div><a class="text-link" href="#coverage">View data coverage <span aria-hidden="true">↗</span></a></div>
+      <div class="board-strip"><span class="board-dot"></span><strong>Qwen3-8B</strong><span>Same-checkpoint board</span><span class="board-detail">Separately cached sources → assembled prompt</span></div>
+      <div class="workspace">
+        <aside class="controls card" aria-label="Comparison settings">
+          <div class="control-heading"><h3>Set your priorities</h3><button id="reset" class="text-button" type="button">Reset</button></div>
+          <label class="field-label" for="track">Workload</label><select id="track"><option value="re">Retrieved Evidence</option><option value="ar">Agent Reports</option></select>
+          <label class="field-label" for="dataset">Dataset</label><select id="dataset"></select>
+          <p class="task-caption" id="task-caption"></p>
+          <div class="control-divider"></div>
+          <label class="field-label" for="preset">Preset</label><select id="preset"><option value="quality">Quality first</option><option value="balanced">Balanced</option><option value="compute">Less compute</option><option value="memory">Less memory</option><option value="latency">Lower latency</option><option value="custom">Custom</option></select>
+          <div class="slider-label"><label for="cost-weight">Quality ↔ Cost</label></div>
+          <input id="cost-weight" type="range" min="0" max="100" step="0.01" value="9.090909" aria-describedby="balance-values">
+          <div class="balance-values" id="balance-values"><span>Quality <b id="quality-pct">91%</b></span><span>Cost <b id="cost-pct">9%</b></span></div>
+          <p class="small-title">WITHIN COST</p>
+          <div class="axis-control" data-axis="compute"><div class="slider-label"><label for="weight-compute"><span class="axis-dot compute"></span>Compute</label><output id="pct-compute" for="weight-compute">50%</output></div><input id="weight-compute" type="range" min="0" max="100" step="1" value="50"><span class="axis-caption">Less payload recomputation</span></div>
+          <div class="axis-control" data-axis="memory"><div class="slider-label"><label for="weight-memory"><span class="axis-dot memory"></span>Memory</label><output id="pct-memory" for="weight-memory">50%</output></div><input id="weight-memory" type="range" min="0" max="100" step="1" value="50"><span class="axis-caption">Fewer KV-cache bytes</span></div>
+          <div class="axis-control" data-axis="latency"><div class="slider-label"><label for="weight-latency"><span class="axis-dot latency"></span>Latency</label><output id="pct-latency" for="weight-latency">0%</output></div><input id="weight-latency" type="range" min="0" max="100" step="1" value="0"><span class="axis-caption">Shorter time to first token</span></div>
+          <p id="weights-note" class="control-note" role="status"></p>
+          <a class="text-link small" href="#score-definition">How is the score calculated? ↗</a>
+        </aside>
+        <div class="results-area">
+          <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search methods…" aria-label="Search methods"></label><select id="partition" aria-label="Implementation group"><option value="all">All implementations</option><option value="official">Official implementations</option><option value="port">Our ports</option><option value="reference">Reference rows</option></select><button class="button compact" id="export" type="button">Export CSV <span aria-hidden="true">↓</span></button></div>
+          <div class="results-meta"><div><span class="eyebrow" id="task-label"></span><p id="result-count" role="status" aria-live="polite"></p></div><div class="sort-field"><label for="sort">Order by</label><select id="sort"><option value="score">Preference score</option><option value="quality">Quality (PGR)</option><option value="compute">Compute saved</option><option value="memory">Memory saved</option><option value="latency">TTFT saved</option></select></div></div>
+          <p class="significance-note" id="significance-note" role="status"></p>
+          <p class="availability-note" id="availability-note"></p>
+          <div class="table-wrap card"><table id="results-table"><caption class="sr-only">Methods compared within each implementation group</caption><thead><tr><th scope="col">Rank</th><th scope="col">Method</th><th scope="col">Preference<br>score</th><th scope="col">Quality<br><span>PGR</span></th><th scope="col">Compute<br><span>saved</span></th><th scope="col">Memory<br><span>saved</span></th><th scope="col">TTFT<br><span>saved</span></th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody id="result-rows"></tbody></table></div>
+          <p class="table-footnote">Ranks stay within each implementation group. Reference rows are not ranked. Scores reflect your preferences, not statistical significance. Click a method for details.</p>
+          <div class="chart-card card"><div class="chart-heading"><div><span class="eyebrow">QUALITY & COST</span><h3>See the trade-off</h3></div><select id="plot-axis" aria-label="Chart cost axis"><option value="compute">Compute saved</option><option value="memory">Memory saved</option><option value="latency">TTFT saved · cache ready</option><option value="latency_e2e">TTFT saved · include cache build</option></select></div><div class="plot-container"><svg id="plot" viewBox="0 0 780 320" role="img" aria-labelledby="plot-title plot-desc"></svg><div id="plot-tooltip" hidden></div></div><div class="chart-legend"><span><i class="legend-dot"></i>Official implementation</span><span><i class="legend-dot port"></i>Our port</span><span><i class="legend-dot reference"></i>Reference</span></div><p id="plot-note" class="table-footnote"></p></div>
+        </div>
+      </div>
+    </section>
+    <section id="guide" class="guide-section">
+      <div class="section-heading"><div><span class="eyebrow">A COMMON BASIS FOR COMPARISON</span><h2>What the numbers mean.</h2><p>Fixed tasks and source text. Separate measurements for each kind of cost.</p></div></div>
+      <div class="guide-grid"><article class="card guide-card"><span class="guide-icon">Q</span><h3>Quality recovered</h3><p>PGR measures the gap recovered between no shared context and full prefill over the same text.</p><div class="quality-scale"><span>0 · No context</span><span>1 · Full prefill</span></div><p class="muted">PGR can be negative. It is not accuracy.</p></article><article class="card guide-card"><span class="guide-icon">↘</span><h3>Three separate costs</h3><p><strong>Compute:</strong> payload computation avoided.<br><strong>Memory:</strong> KV bytes saved vs dense bf16.<br><strong>Latency:</strong> TTFT saved vs same-backend full prefill.</p><p class="muted">Negative savings mean extra cost. Cache construction is shown separately.</p></article><article class="card guide-card"><span class="guide-icon">≋</span><h3>Compare like with like</h3><p>Each workload has its own reference scores. Methods stay in their implementation groups.</p><p class="muted">Missing values remain missing. A method needs every selected metric to receive a preference score.</p></article></div>
+      <details class="definition card" id="score-definition"><summary>Preference score · formula and limits <span aria-hidden="true">＋</span></summary><div><p>PGR means performance-gap recovered. It equals (method score − no-context score) / (full-prefill score − no-context score). It can be negative or exceed 1.</p><p>The quality–cost balance uses the paper's weighted harmonic mean. Let <code>A = clip(PGR, 0, 1)</code>. Let <code>C</code> be the weighted arithmetic mean of compute, memory, and TTFT savings, each clipped to [0, 1].</p><p class="formula">S = A × C / ((1 − t) × C + t × A)</p><p><code>t</code> is the cost weight. For 0 &lt; t &lt; 1, this equals the paper formula with <code>β = t / (1 − t)</code>. At 0% cost, S = A; at 100% cost, S = C. The quality-first preset uses β = 0.1 (about 9% cost).</p><p>This explorer only scores rows with every selected measurement. It does not use the paper's fallback of dropping missing axes per row, so coverage and rankings can differ. Negative PGR and negative savings remain visible in the raw columns. Equal scores share a rank; a rank difference does not establish statistical significance.</p><p>Arrows on PGR mark paired comparisons against free position alignment. The paired intervals in method details refer to differences in the underlying task score, not differences in PGR. An interval covering zero does not prove equivalence.</p></div></details>
+    </section>
+    <section class="coverage-section" id="coverage"><div class="section-heading"><div><span class="eyebrow">AVAILABLE IN THIS PREVIEW</span><h2>Start with the measured results.</h2><p>The current data export covers Qwen3-8B with the same producer and receiver checkpoint. Cross-checkpoint and other-model results are not included here yet.</p></div><a class="button compact" href="leaderboard.json" download="kvsharearena-data.json">Download source JSON ↓</a></div><div class="table-wrap card"><table id="coverage-table"><caption class="sr-only">Measured configurations by dataset, excluding reference rows</caption></table></div><p class="table-footnote">Counts are method configurations, excluding reference rows. Cost records are matched to the selected task. Latency is available only for the measured HF-backend rows.</p></section>
+    <noscript><p class="error">Enable JavaScript to explore the leaderboard. The source JSON is available from the Download data link.</p></noscript>
+    <div id="load-error" class="error" hidden>The data could not be loaded. Keep leaderboard_data.js next to this page and reload.</div>
+  </main>
+  <footer><a class="brand footer-brand" href="#home">KVShareArena</a><span>KV-cache reuse across contexts and model checkpoints.</span><a href="leaderboard.json" download>Source data ↗</a><p id="provenance"></p></footer>
+  <dialog id="method-dialog" aria-labelledby="method-title"><div class="dialog-top"><span class="eyebrow">METHOD DETAILS</span><button id="close-dialog" type="button" aria-label="Close method details">×</button></div><h2 id="method-title"></h2><div id="method-content"></div></dialog>
+</body>
+</html>
