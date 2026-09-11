@@ -156,8 +156,8 @@
     $('significance-note').textContent = !tested.length
       ? 'This task ships no paired comparison against position alignment, so the order below is by point estimate only.'
       : !winners.length
-        ? 'No method is significantly above position alignment on this task. The order below is by point estimate; the differences are ties.'
-        : `${winners.length} of ${methods.length} methods are significantly above position alignment on this task (arrows in the quality column). Rows without an arrow are ties.`;
+        ? 'No method has a statistically significant quality gain over position alignment on this task. This does not mean the methods are equivalent. Ranks reflect your selected score.'
+        : `${winners.length} of ${methods.length} methods have a statistically significant quality gain over position alignment on this task. Arrows show the direction. No arrow does not establish equivalence; open details for the available evidence.`;
     $('significance-note').className = winners.length ? 'significance-note' : 'significance-note flat';
     renderPlot();
   }
