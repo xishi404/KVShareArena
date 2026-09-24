@@ -78,7 +78,8 @@ python3 -m http.server 8765 --directory leaderboard
 # Visit http://localhost:8765
 ```
 
-Adjust the quality–cost balance and the three cost weights. Search and filter methods,
+Adjust the quality–cost balance and the compute and memory weights. TTFT is
+reported separately and does not enter the preference score. Search and filter methods,
 inspect individual results, and export the current comparison as CSV. There is no
 server-side inference, sign-in requirement, analytics, or external JavaScript dependency.
 

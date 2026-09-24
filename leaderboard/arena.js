@@ -1,7 +1,8 @@
 /* Static, dependency-free explorer. Source measurements are never rewritten. */
 (function (root) {
   'use strict';
-  const axes = ['compute', 'memory', 'latency'];
+  const axes = ['compute', 'memory'];
+  const measuredAxes = [...axes, 'latency'];
   const finite = x => typeof x === 'number' && Number.isFinite(x);
   const clip = x => Math.max(0, Math.min(1, x));
   const names = {qasper: 'Qasper', multifieldqa_en: 'MultiFieldQA-en', hotpotqa: 'HotpotQA', frames: 'FRAMES', notes: 'HotpotQA · agent reports'};
@@ -63,7 +64,7 @@
   const pct = x => finite(x) ? `${(x * 100).toFixed(1)}%` : '—';
   let data, allRows = [], visibleRows = [], scoredRows = [], selectedKey = null;
   let t = 1 / 11;
-  const weights = {compute: 50, memory: 50, latency: 0};
+  const weights = {compute: 50, memory: 50};
   const task = () => $('dataset').value;
   const formatCell = (v, percent = false) => `<span class="${!finite(v) ? 'missing' : v < 0 ? 'negative' : ''}">${percent ? pct(v) : num(v)}</span>`;
   function setDatasets() {
@@ -96,8 +97,7 @@
     const available = axes.filter(a => !$(`weight-${a}`).disabled);
     if (axes.includes(preset)) weights[preset] = 100;
     else {
-      const defaults = preset === 'quality' ? available.filter(a => a !== 'latency') : available;
-      for (const axis of defaults.length ? defaults : available) weights[axis] = 50;
+      for (const axis of available) weights[axis] = 50;
     }
     if (!available.length) t = 0;
     syncSliders(); render();
@@ -147,8 +147,8 @@
     $('task-label').textContent = `${$('track').selectedOptions[0].textContent} / ${names[task()]}`;
     const methods = visibleRows.filter(r => r.partition !== 'reference');
     $('result-count').textContent = `${visibleRows.length} rows shown · ${methods.filter(r => finite(r.score)).length} of ${methods.length} methods have a preference score`;
-    const measured = axes.map(a => `${methods.filter(r => finite(r[a])).length}/${methods.length} ${a === 'latency' ? 'TTFT' : a}`).join(' · ');
-    $('availability-note').textContent = `Cost coverage: ${measured}. A dash means no measurement, not zero cost. TTFT here assumes the source cache is ready.`;
+    const measured = measuredAxes.map(a => `${methods.filter(r => finite(r[a])).length}/${methods.length} ${a === 'latency' ? 'TTFT' : a}`).join(' · ');
+    $('availability-note').textContent = `Cost coverage: ${measured}. A dash means no measurement, not zero cost. TTFT here assumes the source cache is ready and does not enter the preference score.`;
     // Ranks are point estimates. Where no row is significantly above position
     // alignment, the order is not a result and the page has to say so.
     const winners = methods.filter(r => r.evidence?.sig && r.evidence.direction === 'up');
@@ -209,7 +209,7 @@
       svg += `<g class="point" data-method="${esc(r.key)}" tabindex="0" role="button" aria-label="${esc(label)}"><title>${esc(label)}</title><circle cx="${x(r[axis])}" cy="${y(r.quality)}" r="${r.key === selectedKey ? 8 : 5.5}" fill="${color}" fill-opacity=".85" stroke="white" stroke-width="1.5"/></g>`;
     }
     $('plot').innerHTML = svg;
-    $('plot-note').textContent = `${points.length} measured points.${LANE ? ' The horizontal axis shows what a method still spends, on a log scale, so rows that spend nothing sit in the shaded lane instead of on top of each other.' : ''} Raw values are shown, including negative savings and PGR. ${axis === 'latency_e2e' ? 'This view includes source-cache construction; it does not change the preference score.' : axis === 'latency' ? 'The source cache is ready before the request. Cache-build-inclusive latency is available in the selector.' : 'Select a point or a method name to inspect its measurements.'}`;
+    $('plot-note').textContent = `${points.length} measured points.${LANE ? ' The horizontal axis shows what a method still spends, on a log scale, so rows that spend nothing sit in the shaded lane instead of on top of each other.' : ''} Raw values are shown, including negative savings and PGR. ${axis === 'latency_e2e' ? 'This view includes source-cache construction; it does not change the preference score.' : axis === 'latency' ? 'The source cache is ready before the request. TTFT is reported separately and does not enter the preference score. Cache-build-inclusive latency is available in the selector.' : 'Select a point or a method name to inspect its measurements.'}`;
   }
   function showMethod(key) {
     const r = scoredRows.find(row => row.key === key);
@@ -217,12 +217,12 @@
     selectedKey = key; render();
     $('method-title').textContent = r.display;
     const missing = axes.filter(a => weights[a] > 0 && !finite(r[a]));
-    const rows = [['Quality (PGR)',num(r.quality)],['Preference score',num(r.score)],...axes.map(a => [axisNames[a],pct(r[a])]),['TTFT saved · include cache build',pct(r.latency_e2e)]];
+    const rows = [['Quality (PGR)',num(r.quality)],['Preference score',num(r.score)],...measuredAxes.map(a => [axisNames[a],pct(r[a])]),['TTFT saved · include cache build',pct(r.latency_e2e)]];
     $('method-content').innerHTML = `<p>${esc(groups[r.partition])} · ${esc(names[task()])} · N = ${data._meta.n[task()]}</p><dl>${rows.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${!finite(r.score) ? `<p>No preference score: ${missing.length ? `missing ${esc(missing.join(', '))}` : 'no selected cost or missing quality'}.</p>` : ''}<p><strong>Paired task-score comparison:</strong> ${r.evidence?.ci ? `difference ${num(r.evidence.delta,4)}; 95% interval [${r.evidence.ci.map(v => num(v,4)).join(', ')}] versus free position alignment. These are task-score differences, not PGR differences.` : 'No paired interval in this export.'}</p><p><strong>Compute source:</strong> ${esc(r.computeSource || 'Not measured')}.</p><p><strong>Reported by:</strong> ${esc(r.submitter || 'KVShareArena authors')}${r.self_reported ? ' (self-reported)' : ''}.</p><p><strong>Source:</strong> ${esc(r.provenance || 'Frozen full-prefill reference')}<br>Export: ${esc(data._meta.generated)} · Method key: ${esc(r.key)}</p>`;
     $('method-dialog').showModal();
   }
   function exportCSV() {
-    const header = ['task','method_key','method','implementation_group','rank_by_'+$('sort').value,'quality_pgr','compute_saved','memory_saved','ttft_saved_cache_ready','ttft_saved_include_cache_build','preference_score','cost_weight','compute_weight','memory_weight','latency_weight','data_date'];
+    const header = ['task','method_key','method','implementation_group','rank_by_'+$('sort').value,'quality_pgr','compute_saved','memory_saved','ttft_saved_cache_ready','ttft_saved_include_cache_build','preference_score','cost_weight','compute_weight','memory_weight','data_date'];
     const total = axes.reduce((s,a) => s+weights[a],0);
     const lines = [header,...visibleRows.map(r => [task(),r.key,r.display,r.partition,r.rank,r.quality,r.compute,r.memory,r.latency,r.latency_e2e,r.score,t,...axes.map(a => total ? weights[a]/total : 0),data._meta.generated])];
     const csv = lines.map(row => row.map(value => {
@@ -241,7 +241,7 @@
     $('stat-datasets').textContent = data.retrieved_evidence.subsets.length;
     $('coverage-table').innerHTML = '<thead><tr><th>Workload / dataset</th><th>N</th><th>Quality</th><th>Compute</th><th>Memory</th><th>TTFT</th></tr></thead><tbody>'+tasks.map(k => {
       const rows = recordsFor(data,k).filter(r => r.partition !== 'reference');
-      return `<tr><td>${esc(names[k])}<span class="method-class">${k === 'notes' ? 'Agent Reports' : 'Retrieved Evidence'}</span></td><td>${data._meta.n[k]}</td>${['quality',...axes].map(a => `<td>${rows.filter(r => finite(r[a])).length || '—'}</td>`).join('')}</tr>`;
+      return `<tr><td>${esc(names[k])}<span class="method-class">${k === 'notes' ? 'Agent Reports' : 'Retrieved Evidence'}</span></td><td>${data._meta.n[k]}</td>${['quality',...measuredAxes].map(a => `<td>${rows.filter(r => finite(r[a])).length || '—'}</td>`).join('')}</tr>`;
     }).join('')+'</tbody>';
     $('provenance').textContent = `Data export: ${data._meta.generated} · ${data._meta.schema_version} · Source measurements are unchanged. Interactive ranks use complete selected measurements.`;
     $('track').addEventListener('change',setDatasets); $('dataset').addEventListener('change',setTask);
